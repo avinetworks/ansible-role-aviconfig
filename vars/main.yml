@@ -1,2 +1,61 @@
+# Automatically Generated File
+# Copyright Avi Networks
 ---
-# vars file for aviconfig
+avi_resource_types:
+  - seproperties
+  - useraccountprofile
+  - tenant
+  - controllerproperties
+  - cloudproperties
+  - role
+  - authprofile
+  - cloudconnectoruser
+  - snmptrapprofile
+  - hardwaresecuritymodulegroup
+  - vidcinfo
+  - gslb
+  - gslbgeodbprofile
+  - applicationpersistenceprofile
+  - autoscalelaunchconfig
+  - certificatemanagementprofile
+  - webhook
+  - analyticsprofile
+  - stringgroup
+  - cluster
+  - pkiprofile
+  - apiclifsruntime
+  - alertsyslogconfig
+  - sslprofile
+  - alertscriptconfig
+  - networkprofile
+  - ipaddrgroup
+  - backupconfiguration
+  - sslkeyandcertificate
+  - microservicegroup
+  - ipamdnsproviderprofile
+  - dnspolicy
+  - applicationprofile
+  - scheduler
+  - systemconfiguration
+  - healthmonitor
+  - networksecuritypolicy
+  - cloud
+  - backup
+  - alertemailconfig
+  - gslbservice
+  - vrfcontext
+  - prioritylabels
+  - poolgroupdeploymentpolicy
+  - actiongroupconfig
+  - alertconfig
+  - serverautoscalepolicy
+  - network
+  - trafficcloneprofile
+  - pool
+  - vsvip
+  - serviceenginegroup
+  - poolgroup
+  - serviceengine
+  - httppolicyset
+  - vsdatascriptset
+  - virtualservice
