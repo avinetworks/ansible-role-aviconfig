@@ -61,7 +61,7 @@ Eg.
 
 - name: Avi Application | Setup Foo
   include_role:
-    name: aviconfig
+    name: avinetworks.aviconfig
   vars:
     avi_config: "{{avi_config}}"
 ```
@@ -73,7 +73,7 @@ This provides location to the role to read the Avi configuration objects. It loa
 
 - name: Avi Application | Setup VMWare Cloud with Write Access
   include_role:
-    name: aviconfig
+    name: avinetworks.aviconfig
   vars:
     avi_config_file: application/config.yml
 ```
@@ -86,7 +86,7 @@ Eg.
 
 - name: Avi Application | Setup VMWare Cloud with Write Access
   include_role:
-    name: aviconfig
+    name: avinetworks.aviconfig
   vars:
     avi_config_file: application/config.yml
     avi_creds_file: credentials/creds.yml
