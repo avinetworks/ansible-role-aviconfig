@@ -30,6 +30,8 @@
         - tar
         - sudo
       when: ansible_os_family == 'Debian'
+    - name: Install avinetworks.avisdk role
+      command: ansible-galaxy install avinetworks.avisdk
 
   roles:
     - role_under_test
