@@ -7,7 +7,7 @@
       controller: "{{ avi_controller}}"
       username: "{{ avi_username }}"
       password: "{{ avi_password }}"
-      tenant: "{{ tenant | default(omit)}}"
+      tenant: "{{ item.tenant | default(omit)}}"
       state: "{{avi_role_state_mode}}"
       api_version: "{{ api_version | default(omit)}}"
       name: "{{item.name}}"
@@ -55,7 +55,7 @@
     set_fact:
       keycert:
         api_version: "{{ api_version | default(omit)}}"
-        tenant: "{{ tenant | default(omit)}}"
+        tenant: "{{ item.tenant | default(omit)}}"
         tenant_ref: "{{item.tenant_ref | default(omit)}}"
         state: "{{item.state | default(omit)}}"
         key: "{{ lookup('file', site_dir~'/applications/'~app_name~'/'~item.name~'.key') }}"
@@ -76,7 +76,7 @@
       controller: "{{ avi_controller}}"
       username: "{{ avi_username }}"
       password: "{{ avi_password }}"
-      tenant: "{{ tenant | default(omit)}}"
+      tenant: "{{ item.tenant | default(omit)}}"
       state: "{{avi_role_state_mode}}"
       api_version: "{{ api_version | default(omit)}}"
       name: "{{item.ansible_facts.keycert.name}}"
