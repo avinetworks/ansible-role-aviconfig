@@ -21,7 +21,7 @@
 
   - name: Avi Config | Setting Avi role config to parameter avi_config
     set_fact:
-      avi_role_cfg: "{{avi_config}}"
+      avi_role_cfg: "{{avi_config | default({})}}"
     when:
        - avi_config_file is not defined
 
