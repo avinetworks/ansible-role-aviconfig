@@ -3,12 +3,13 @@
 ---
   - name: Avi PKIProfile | Setup PKIProfile
     avi_pkiprofile:
-      controller: "{{ avi_controller}}"
-      username: "{{ avi_username }}"
-      password: "{{ avi_password }}"
+      controller: "{{ avi_controller | default(omit)}}"
+      username: "{{ avi_username | default(omit)}}"
+      password: "{{ avi_password | default(omit)}}"
       tenant: "{{ item.tenant | default(omit)}}"
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
+      avi_credentials: "{{ avi_credentials | default(omit)}}"
       name: "{{item.name}}"
       ca_certs: "{{ item.ca_certs | default(omit) }}"
       created_by: "{{ item.created_by | default(omit) }}"
@@ -21,5 +22,5 @@
       validate_only_leaf_crl: "{{ item.validate_only_leaf_crl | default(omit) }}"
     when:
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-    with_items: "{{ avi_config.pkiprofile | default([]) }}"
+    with_items: "{{ avi_role_cfg.pkiprofile | default([]) }}"
 

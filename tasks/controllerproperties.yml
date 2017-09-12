@@ -3,12 +3,13 @@
 ---
   - name: Avi ControllerProperties | Setup ControllerProperties
     avi_controllerproperties:
-      controller: "{{ avi_controller}}"
-      username: "{{ avi_username }}"
-      password: "{{ avi_password }}"
+      controller: "{{ avi_controller | default(omit)}}"
+      username: "{{ avi_username | default(omit)}}"
+      password: "{{ avi_password | default(omit)}}"
       tenant: "{{ item.tenant | default(omit)}}"
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
+      avi_credentials: "{{ avi_credentials | default(omit)}}"
       name: "{{item.name}}"
       allow_ip_forwarding: "{{ item.allow_ip_forwarding | default(omit) }}"
       allow_unauthenticated_apis: "{{ item.allow_unauthenticated_apis | default(omit) }}"
@@ -17,6 +18,7 @@
       appviewx_compat_mode: "{{ item.appviewx_compat_mode | default(omit) }}"
       attach_ip_retry_interval: "{{ item.attach_ip_retry_interval | default(omit) }}"
       attach_ip_retry_limit: "{{ item.attach_ip_retry_limit | default(omit) }}"
+      bm_use_ansible: "{{ item.bm_use_ansible | default(omit) }}"
       cluster_ip_gratuitous_arp_period: "{{ item.cluster_ip_gratuitous_arp_period | default(omit) }}"
       crashed_se_reboot: "{{ item.crashed_se_reboot | default(omit) }}"
       dead_se_detection_timer: "{{ item.dead_se_detection_timer | default(omit) }}"
@@ -25,6 +27,7 @@
       fatal_error_lease_time: "{{ item.fatal_error_lease_time | default(omit) }}"
       max_dead_se_in_grp: "{{ item.max_dead_se_in_grp | default(omit) }}"
       max_pcap_per_tenant: "{{ item.max_pcap_per_tenant | default(omit) }}"
+      max_seq_attach_ip_failures: "{{ item.max_seq_attach_ip_failures | default(omit) }}"
       max_seq_vnic_failures: "{{ item.max_seq_vnic_failures | default(omit) }}"
       persistence_key_rotate_period: "{{ item.persistence_key_rotate_period | default(omit) }}"
       portal_token: "{{ item.portal_token | default(omit) }}"
@@ -47,6 +50,7 @@
       vs_apic_scaleout_timeout: "{{ item.vs_apic_scaleout_timeout | default(omit) }}"
       vs_awaiting_se_timeout: "{{ item.vs_awaiting_se_timeout | default(omit) }}"
       vs_key_rotate_period: "{{ item.vs_key_rotate_period | default(omit) }}"
+      vs_se_attach_ip_fail: "{{ item.vs_se_attach_ip_fail | default(omit) }}"
       vs_se_bootup_fail: "{{ item.vs_se_bootup_fail | default(omit) }}"
       vs_se_create_fail: "{{ item.vs_se_create_fail | default(omit) }}"
       vs_se_ping_fail: "{{ item.vs_se_ping_fail | default(omit) }}"
@@ -55,5 +59,5 @@
       warmstart_se_reconnect_wait_time: "{{ item.warmstart_se_reconnect_wait_time | default(omit) }}"
     when:
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-    with_items: "{{ avi_config.controllerproperties | default([]) }}"
+    with_items: "{{ avi_role_cfg.controllerproperties | default([]) }}"
 

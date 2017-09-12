@@ -3,12 +3,13 @@
 ---
   - name: Avi ServiceEngineGroup | Setup ServiceEngineGroup
     avi_serviceenginegroup:
-      controller: "{{ avi_controller}}"
-      username: "{{ avi_username }}"
-      password: "{{ avi_password }}"
+      controller: "{{ avi_controller | default(omit)}}"
+      username: "{{ avi_username | default(omit)}}"
+      password: "{{ avi_password | default(omit)}}"
       tenant: "{{ item.tenant | default(omit)}}"
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
+      avi_credentials: "{{ avi_credentials | default(omit)}}"
       name: "{{item.name}}"
       active_standby: "{{ item.active_standby | default(omit) }}"
       advertise_backend_networks: "{{ item.advertise_backend_networks | default(omit) }}"
@@ -45,6 +46,9 @@
       host_attribute_key: "{{ item.host_attribute_key | default(omit) }}"
       host_attribute_value: "{{ item.host_attribute_value | default(omit) }}"
       hypervisor: "{{ item.hypervisor | default(omit) }}"
+      ignore_rtt_threshold: "{{ item.ignore_rtt_threshold | default(omit) }}"
+      ingress_access_data: "{{ item.ingress_access_data | default(omit) }}"
+      ingress_access_mgmt: "{{ item.ingress_access_mgmt | default(omit) }}"
       instance_flavor: "{{ item.instance_flavor | default(omit) }}"
       iptables: "{{ item.iptables | default(omit) }}"
       least_load_core_selection: "{{ item.least_load_core_selection | default(omit) }}"
@@ -73,6 +77,7 @@
       se_dos_profile: "{{ item.se_dos_profile | default(omit) }}"
       se_ipc_udp_port: "{{ item.se_ipc_udp_port | default(omit) }}"
       se_name_prefix: "{{ item.se_name_prefix | default(omit) }}"
+      se_probe_port: "{{ item.se_probe_port | default(omit) }}"
       se_remote_punt_udp_port: "{{ item.se_remote_punt_udp_port | default(omit) }}"
       se_thread_multiplier: "{{ item.se_thread_multiplier | default(omit) }}"
       se_tunnel_mode: "{{ item.se_tunnel_mode | default(omit) }}"
@@ -98,5 +103,5 @@
       vs_scaleout_timeout: "{{ item.vs_scaleout_timeout | default(omit) }}"
     when:
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-    with_items: "{{ avi_config.serviceenginegroup | default([]) }}"
+    with_items: "{{ avi_role_cfg.serviceenginegroup | default([]) }}"
 

@@ -1,8 +1,8 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi NetworkProfile | Setup NetworkProfile
-    avi_networkprofile:
+  - name: Avi WafProfile | Setup WafProfile
+    avi_wafprofile:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
       password: "{{ avi_password | default(omit)}}"
@@ -11,11 +11,12 @@
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
       name: "{{item.name}}"
+      config: "{{ item.config | default(omit) }}"
       description: "{{ item.description | default(omit) }}"
-      profile: "{{ item.profile | default(omit) }}"
+      files: "{{ item.files | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-    with_items: "{{ avi_role_cfg.networkprofile | default([]) }}"
+    with_items: "{{ avi_role_cfg.wafprofile | default([]) }}"
 

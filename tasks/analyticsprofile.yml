@@ -3,12 +3,13 @@
 ---
   - name: Avi AnalyticsProfile | Setup AnalyticsProfile
     avi_analyticsprofile:
-      controller: "{{ avi_controller}}"
-      username: "{{ avi_username }}"
-      password: "{{ avi_password }}"
+      controller: "{{ avi_controller | default(omit)}}"
+      username: "{{ avi_username | default(omit)}}"
+      password: "{{ avi_password | default(omit)}}"
       tenant: "{{ item.tenant | default(omit)}}"
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
+      avi_credentials: "{{ avi_credentials | default(omit)}}"
       name: "{{item.name}}"
       apdex_response_threshold: "{{ item.apdex_response_threshold | default(omit) }}"
       apdex_response_tolerated_factor: "{{ item.apdex_response_tolerated_factor | default(omit) }}"
@@ -34,6 +35,7 @@
       disable_se_analytics: "{{ item.disable_se_analytics | default(omit) }}"
       disable_server_analytics: "{{ item.disable_server_analytics | default(omit) }}"
       exclude_client_close_before_request_as_error: "{{ item.exclude_client_close_before_request_as_error | default(omit) }}"
+      exclude_dns_policy_drop_as_significant: "{{ item.exclude_dns_policy_drop_as_significant | default(omit) }}"
       exclude_gs_down_as_error: "{{ item.exclude_gs_down_as_error | default(omit) }}"
       exclude_http_error_codes: "{{ item.exclude_http_error_codes | default(omit) }}"
       exclude_invalid_dns_domain_as_error: "{{ item.exclude_invalid_dns_domain_as_error | default(omit) }}"
@@ -78,5 +80,5 @@
       uuid: "{{ item.uuid | default(omit) }}"
     when:
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-    with_items: "{{ avi_config.analyticsprofile | default([]) }}"
+    with_items: "{{ avi_role_cfg.analyticsprofile | default([]) }}"
 

@@ -7,11 +7,23 @@
     when:
       - avi_creds_file is defined
 
-  - name: Avi Config | Load Application configurations
-    include_vars:
-      file: "{{avi_config_file}}"
+  - name: Avi Config | Lookup file avi controller conf
+    set_fact:
+      file_lkp: "{{lookup('file', avi_config_file) | from_yaml}}"
     when:
       - avi_config_file is defined
+
+  - name: Avi Config | Set Avi Config variable from file contents
+    set_fact:
+      avi_role_cfg: "{{file_lkp.avi_config}}"
+    when:
+      - avi_config_file is defined
+
+  - name: Avi Config | Setting Avi role config to parameter avi_config
+    set_fact:
+      avi_role_cfg: "{{avi_config}}"
+    when:
+       - avi_config_file is not defined
 
   - name: Initialize Avi module includes
     set_fact:
@@ -21,8 +33,8 @@
     set_fact:
       config_resources: "{{ config_resources | default([]) + [outer_item]}}"
     when:
-      - avi_config | default({})
-      - avi_config[outer_item] is defined
+      - avi_role_cfg | default({})
+      - avi_role_cfg[outer_item] is defined
     with_items: "{{ avi_resource_types }}"
     loop_control:
       loop_var: outer_item
@@ -33,8 +45,8 @@
       avi_role_state_mode: present
     when:
       - avi_config_state == "present"
-      - avi_config | default({})
-      - avi_config[outer_item] is defined
+      - avi_role_cfg | default({})
+      - avi_role_cfg[outer_item] is defined
     with_items: "{{ config_resources }}"
     loop_control:
       loop_var: outer_item
@@ -44,9 +56,13 @@
     vars:
       avi_role_state_mode: absent
     when:
-      - avi_config | default({})
-      - avi_config[outer_item] is defined
+      - avi_role_cfg | default({})
+      - avi_role_cfg[outer_item] is defined
     with_items: "{{ config_resources[::-1] }}"
     loop_control:
       loop_var: outer_item
+
+  - name: Avi Config | Resetting avi_role_cfg to terminate its lifecycle
+    set_fact:
+      avi_role_cfg: {}
 

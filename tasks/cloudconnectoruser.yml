@@ -3,18 +3,21 @@
 ---
   - name: Avi CloudConnectorUser | Setup CloudConnectorUser
     avi_cloudconnectoruser:
-      controller: "{{ avi_controller}}"
-      username: "{{ avi_username }}"
-      password: "{{ avi_password }}"
+      controller: "{{ avi_controller | default(omit)}}"
+      username: "{{ avi_username | default(omit)}}"
+      password: "{{ avi_password | default(omit)}}"
       tenant: "{{ item.tenant | default(omit)}}"
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
+      avi_credentials: "{{ avi_credentials | default(omit)}}"
       name: "{{item.name}}"
+      azure_serviceprincipal: "{{ item.azure_serviceprincipal | default(omit) }}"
+      azure_userpass: "{{ item.azure_userpass | default(omit) }}"
       private_key: "{{ item.private_key | default(omit) }}"
       public_key: "{{ item.public_key | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-    with_items: "{{ avi_config.cloudconnectoruser | default([]) }}"
+    with_items: "{{ avi_role_cfg.cloudconnectoruser | default([]) }}"
 

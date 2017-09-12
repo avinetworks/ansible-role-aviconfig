@@ -3,12 +3,13 @@
 ---
   - name: Avi Pool | Setup Pool
     avi_pool:
-      controller: "{{ avi_controller}}"
-      username: "{{ avi_username }}"
-      password: "{{ avi_password }}"
+      controller: "{{ avi_controller | default(omit)}}"
+      username: "{{ avi_username | default(omit)}}"
+      password: "{{ avi_password | default(omit)}}"
       tenant: "{{ item.tenant | default(omit)}}"
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
+      avi_credentials: "{{ avi_credentials | default(omit)}}"
       name: "{{item.name}}"
       a_pool: "{{ item.a_pool | default(omit) }}"
       ab_pool: "{{ item.ab_pool | default(omit) }}"
@@ -33,6 +34,7 @@
       fail_action: "{{ item.fail_action | default(omit) }}"
       fewest_tasks_feedback_delay: "{{ item.fewest_tasks_feedback_delay | default(omit) }}"
       graceful_disable_timeout: "{{ item.graceful_disable_timeout | default(omit) }}"
+      gslb_sp_enabled: "{{ item.gslb_sp_enabled | default(omit) }}"
       health_monitor_refs: "{{ item.health_monitor_refs | default(omit) }}"
       host_check_enabled: "{{ item.host_check_enabled | default(omit) }}"
       inline_health_monitor: "{{ item.inline_health_monitor | default(omit) }}"
@@ -66,5 +68,5 @@
       vrf_ref: "{{ item.vrf_ref | default(omit) }}"
     when:
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-    with_items: "{{ avi_config.pool | default([]) }}"
+    with_items: "{{ avi_role_cfg.pool | default([]) }}"
 

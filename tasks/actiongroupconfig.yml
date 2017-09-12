@@ -3,12 +3,13 @@
 ---
   - name: Avi ActionGroupConfig | Setup ActionGroupConfig
     avi_actiongroupconfig:
-      controller: "{{ avi_controller}}"
-      username: "{{ avi_username }}"
-      password: "{{ avi_password }}"
+      controller: "{{ avi_controller | default(omit)}}"
+      username: "{{ avi_username | default(omit)}}"
+      password: "{{ avi_password | default(omit)}}"
       tenant: "{{ item.tenant | default(omit)}}"
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
+      avi_credentials: "{{ avi_credentials | default(omit)}}"
       name: "{{item.name}}"
       action_script_config_ref: "{{ item.action_script_config_ref | default(omit) }}"
       autoscale_trigger_notification: "{{ item.autoscale_trigger_notification | default(omit) }}"
@@ -22,5 +23,5 @@
       uuid: "{{ item.uuid | default(omit) }}"
     when:
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-    with_items: "{{ avi_config.actiongroupconfig | default([]) }}"
+    with_items: "{{ avi_role_cfg.actiongroupconfig | default([]) }}"
 

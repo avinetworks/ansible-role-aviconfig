@@ -12,7 +12,6 @@ avi_resource_types:
   - cloudconnectoruser
   - snmptrapprofile
   - hardwaresecuritymodulegroup
-  - vidcinfo
   - gslb
   - gslbgeodbprofile
   - applicationpersistenceprofile
@@ -23,15 +22,16 @@ avi_resource_types:
   - stringgroup
   - cluster
   - pkiprofile
-  - apiclifsruntime
   - alertsyslogconfig
   - sslprofile
+  - wafprofile
   - alertscriptconfig
   - networkprofile
   - ipaddrgroup
   - backupconfiguration
   - sslkeyandcertificate
   - microservicegroup
+  - wafpolicy
   - ipamdnsproviderprofile
   - dnspolicy
   - applicationprofile
