@@ -1,7 +1,7 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi Backup | Setup Backup
+  - name: Avi Backup | Create or Update Backup
     avi_backup:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
@@ -20,6 +20,6 @@
       timestamp: "{{ item.timestamp | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
+      - (avi_role_state_mode == "present" and avi_config_state == "present")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
     with_items: "{{ avi_role_cfg.backup | default([]) }}"
-

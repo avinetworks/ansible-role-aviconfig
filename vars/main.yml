@@ -25,6 +25,7 @@ avi_resource_types:
   - alertsyslogconfig
   - sslprofile
   - wafprofile
+  - customipamdnsprofile
   - alertscriptconfig
   - networkprofile
   - ipaddrgroup

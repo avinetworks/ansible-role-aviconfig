@@ -1,7 +1,7 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi VrfContext | Setup VrfContext
+  - name: Avi VrfContext | Create or Update VrfContext
     avi_vrfcontext:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
@@ -22,6 +22,6 @@
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
+      - (avi_role_state_mode == "present" and avi_config_state == "present")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
     with_items: "{{ avi_role_cfg.vrfcontext | default([]) }}"
-

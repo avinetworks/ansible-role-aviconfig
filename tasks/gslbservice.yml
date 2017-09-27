@@ -1,7 +1,7 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi GslbService | Setup GslbService
+  - name: Avi GslbService | Create or Update GslbService
     avi_gslbservice:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
@@ -30,6 +30,6 @@
       uuid: "{{ item.uuid | default(omit) }}"
       wildcard_match: "{{ item.wildcard_match | default(omit) }}"
     when:
+      - (avi_role_state_mode == "present" and avi_config_state == "present")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
     with_items: "{{ avi_role_cfg.gslbservice | default([]) }}"
-

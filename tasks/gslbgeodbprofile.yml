@@ -1,7 +1,7 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi GslbGeoDbProfile | Setup GslbGeoDbProfile
+  - name: Avi GslbGeoDbProfile | Create or Update GslbGeoDbProfile
     avi_gslbgeodbprofile:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
@@ -17,6 +17,6 @@
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
+      - (avi_role_state_mode == "present" and avi_config_state == "present")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
     with_items: "{{ avi_role_cfg.gslbgeodbprofile | default([]) }}"
-

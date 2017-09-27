@@ -1,0 +1,27 @@
+# Automatically Generated File
+# Copyright Avi Networks
+---
+  - name: Avi WafPolicy | Delete WafPolicy
+    avi_wafpolicy:
+      controller: "{{ avi_controller | default(omit)}}"
+      username: "{{ avi_username | default(omit)}}"
+      password: "{{ avi_password | default(omit)}}"
+      tenant: "{{ item.tenant | default(omit)}}"
+      state: "{{ avi_role_state_mode }}"
+      api_version: "{{ api_version | default(omit)}}"
+      avi_credentials: "{{ avi_credentials | default(omit)}}"
+      name: "{{item.name}}"
+      crs_groups: "{{ item.crs_groups | default(omit) }}"
+      description: "{{ item.description | default(omit) }}"
+      mode: "{{ item.mode | default(omit) }}"
+      paranoia_level: "{{ item.paranoia_level | default(omit) }}"
+      post_crs_groups: "{{ item.post_crs_groups | default(omit) }}"
+      pre_crs_groups: "{{ item.pre_crs_groups | default(omit) }}"
+      tenant_ref: "{{ item.tenant_ref | default(omit) }}"
+      uuid: "{{ item.uuid | default(omit) }}"
+      waf_profile_ref: "{{ item.waf_profile_ref | default(omit) }}"
+    when:
+      - (item.system_default | default(false) == false)
+      - (avi_config_state == "absent" or avi_role_state_mode == "absent")
+      - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
+    with_items: "{{ avi_role_cfg.wafpolicy | default([]) }}"

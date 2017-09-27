@@ -1,7 +1,7 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi VirtualService | Setup VirtualService
+  - name: Avi VirtualService | Create or Update VirtualService
     avi_virtualservice:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
@@ -91,6 +91,6 @@
       waf_policy_ref: "{{ item.waf_policy_ref | default(omit) }}"
       weight: "{{ item.weight | default(omit) }}"
     when:
+      - (avi_role_state_mode == "present" and avi_config_state == "present")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
     with_items: "{{ avi_role_cfg.virtualservice | default([]) }}"
-

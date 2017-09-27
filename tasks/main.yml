@@ -21,7 +21,7 @@
 
   - name: Avi Config | Setting Avi role config to parameter avi_config
     set_fact:
-      avi_role_cfg: "{{avi_config | default({})}}"
+      avi_role_cfg: "{{avi_config | default({}) }}"
     when:
        - avi_config_file is not defined
 
@@ -52,7 +52,7 @@
       loop_var: outer_item
 
   - name: Include Avi Resource Deletion Tasks
-    include: "{{ outer_item }}.yml"
+    include: "{{ outer_item }}_delete.yml"
     vars:
       avi_role_state_mode: absent
     when:

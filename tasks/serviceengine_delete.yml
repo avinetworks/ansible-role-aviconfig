@@ -1,0 +1,34 @@
+# Automatically Generated File
+# Copyright Avi Networks
+---
+  - name: Avi ServiceEngine | Delete ServiceEngine
+    avi_serviceengine:
+      controller: "{{ avi_controller | default(omit)}}"
+      username: "{{ avi_username | default(omit)}}"
+      password: "{{ avi_password | default(omit)}}"
+      tenant: "{{ item.tenant | default(omit)}}"
+      state: "{{ avi_role_state_mode }}"
+      api_version: "{{ api_version | default(omit)}}"
+      avi_credentials: "{{ avi_credentials | default(omit)}}"
+      name: "{{item.name}}"
+      availability_zone: "{{ item.availability_zone | default(omit) }}"
+      cloud_ref: "{{ item.cloud_ref | default(omit) }}"
+      container_mode: "{{ item.container_mode | default(omit) }}"
+      container_type: "{{ item.container_type | default(omit) }}"
+      controller_created: "{{ item.controller_created | default(omit) }}"
+      controller_ip: "{{ item.controller_ip | default(omit) }}"
+      data_vnics: "{{ item.data_vnics | default(omit) }}"
+      enable_state: "{{ item.enable_state | default(omit) }}"
+      flavor: "{{ item.flavor | default(omit) }}"
+      host_ref: "{{ item.host_ref | default(omit) }}"
+      hypervisor: "{{ item.hypervisor | default(omit) }}"
+      mgmt_vnic: "{{ item.mgmt_vnic | default(omit) }}"
+      resources: "{{ item.resources | default(omit) }}"
+      se_group_ref: "{{ item.se_group_ref | default(omit) }}"
+      tenant_ref: "{{ item.tenant_ref | default(omit) }}"
+      uuid: "{{ item.uuid | default(omit) }}"
+    when:
+      - (item.system_default | default(false) == false)
+      - (avi_config_state == "absent" or avi_role_state_mode == "absent")
+      - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
+    with_items: "{{ avi_role_cfg.serviceengine | default([]) }}"

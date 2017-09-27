@@ -1,7 +1,7 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi ServiceEngineGroup | Setup ServiceEngineGroup
+  - name: Avi ServiceEngineGroup | Create or Update ServiceEngineGroup
     avi_serviceenginegroup:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
@@ -19,6 +19,7 @@
       async_ssl: "{{ item.async_ssl | default(omit) }}"
       async_ssl_threads: "{{ item.async_ssl_threads | default(omit) }}"
       auto_rebalance: "{{ item.auto_rebalance | default(omit) }}"
+      auto_rebalance_criteria: "{{ item.auto_rebalance_criteria | default(omit) }}"
       auto_rebalance_interval: "{{ item.auto_rebalance_interval | default(omit) }}"
       auto_redistribute_active_standby_load: "{{ item.auto_redistribute_active_standby_load | default(omit) }}"
       buffer_se: "{{ item.buffer_se | default(omit) }}"
@@ -102,6 +103,6 @@
       vs_scalein_timeout_for_upgrade: "{{ item.vs_scalein_timeout_for_upgrade | default(omit) }}"
       vs_scaleout_timeout: "{{ item.vs_scaleout_timeout | default(omit) }}"
     when:
+      - (avi_role_state_mode == "present" and avi_config_state == "present")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
     with_items: "{{ avi_role_cfg.serviceenginegroup | default([]) }}"
-

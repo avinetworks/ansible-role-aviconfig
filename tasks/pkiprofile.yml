@@ -1,7 +1,7 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi PKIProfile | Setup PKIProfile
+  - name: Avi PKIProfile | Create or Update PKIProfile
     avi_pkiprofile:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
@@ -21,6 +21,6 @@
       uuid: "{{ item.uuid | default(omit) }}"
       validate_only_leaf_crl: "{{ item.validate_only_leaf_crl | default(omit) }}"
     when:
+      - (avi_role_state_mode == "present" and avi_config_state == "present")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
     with_items: "{{ avi_role_cfg.pkiprofile | default([]) }}"
-

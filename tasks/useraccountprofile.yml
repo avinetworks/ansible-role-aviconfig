@@ -1,7 +1,7 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi UserAccountProfile | Setup UserAccountProfile
+  - name: Avi UserAccountProfile | Create or Update UserAccountProfile
     avi_useraccountprofile:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
@@ -18,6 +18,6 @@
       max_password_history_count: "{{ item.max_password_history_count | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
+      - (avi_role_state_mode == "present" and avi_config_state == "present")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
     with_items: "{{ avi_role_cfg.useraccountprofile | default([]) }}"
-
