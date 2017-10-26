@@ -60,7 +60,7 @@ Eg.
               vip_id: '1'
 
 - name: Avi Application | Setup Foo
-  include_role:
+  import_role:
     name: avinetworks.aviconfig
   vars:
     avi_config: "{{avi_config}}"
@@ -72,7 +72,7 @@ This provides location to the role to read the Avi configuration objects. It loa
 ```
 
 - name: Avi Application | Setup VMWare Cloud with Write Access
-  include_role:
+  import_role:
     name: avinetworks.aviconfig
   vars:
     avi_config_file: application/config.yml
@@ -85,7 +85,7 @@ Eg.
 ```
 
 - name: Avi Application | Setup VMWare Cloud with Write Access
-  include_role:
+  import_role:
     name: avinetworks.aviconfig
   vars:
     avi_config_file: application/config.yml
@@ -113,7 +113,7 @@ Eg. ansible-playbook site_applications.yml --extra-vars "site_dir=`pwd` avi_conf
     - role: avinetworks.avisdk
   tasks:
     - name: Avi Application | Setup foo
-      include_role:
+      import_role:
         name: avinetworks.aviconfig
       vars:
         avi_config_file: "foo/config.yml"
@@ -151,7 +151,7 @@ This example shows usage of how to create avi_config as part of task and pass it
                   vip_id: '1'
 
     - name: Avi Application | Setup foo
-      include_role:
+      import_role:
         name: avinetworks.aviconfig
       vars:
         avi_config: "{{avi_config}}"
