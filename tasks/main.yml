@@ -7,15 +7,16 @@
     when:
       - avi_creds_file is defined
 
-  - name: Avi Config | Lookup file avi controller conf
-    set_fact:
-      file_lkp: "{{lookup('file', avi_config_file) | from_yaml}}"
+  - name: Avi Config | Load configuration file
+    include_vars:
+      file: "{{avi_config_file}}"
+      name: cfg_file_vars
     when:
       - avi_config_file is defined
 
   - name: Avi Config | Set Avi Config variable from file contents
     set_fact:
-      avi_role_cfg: "{{file_lkp.avi_config}}"
+      avi_role_cfg: "{{cfg_file_vars.avi_config}}"
     when:
       - avi_config_file is defined
 
@@ -40,7 +41,7 @@
       loop_var: outer_item
 
   - name: Include Avi Resource Create or Update Tasks
-    include: "{{ outer_item }}.yml"
+    include_tasks: "{{ outer_item }}.yml"
     vars:
       avi_role_state_mode: present
     when:
@@ -52,7 +53,7 @@
       loop_var: outer_item
 
   - name: Include Avi Resource Deletion Tasks
-    include: "{{ outer_item }}_delete.yml"
+    include_tasks: "{{ outer_item }}_delete.yml"
     vars:
       avi_role_state_mode: absent
     when:

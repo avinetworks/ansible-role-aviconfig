@@ -80,6 +80,8 @@
       se_name_prefix: "{{ item.se_name_prefix | default(omit) }}"
       se_probe_port: "{{ item.se_probe_port | default(omit) }}"
       se_remote_punt_udp_port: "{{ item.se_remote_punt_udp_port | default(omit) }}"
+      se_sb_dedicated_core: "{{ item.se_sb_dedicated_core | default(omit) }}"
+      se_sb_threads: "{{ item.se_sb_threads | default(omit) }}"
       se_thread_multiplier: "{{ item.se_thread_multiplier | default(omit) }}"
       se_tunnel_mode: "{{ item.se_tunnel_mode | default(omit) }}"
       se_tunnel_udp_port: "{{ item.se_tunnel_udp_port | default(omit) }}"
@@ -102,6 +104,8 @@
       vs_scalein_timeout: "{{ item.vs_scalein_timeout | default(omit) }}"
       vs_scalein_timeout_for_upgrade: "{{ item.vs_scalein_timeout_for_upgrade | default(omit) }}"
       vs_scaleout_timeout: "{{ item.vs_scaleout_timeout | default(omit) }}"
+      waf_mempool: "{{ item.waf_mempool | default(omit) }}"
+      waf_mempool_size: "{{ item.waf_mempool_size | default(omit) }}"
     when:
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")

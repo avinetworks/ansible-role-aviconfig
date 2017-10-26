@@ -81,6 +81,7 @@
       traffic_clone_profile_ref: "{{ item.traffic_clone_profile_ref | default(omit) }}"
       type: "{{ item.type | default(omit) }}"
       use_bridge_ip_as_vip: "{{ item.use_bridge_ip_as_vip | default(omit) }}"
+      use_vip_as_snat: "{{ item.use_vip_as_snat | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
       vh_domain_name: "{{ item.vh_domain_name | default(omit) }}"
       vh_parent_vs_uuid: "{{ item.vh_parent_vs_uuid | default(omit) }}"

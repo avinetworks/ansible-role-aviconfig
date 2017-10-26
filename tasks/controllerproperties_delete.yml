@@ -32,6 +32,7 @@
       persistence_key_rotate_period: "{{ item.persistence_key_rotate_period | default(omit) }}"
       portal_token: "{{ item.portal_token | default(omit) }}"
       query_host_fail: "{{ item.query_host_fail | default(omit) }}"
+      safenet_hsm_version: "{{ item.safenet_hsm_version | default(omit) }}"
       se_create_timeout: "{{ item.se_create_timeout | default(omit) }}"
       se_failover_attempt_interval: "{{ item.se_failover_attempt_interval | default(omit) }}"
       se_offline_del: "{{ item.se_offline_del | default(omit) }}"

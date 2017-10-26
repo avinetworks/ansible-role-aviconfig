@@ -14,6 +14,7 @@
       description: "{{ item.description | default(omit) }}"
       http: "{{ item.http | default(omit) }}"
       ldap: "{{ item.ldap | default(omit) }}"
+      saml: "{{ item.saml | default(omit) }}"
       tacacs_plus: "{{ item.tacacs_plus | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
       type: "{{ item.type | default(omit) }}"
