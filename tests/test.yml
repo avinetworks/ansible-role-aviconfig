@@ -8,20 +8,20 @@
 
   tasks:
     - name: Test loading vars example
-      include_role:
+      import_role:
         name: "{{ role_under_test}}"
       vars:
         avi_config_file: "config.yml"
         avi_creds_file: "creds.yml"
 
     - name: Test avi_config passing
-      include_role:
+      import_role:
         name: "{{ role_under_test}}"
       vars:
         avi_config: {}
 
     - name: Test avi_config_state
-      include_role:
+      import_role:
         name: "{{ role_under_test}}"
       vars:
         avi_config: {}
