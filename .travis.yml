@@ -2,18 +2,18 @@
 sudo: required
 
 env:
-  - distribution: centos
-    version: 6
-    init: /sbin/init
-    run_opts: ""
+  # - distribution: centos
+  #  version: 6
+  #  init: /sbin/init
+  #  run_opts: ""
   - distribution: centos
     version: 7
     init: /usr/lib/systemd/systemd
     run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - distribution: fedora
-    version: 24
-    init: /usr/lib/systemd/systemd
-    run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+  #- distribution: fedora
+  #  version: 24
+  #  init: /usr/lib/systemd/systemd
+  #  run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - distribution: ubuntu
     version: 16.04
     init: /sbin/init
@@ -35,6 +35,7 @@ before_install:
 
 script:
   - container_id=$(mktemp)
+
   # Run container in detached state
   - 'sudo docker run --privileged --detach --volume="${PWD}":/etc/ansible/roles/role_under_test:ro ${run_opts} ${distribution}-${version}:ansible "${init}" > "${container_id}"'
 
