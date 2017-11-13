@@ -10,13 +10,13 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      name: "{{item.name}}"
       cc_props: "{{ item.cc_props | default(omit) }}"
       cc_vtypes: "{{ item.cc_vtypes | default(omit) }}"
       hyp_props: "{{ item.hyp_props | default(omit) }}"
       info: "{{ item.info | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
+      - (item.name | default("") != "")
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")

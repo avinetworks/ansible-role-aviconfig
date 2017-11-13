@@ -10,13 +10,13 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      name: "{{item.name}}"
       accepted_ciphers: "{{ item.accepted_ciphers | default(omit) }}"
       accepted_versions: "{{ item.accepted_versions | default(omit) }}"
       cipher_enums: "{{ item.cipher_enums | default(omit) }}"
       description: "{{ item.description | default(omit) }}"
       dhparam: "{{ item.dhparam | default(omit) }}"
       enable_ssl_session_reuse: "{{ item.enable_ssl_session_reuse | default(omit) }}"
+      name: "{{ item.name | default(omit) }}"
       prefer_client_cipher_ordering: "{{ item.prefer_client_cipher_ordering | default(omit) }}"
       send_close_notify: "{{ item.send_close_notify | default(omit) }}"
       ssl_rating: "{{ item.ssl_rating | default(omit) }}"
@@ -25,6 +25,7 @@
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
+      - (item.name | default("") != "")
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")

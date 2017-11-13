@@ -10,7 +10,6 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      name: "{{item.name}}"
       active_standby_se_tag: "{{ item.active_standby_se_tag | default(omit) }}"
       analytics_policy: "{{ item.analytics_policy | default(omit) }}"
       analytics_profile_ref: "{{ item.analytics_profile_ref | default(omit) }}"
@@ -39,6 +38,7 @@
       enable_rhi: "{{ item.enable_rhi | default(omit) }}"
       enable_rhi_snat: "{{ item.enable_rhi_snat | default(omit) }}"
       enabled: "{{ item.enabled | default(omit) }}"
+      error_page_profile_ref: "{{ item.error_page_profile_ref | default(omit) }}"
       floating_ip: "{{ item.floating_ip | default(omit) }}"
       floating_subnet_uuid: "{{ item.floating_subnet_uuid | default(omit) }}"
       flow_dist: "{{ item.flow_dist | default(omit) }}"
@@ -52,6 +52,7 @@
       limit_doser: "{{ item.limit_doser | default(omit) }}"
       max_cps_per_client: "{{ item.max_cps_per_client | default(omit) }}"
       microservice_ref: "{{ item.microservice_ref | default(omit) }}"
+      name: "{{ item.name | default(omit) }}"
       network_profile_ref: "{{ item.network_profile_ref | default(omit) }}"
       network_ref: "{{ item.network_ref | default(omit) }}"
       network_security_policy_ref: "{{ item.network_security_policy_ref | default(omit) }}"
@@ -92,6 +93,7 @@
       waf_policy_ref: "{{ item.waf_policy_ref | default(omit) }}"
       weight: "{{ item.weight | default(omit) }}"
     when:
+      - (item.name | default("") != "")
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")

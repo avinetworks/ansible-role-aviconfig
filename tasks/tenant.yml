@@ -10,11 +10,11 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      name: "{{item.name}}"
       config_settings: "{{ item.config_settings | default(omit) }}"
       created_by: "{{ item.created_by | default(omit) }}"
       description: "{{ item.description | default(omit) }}"
       local: "{{ item.local | default(omit) }}"
+      name: "{{ item.name | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
       - (avi_role_state_mode == "present" and avi_config_state == "present")

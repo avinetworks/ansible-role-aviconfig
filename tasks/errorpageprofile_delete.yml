@@ -1,8 +1,8 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi AuthProfile | Delete AuthProfile
-    avi_authprofile:
+  - name: Avi ErrorPageProfile | Delete ErrorPageProfile
+    avi_errorpageprofile:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
       password: "{{ avi_password | default(omit)}}"
@@ -10,18 +10,16 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      description: "{{ item.description | default(omit) }}"
-      http: "{{ item.http | default(omit) }}"
-      ldap: "{{ item.ldap | default(omit) }}"
+      app_name: "{{ item.app_name | default(omit) }}"
+      company_name: "{{ item.company_name | default(omit) }}"
+      error_pages: "{{ item.error_pages | default(omit) }}"
+      host_name: "{{ item.host_name | default(omit) }}"
       name: "{{ item.name | default(omit) }}"
-      saml: "{{ item.saml | default(omit) }}"
-      tacacs_plus: "{{ item.tacacs_plus | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
-      type: "{{ item.type | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
       - (item.name | default("") != "")
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-    with_items: "{{ avi_role_cfg.authprofile | default([]) }}"
+    with_items: "{{ avi_role_cfg.errorpageprofile | default([]) }}"

@@ -10,7 +10,6 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      name: "{{item.name}}"
       cloud_config_cksum: "{{ item.cloud_config_cksum | default(omit) }}"
       cloud_ref: "{{ item.cloud_ref | default(omit) }}"
       created_by: "{{ item.created_by | default(omit) }}"
@@ -20,10 +19,12 @@
       implicit_priority_labels: "{{ item.implicit_priority_labels | default(omit) }}"
       members: "{{ item.members | default(omit) }}"
       min_servers: "{{ item.min_servers | default(omit) }}"
+      name: "{{ item.name | default(omit) }}"
       priority_labels_ref: "{{ item.priority_labels_ref | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
+      - (item.name | default("") != "")
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")

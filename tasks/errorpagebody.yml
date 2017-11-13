@@ -1,8 +1,8 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi HTTPPolicySet | Create or Update HTTPPolicySet
-    avi_httppolicyset:
+  - name: Avi ErrorPageBody | Create or Update ErrorPageBody
+    avi_errorpagebody:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
       password: "{{ avi_password | default(omit)}}"
@@ -10,17 +10,11 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      cloud_config_cksum: "{{ item.cloud_config_cksum | default(omit) }}"
-      created_by: "{{ item.created_by | default(omit) }}"
-      description: "{{ item.description | default(omit) }}"
-      http_request_policy: "{{ item.http_request_policy | default(omit) }}"
-      http_response_policy: "{{ item.http_response_policy | default(omit) }}"
-      http_security_policy: "{{ item.http_security_policy | default(omit) }}"
-      is_internal_policy: "{{ item.is_internal_policy | default(omit) }}"
+      error_page_body: "{{ item.error_page_body | default(omit) }}"
       name: "{{ item.name | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
       - (avi_role_state_mode == "present" and avi_config_state == "present")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-    with_items: "{{ avi_role_cfg.httppolicyset | default([]) }}"
+    with_items: "{{ avi_role_cfg.errorpagebody | default([]) }}"

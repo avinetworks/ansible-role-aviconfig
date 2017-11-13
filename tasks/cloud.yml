@@ -66,7 +66,7 @@
 
   - name: Avi Cloud | Waiting for VMware network discovery
     wait_for:
-      timeout: "{{avi_cloud_discovery_wait | default(1)}}"
+      timeout: "{{avi_role_cfg.avi_cloud_discovery_wait | default(avi_cloud_discovery_wait) | default(1)}}"
     when:
       - avi_config_state == "present"
       - item.obj is defined

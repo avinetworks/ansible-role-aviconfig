@@ -10,7 +10,6 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      name: "{{item.name}}"
       apic_configuration: "{{ item.apic_configuration | default(omit) }}"
       apic_mode: "{{ item.apic_mode | default(omit) }}"
       aws_configuration: "{{ item.aws_configuration | default(omit) }}"
@@ -28,6 +27,7 @@
       linuxserver_configuration: "{{ item.linuxserver_configuration | default(omit) }}"
       mesos_configuration: "{{ item.mesos_configuration | default(omit) }}"
       mtu: "{{ item.mtu | default(omit) }}"
+      name: "{{ item.name | default(omit) }}"
       nsx_configuration: "{{ item.nsx_configuration | default(omit) }}"
       obj_name_prefix: "{{ item.obj_name_prefix | default(omit) }}"
       openstack_configuration: "{{ item.openstack_configuration | default(omit) }}"
@@ -41,6 +41,7 @@
       vcenter_configuration: "{{ item.vcenter_configuration | default(omit) }}"
       vtype: "{{ item.vtype | default(omit) }}"
     when:
+      - (item.name | default("") != "")
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")

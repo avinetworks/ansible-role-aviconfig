@@ -10,12 +10,12 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      name: "{{item.name}}"
       account_lock_timeout: "{{ item.account_lock_timeout | default(omit) }}"
       credentials_timeout_threshold: "{{ item.credentials_timeout_threshold | default(omit) }}"
       max_concurrent_sessions: "{{ item.max_concurrent_sessions | default(omit) }}"
       max_login_failure_count: "{{ item.max_login_failure_count | default(omit) }}"
       max_password_history_count: "{{ item.max_password_history_count | default(omit) }}"
+      name: "{{ item.name | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
       - (avi_role_state_mode == "present" and avi_config_state == "present")

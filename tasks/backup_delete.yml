@@ -10,7 +10,6 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      name: "{{item.name}}"
       backup_config_ref: "{{ item.backup_config_ref | default(omit) }}"
       file_name: "{{ item.file_name | default(omit) }}"
       local_file_url: "{{ item.local_file_url | default(omit) }}"
@@ -20,6 +19,7 @@
       timestamp: "{{ item.timestamp | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
+      - (item.name | default("") != "")
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")

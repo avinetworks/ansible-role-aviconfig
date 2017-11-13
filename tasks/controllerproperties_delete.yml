@@ -10,7 +10,6 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      name: "{{item.name}}"
       allow_ip_forwarding: "{{ item.allow_ip_forwarding | default(omit) }}"
       allow_unauthenticated_apis: "{{ item.allow_unauthenticated_apis | default(omit) }}"
       allow_unauthenticated_nodes: "{{ item.allow_unauthenticated_nodes | default(omit) }}"
@@ -59,6 +58,7 @@
       vs_se_vnic_ip_fail: "{{ item.vs_se_vnic_ip_fail | default(omit) }}"
       warmstart_se_reconnect_wait_time: "{{ item.warmstart_se_reconnect_wait_time | default(omit) }}"
     when:
+      - (item.name | default("") != "")
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")

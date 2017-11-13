@@ -10,10 +10,10 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      name: "{{item.name}}"
       backup_file_prefix: "{{ item.backup_file_prefix | default(omit) }}"
       backup_passphrase: "{{ item.backup_passphrase | default(omit) }}"
       maximum_backups_stored: "{{ item.maximum_backups_stored | default(omit) }}"
+      name: "{{ item.name | default(omit) }}"
       remote_directory: "{{ item.remote_directory | default(omit) }}"
       remote_hostname: "{{ item.remote_hostname | default(omit) }}"
       save_local: "{{ item.save_local | default(omit) }}"
@@ -22,6 +22,7 @@
       upload_to_remote_host: "{{ item.upload_to_remote_host | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
+      - (item.name | default("") != "")
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")

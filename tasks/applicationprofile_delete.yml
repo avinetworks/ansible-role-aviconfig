@@ -10,17 +10,18 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      name: "{{item.name}}"
       description: "{{ item.description | default(omit) }}"
       dns_service_profile: "{{ item.dns_service_profile | default(omit) }}"
       dos_rl_profile: "{{ item.dos_rl_profile | default(omit) }}"
       http_profile: "{{ item.http_profile | default(omit) }}"
+      name: "{{ item.name | default(omit) }}"
       preserve_client_ip: "{{ item.preserve_client_ip | default(omit) }}"
       tcp_app_profile: "{{ item.tcp_app_profile | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
       type: "{{ item.type | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
+      - (item.name | default("") != "")
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")

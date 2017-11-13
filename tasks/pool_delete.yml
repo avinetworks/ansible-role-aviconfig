@@ -10,7 +10,6 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      name: "{{item.name}}"
       a_pool: "{{ item.a_pool | default(omit) }}"
       ab_pool: "{{ item.ab_pool | default(omit) }}"
       ab_priority: "{{ item.ab_priority | default(omit) }}"
@@ -43,8 +42,10 @@
       lb_algorithm_consistent_hash_hdr: "{{ item.lb_algorithm_consistent_hash_hdr | default(omit) }}"
       lb_algorithm_core_nonaffinity: "{{ item.lb_algorithm_core_nonaffinity | default(omit) }}"
       lb_algorithm_hash: "{{ item.lb_algorithm_hash | default(omit) }}"
+      lookup_server_by_name: "{{ item.lookup_server_by_name | default(omit) }}"
       max_concurrent_connections_per_server: "{{ item.max_concurrent_connections_per_server | default(omit) }}"
       max_conn_rate_per_server: "{{ item.max_conn_rate_per_server | default(omit) }}"
+      name: "{{ item.name | default(omit) }}"
       networks: "{{ item.networks | default(omit) }}"
       nsx_securitygroup: "{{ item.nsx_securitygroup | default(omit) }}"
       pki_profile_ref: "{{ item.pki_profile_ref | default(omit) }}"
@@ -67,6 +68,7 @@
       uuid: "{{ item.uuid | default(omit) }}"
       vrf_ref: "{{ item.vrf_ref | default(omit) }}"
     when:
+      - (item.name | default("") != "")
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")

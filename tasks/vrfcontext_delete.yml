@@ -10,18 +10,19 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      name: "{{item.name}}"
       bgp_profile: "{{ item.bgp_profile | default(omit) }}"
       cloud_ref: "{{ item.cloud_ref | default(omit) }}"
       debugvrfcontext: "{{ item.debugvrfcontext | default(omit) }}"
       description: "{{ item.description | default(omit) }}"
       gateway_mon: "{{ item.gateway_mon | default(omit) }}"
       internal_gateway_monitor: "{{ item.internal_gateway_monitor | default(omit) }}"
+      name: "{{ item.name | default(omit) }}"
       static_routes: "{{ item.static_routes | default(omit) }}"
       system_default: "{{ item.system_default | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
+      - (item.name | default("") != "")
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")

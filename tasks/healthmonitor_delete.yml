@@ -10,7 +10,6 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      name: "{{item.name}}"
       description: "{{ item.description | default(omit) }}"
       dns_monitor: "{{ item.dns_monitor | default(omit) }}"
       external_monitor: "{{ item.external_monitor | default(omit) }}"
@@ -19,6 +18,7 @@
       https_monitor: "{{ item.https_monitor | default(omit) }}"
       is_federated: "{{ item.is_federated | default(omit) }}"
       monitor_port: "{{ item.monitor_port | default(omit) }}"
+      name: "{{ item.name | default(omit) }}"
       receive_timeout: "{{ item.receive_timeout | default(omit) }}"
       send_interval: "{{ item.send_interval | default(omit) }}"
       successful_checks: "{{ item.successful_checks | default(omit) }}"
@@ -28,6 +28,7 @@
       udp_monitor: "{{ item.udp_monitor | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
+      - (item.name | default("") != "")
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")

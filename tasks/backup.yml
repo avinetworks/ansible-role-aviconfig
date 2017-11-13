@@ -10,7 +10,6 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      name: "{{item.name}}"
       backup_config_ref: "{{ item.backup_config_ref | default(omit) }}"
       file_name: "{{ item.file_name | default(omit) }}"
       local_file_url: "{{ item.local_file_url | default(omit) }}"

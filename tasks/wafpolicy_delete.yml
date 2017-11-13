@@ -10,10 +10,10 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      name: "{{item.name}}"
       crs_groups: "{{ item.crs_groups | default(omit) }}"
       description: "{{ item.description | default(omit) }}"
       mode: "{{ item.mode | default(omit) }}"
+      name: "{{ item.name | default(omit) }}"
       paranoia_level: "{{ item.paranoia_level | default(omit) }}"
       post_crs_groups: "{{ item.post_crs_groups | default(omit) }}"
       pre_crs_groups: "{{ item.pre_crs_groups | default(omit) }}"
@@ -21,6 +21,7 @@
       uuid: "{{ item.uuid | default(omit) }}"
       waf_profile_ref: "{{ item.waf_profile_ref | default(omit) }}"
     when:
+      - (item.name | default("") != "")
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")

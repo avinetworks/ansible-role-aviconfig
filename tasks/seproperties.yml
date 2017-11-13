@@ -10,7 +10,6 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      name: "{{item.name}}"
       se_agent_properties: "{{ item.se_agent_properties | default(omit) }}"
       se_bootup_properties: "{{ item.se_bootup_properties | default(omit) }}"
       se_runtime_properties: "{{ item.se_runtime_properties | default(omit) }}"

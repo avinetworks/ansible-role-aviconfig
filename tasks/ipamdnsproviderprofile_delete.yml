@@ -10,19 +10,20 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      name: "{{item.name}}"
       aws_profile: "{{ item.aws_profile | default(omit) }}"
       azure_profile: "{{ item.azure_profile | default(omit) }}"
       custom_profile: "{{ item.custom_profile | default(omit) }}"
       gcp_profile: "{{ item.gcp_profile | default(omit) }}"
       infoblox_profile: "{{ item.infoblox_profile | default(omit) }}"
       internal_profile: "{{ item.internal_profile | default(omit) }}"
+      name: "{{ item.name | default(omit) }}"
       openstack_profile: "{{ item.openstack_profile | default(omit) }}"
       proxy_configuration: "{{ item.proxy_configuration | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
       type: "{{ item.type | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
+      - (item.name | default("") != "")
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")

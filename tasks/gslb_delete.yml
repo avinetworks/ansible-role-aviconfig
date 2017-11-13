@@ -10,7 +10,6 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
-      name: "{{item.name}}"
       clear_on_max_retries: "{{ item.clear_on_max_retries | default(omit) }}"
       client_ip_addr_group: "{{ item.client_ip_addr_group | default(omit) }}"
       description: "{{ item.description | default(omit) }}"
@@ -18,6 +17,7 @@
       is_federated: "{{ item.is_federated | default(omit) }}"
       leader_cluster_uuid: "{{ item.leader_cluster_uuid | default(omit) }}"
       maintenance_mode: "{{ item.maintenance_mode | default(omit) }}"
+      name: "{{ item.name | default(omit) }}"
       send_interval: "{{ item.send_interval | default(omit) }}"
       sites: "{{ item.sites | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
@@ -25,6 +25,7 @@
       uuid: "{{ item.uuid | default(omit) }}"
       view_id: "{{ item.view_id | default(omit) }}"
     when:
+      - (item.name | default("") != "")
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
