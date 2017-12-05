@@ -158,7 +158,7 @@ This example shows usage of how to create avi_config as part of task and pass it
         avi_creds_file: "vars/creds.yaml"
 ```
 
-There are many more examples located at [https://github.com/avinetworks/devops/ansible](https://github.com/avinetworks/devops/ansible).
+There are many more examples located at [https://github.com/avinetworks/devops/tree/master/ansible](https://github.com/avinetworks/devops/tree/master/ansible).
 
 ## License
 
