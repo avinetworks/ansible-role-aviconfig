@@ -35,6 +35,7 @@
       prefer_static_routes: "{{ item.prefer_static_routes | default(omit) }}"
       proxy_configuration: "{{ item.proxy_configuration | default(omit) }}"
       rancher_configuration: "{{ item.rancher_configuration | default(omit) }}"
+      state_based_dns_registration: "{{ item.state_based_dns_registration | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
       vca_configuration: "{{ item.vca_configuration | default(omit) }}"
