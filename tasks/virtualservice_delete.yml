@@ -20,6 +20,7 @@
       avi_allocated_fip: "{{ item.avi_allocated_fip | default(omit) }}"
       avi_allocated_vip: "{{ item.avi_allocated_vip | default(omit) }}"
       client_auth: "{{ item.client_auth | default(omit) }}"
+      close_client_conn_on_config_update: "{{ item.close_client_conn_on_config_update | default(omit) }}"
       cloud_config_cksum: "{{ item.cloud_config_cksum | default(omit) }}"
       cloud_ref: "{{ item.cloud_ref | default(omit) }}"
       cloud_type: "{{ item.cloud_type | default(omit) }}"

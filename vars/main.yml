@@ -31,6 +31,7 @@ avi_resource_types:
   - networkprofile
   - ipaddrgroup
   - backupconfiguration
+  - clusterclouddetails
   - errorpageprofile
   - sslkeyandcertificate
   - microservicegroup
