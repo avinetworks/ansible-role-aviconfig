@@ -10,6 +10,7 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
+      avi_api_context: "{{avi_api_context | default(omit)}}"
       application_persistence_profile_ref: "{{ item.application_persistence_profile_ref | default(omit) }}"
       controller_health_status_enabled: "{{ item.controller_health_status_enabled | default(omit) }}"
       created_by: "{{ item.created_by | default(omit) }}"

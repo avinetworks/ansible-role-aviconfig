@@ -10,6 +10,7 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
+      avi_api_context: "{{avi_api_context | default(omit)}}"
       description: "{{ item.description | default(omit) }}"
       intelligent_autoscale: "{{ item.intelligent_autoscale | default(omit) }}"
       intelligent_scalein_margin: "{{ item.intelligent_scalein_margin | default(omit) }}"

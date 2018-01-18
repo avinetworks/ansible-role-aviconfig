@@ -10,6 +10,7 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
+      avi_api_context: "{{avi_api_context | default(omit)}}"
       backup_config_ref: "{{ item.backup_config_ref | default(omit) }}"
       enabled: "{{ item.enabled | default(omit) }}"
       end_date_time: "{{ item.end_date_time | default(omit) }}"
