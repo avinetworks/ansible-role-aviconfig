@@ -10,6 +10,7 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
+      avi_api_context: "{{avi_api_context | default(omit)}}"
       description: "{{ item.description | default(omit) }}"
       http: "{{ item.http | default(omit) }}"
       ldap: "{{ item.ldap | default(omit) }}"

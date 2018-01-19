@@ -10,6 +10,7 @@
       state: "{{ avi_role_state_mode }}"
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
+      avi_api_context: "{{avi_api_context | default(omit)}}"
       allocate_ip_in_vrf: "{{ item.allocate_ip_in_vrf | default(omit) }}"
       aws_profile: "{{ item.aws_profile | default(omit) }}"
       azure_profile: "{{ item.azure_profile | default(omit) }}"
