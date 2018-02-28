@@ -62,4 +62,5 @@ avi_resource_types:
   - serviceengine
   - httppolicyset
   - vsdatascriptset
+  - l4policyset
   - virtualservice

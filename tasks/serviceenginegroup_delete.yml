@@ -39,6 +39,7 @@
       disable_tso: "{{ item.disable_tso | default(omit) }}"
       disk_per_se: "{{ item.disk_per_se | default(omit) }}"
       distribute_load_active_standby: "{{ item.distribute_load_active_standby | default(omit) }}"
+      enable_hsm_priming: "{{ item.enable_hsm_priming | default(omit) }}"
       enable_routing: "{{ item.enable_routing | default(omit) }}"
       enable_vip_on_all_interfaces: "{{ item.enable_vip_on_all_interfaces | default(omit) }}"
       enable_vmac: "{{ item.enable_vmac | default(omit) }}"
