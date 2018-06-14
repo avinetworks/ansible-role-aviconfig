@@ -16,6 +16,7 @@
       active_standby_se_tag: "{{ item.active_standby_se_tag | default(omit) }}"
       analytics_policy: "{{ item.analytics_policy | default(omit) }}"
       analytics_profile_ref: "{{ item.analytics_profile_ref | default(omit) }}"
+      apic_contract_graph: "{{ item.apic_contract_graph | default(omit) }}"
       application_profile_ref: "{{ item.application_profile_ref | default(omit) }}"
       auto_allocate_floating_ip: "{{ item.auto_allocate_floating_ip | default(omit) }}"
       auto_allocate_ip: "{{ item.auto_allocate_ip | default(omit) }}"
