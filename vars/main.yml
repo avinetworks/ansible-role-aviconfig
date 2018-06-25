@@ -13,13 +13,13 @@ avi_resource_types:
   - snmptrapprofile
   - hardwaresecuritymodulegroup
   - gslb
+  - poolgroupdeploymentpolicy
   - gslbgeodbprofile
   - applicationpersistenceprofile
   - errorpagebody
   - autoscalelaunchconfig
   - certificatemanagementprofile
   - webhook
-  - analyticsprofile
   - stringgroup
   - cluster
   - pkiprofile
@@ -34,6 +34,7 @@ avi_resource_types:
   - clusterclouddetails
   - errorpageprofile
   - sslkeyandcertificate
+  - analyticsprofile
   - microservicegroup
   - wafpolicy
   - ipamdnsproviderprofile
@@ -49,7 +50,6 @@ avi_resource_types:
   - gslbservice
   - vrfcontext
   - prioritylabels
-  - poolgroupdeploymentpolicy
   - actiongroupconfig
   - alertconfig
   - serverautoscalepolicy
