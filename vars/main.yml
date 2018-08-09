@@ -37,6 +37,7 @@ avi_resource_types:
   - analyticsprofile
   - microservicegroup
   - wafpolicy
+  - network
   - ipamdnsproviderprofile
   - dnspolicy
   - applicationprofile
@@ -53,7 +54,6 @@ avi_resource_types:
   - actiongroupconfig
   - alertconfig
   - serverautoscalepolicy
-  - network
   - trafficcloneprofile
   - pool
   - vsvip
