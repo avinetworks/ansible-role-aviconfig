@@ -13,6 +13,7 @@
       api_context: "{{avi_api_context | default(omit)}}"
       avi_api_update_method: "{{avi_api_update_method | default(omit)}}"
       avi_api_patch_op: "{{avi_api_patch_op | default(omit)}}"
+      connection_mirror: "{{ item.connection_mirror | default(omit) }}"
       description: "{{ item.description | default(omit) }}"
       name: "{{ item.name | default(omit) }}"
       profile: "{{ item.profile | default(omit) }}"
