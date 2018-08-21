@@ -21,6 +21,7 @@
       infoblox_profile: "{{ item.infoblox_profile | default(omit) }}"
       internal_profile: "{{ item.internal_profile | default(omit) }}"
       name: "{{ item.name | default(omit) }}"
+      oci_profile: "{{ item.oci_profile | default(omit) }}"
       openstack_profile: "{{ item.openstack_profile | default(omit) }}"
       proxy_configuration: "{{ item.proxy_configuration | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
