@@ -37,6 +37,7 @@ avi_resource_types:
   - analyticsprofile
   - microservicegroup
   - wafpolicy
+  - cloud
   - network
   - ipamdnsproviderprofile
   - dnspolicy
@@ -45,7 +46,6 @@ avi_resource_types:
   - systemconfiguration
   - healthmonitor
   - networksecuritypolicy
-  - cloud
   - backup
   - alertemailconfig
   - gslbservice
