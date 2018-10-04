@@ -1,7 +1,10 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-avi_resource_types:
+# This is list of vtype of clouds which requires cloud to be configured first before networks.
+cloud_priority: ["CLOUD_OSHIFT_K8S"]
+
+avi_resource_types_network_priority:
   - seproperties
   - useraccountprofile
   - tenant
@@ -46,6 +49,70 @@ avi_resource_types:
   - healthmonitor
   - networksecuritypolicy
   - cloud
+  - backup
+  - alertemailconfig
+  - gslbservice
+  - vrfcontext
+  - prioritylabels
+  - actiongroupconfig
+  - alertconfig
+  - serverautoscalepolicy
+  - trafficcloneprofile
+  - pool
+  - vsvip
+  - serviceenginegroup
+  - poolgroup
+  - serviceengine
+  - httppolicyset
+  - vsdatascriptset
+  - l4policyset
+  - virtualservice
+
+avi_resource_types_cloud_priority:
+  - seproperties
+  - useraccountprofile
+  - tenant
+  - controllerproperties
+  - cloudproperties
+  - role
+  - authprofile
+  - cloudconnectoruser
+  - snmptrapprofile
+  - hardwaresecuritymodulegroup
+  - gslb
+  - poolgroupdeploymentpolicy
+  - gslbgeodbprofile
+  - applicationpersistenceprofile
+  - errorpagebody
+  - autoscalelaunchconfig
+  - certificatemanagementprofile
+  - webhook
+  - stringgroup
+  - cluster
+  - pkiprofile
+  - alertsyslogconfig
+  - sslprofile
+  - wafprofile
+  - customipamdnsprofile
+  - alertscriptconfig
+  - networkprofile
+  - ipaddrgroup
+  - backupconfiguration
+  - clusterclouddetails
+  - errorpageprofile
+  - sslkeyandcertificate
+  - analyticsprofile
+  - microservicegroup
+  - wafpolicy
+  - cloud
+  - network
+  - ipamdnsproviderprofile
+  - dnspolicy
+  - applicationprofile
+  - scheduler
+  - systemconfiguration
+  - healthmonitor
+  - networksecuritypolicy
   - backup
   - alertemailconfig
   - gslbservice
