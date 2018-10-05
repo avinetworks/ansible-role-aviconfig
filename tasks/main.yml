@@ -71,4 +71,3 @@
   - name: Avi Config | Resetting avi_role_cfg to terminate its lifecycle
     set_fact:
       avi_role_cfg: {}
-
