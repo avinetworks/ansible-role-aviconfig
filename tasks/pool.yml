@@ -16,6 +16,7 @@
       a_pool: "{{ item.a_pool | default(omit) }}"
       ab_pool: "{{ item.ab_pool | default(omit) }}"
       ab_priority: "{{ item.ab_priority | default(omit) }}"
+      analytics_profile_ref: "{{ item.analytics_profile_ref | default(omit) }}"
       apic_epg_name: "{{ item.apic_epg_name | default(omit) }}"
       application_persistence_profile_ref: "{{ item.application_persistence_profile_ref | default(omit) }}"
       autoscale_launch_config_ref: "{{ item.autoscale_launch_config_ref | default(omit) }}"
