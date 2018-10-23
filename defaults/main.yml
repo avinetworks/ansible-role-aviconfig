@@ -4,4 +4,4 @@
 avi_config_state: present
 avi_role_config_log_mode: 'True'
 avi_role_state_mode: present
-
+avi_role_config_log_mode: True
