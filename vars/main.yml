@@ -37,9 +37,7 @@ avi_resource_types:
   - analyticsprofile
   - microservicegroup
   - wafpolicy
-  - network
   - ipamdnsproviderprofile
-  - dnspolicy
   - applicationprofile
   - scheduler
   - systemconfiguration
@@ -54,12 +52,14 @@ avi_resource_types:
   - actiongroupconfig
   - alertconfig
   - serverautoscalepolicy
+  - network
   - trafficcloneprofile
   - pool
   - vsvip
   - serviceenginegroup
   - poolgroup
   - serviceengine
+  - dnspolicy
   - httppolicyset
   - vsdatascriptset
   - l4policyset
