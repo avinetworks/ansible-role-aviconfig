@@ -2,8 +2,8 @@
 # Copyright Avi Networks
 ---
   - name: Avi Cloud | Setup Cloud
+    no_log: "{{ avi_role_config_log_mode | default(False)}}"
     avi_cloud:
-      no_log: "{{ avi_role_config_log_mode | default(False)}}"
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit) }}"
       password: "{{ avi_password | default(omit) }}"
@@ -83,7 +83,6 @@
 
   - name: Avi Cloud | Setup Cloud
     avi_cloud:
-      no_log: "{{ avi_role_config_log_mode | default(False)}}"
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username  | default(omit)}}"
       password: "{{ avi_password  | default(omit)}}"
