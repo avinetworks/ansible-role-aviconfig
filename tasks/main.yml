@@ -43,8 +43,10 @@
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
       http_method: get
-      path: "{{item.tenant_ref | default('tenant?name=admin')}}"
-    with_items: "{{ avi_role_cfg.cloud | default([])}}"
+      path: "tenant"
+      params:
+        name: "{{ item.name | default('admin')}}"
+    with_items: "{{ avi_role_cfg.tenant | default([])}}"
     register: tenant_res
 
   - name: Avi Config | Create Tenant
