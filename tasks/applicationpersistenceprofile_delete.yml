@@ -1,8 +1,7 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi ApplicationPersistenceProfile | Delete ApplicationPersistenceProfile
-    avi_applicationpersistenceprofile:
+  - name: Avi ApplicationPersistenceProfile | Delete ApplicationPersistenceProfile    avi_applicationpersistenceprofile:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
       password: "{{ avi_password | default(omit)}}"

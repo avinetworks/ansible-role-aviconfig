@@ -1,8 +1,7 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi PKIProfile | Delete PKIProfile
-    avi_pkiprofile:
+  - name: Avi PKIProfile | Delete PKIProfile    avi_pkiprofile:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
       password: "{{ avi_password | default(omit)}}"

@@ -1,8 +1,7 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi ServiceEngineGroup | Delete ServiceEngineGroup
-    avi_serviceenginegroup:
+  - name: Avi ServiceEngineGroup | Delete ServiceEngineGroup    avi_serviceenginegroup:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
       password: "{{ avi_password | default(omit)}}"
@@ -28,6 +27,7 @@
       auto_rebalance_criteria: "{{ item.auto_rebalance_criteria | default(omit) }}"
       auto_rebalance_interval: "{{ item.auto_rebalance_interval | default(omit) }}"
       auto_redistribute_active_standby_load: "{{ item.auto_redistribute_active_standby_load | default(omit) }}"
+      bgp_state_update_interval: "{{ item.bgp_state_update_interval | default(omit) }}"
       buffer_se: "{{ item.buffer_se | default(omit) }}"
       cloud_ref: "{{ item.cloud_ref | default(omit) }}"
       config_debugs_on_all_cores: "{{ item.config_debugs_on_all_cores | default(omit) }}"
@@ -52,6 +52,8 @@
       enable_routing: "{{ item.enable_routing | default(omit) }}"
       enable_vip_on_all_interfaces: "{{ item.enable_vip_on_all_interfaces | default(omit) }}"
       enable_vmac: "{{ item.enable_vmac | default(omit) }}"
+      ephemeral_portrange_end: "{{ item.ephemeral_portrange_end | default(omit) }}"
+      ephemeral_portrange_start: "{{ item.ephemeral_portrange_start | default(omit) }}"
       extra_config_multiplier: "{{ item.extra_config_multiplier | default(omit) }}"
       extra_shared_config_memory: "{{ item.extra_shared_config_memory | default(omit) }}"
       floating_intf_ip: "{{ item.floating_intf_ip | default(omit) }}"

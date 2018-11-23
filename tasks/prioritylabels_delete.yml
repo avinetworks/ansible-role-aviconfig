@@ -1,8 +1,7 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi PriorityLabels | Delete PriorityLabels
-    avi_prioritylabels:
+  - name: Avi PriorityLabels | Delete PriorityLabels    avi_prioritylabels:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
       password: "{{ avi_password | default(omit)}}"

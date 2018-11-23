@@ -1,20 +1,6 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi Config | Fetch cloud status before deletion
-    avi_api_session:
-      controller: "{{ avi_controller | default(omit)}}"
-      username: "{{ avi_username  | default(omit)}}"
-      password: "{{ avi_password  | default(omit)}}"
-      api_version: "{{ api_version | default(omit)}}"
-      avi_credentials: "{{ avi_credentials | default(omit)}}"
-      http_method: get
-      path: "cloud-inventory"
-      params:
-        name: "{{ item.name }}"
-    with_items: "{{ avi_role_cfg.cloud | default([])}}"
-    register: cloud_res
-
   - name: Avi Cloud | Delete Cloud
     no_log: "{{ avi_role_config_log_mode | default(False)}}"
     avi_cloud:
@@ -66,7 +52,4 @@
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-      - cloud_res.results[0] is defined
-      - cloud_res.results[0].obj is defined
-      - cloud_res.results[0].obj.count != 0
     with_items: "{{ avi_role_cfg.cloud | default([]) }}"

@@ -1,8 +1,7 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi CustomIpamDnsProfile | Delete CustomIpamDnsProfile
-    avi_customipamdnsprofile:
+  - name: Avi CustomIpamDnsProfile | Delete CustomIpamDnsProfile    avi_customipamdnsprofile:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
       password: "{{ avi_password | default(omit)}}"
