@@ -1,7 +1,8 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi SSLKeyAndCertificate | Delete SSLKeyAndCertificate    avi_sslkeyandcertificate:
+  - name: Avi SSLKeyAndCertificate | Delete SSLKeyAndCertificate
+    avi_sslkeyandcertificate:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
       password: "{{ avi_password | default(omit)}}"

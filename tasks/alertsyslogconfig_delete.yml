@@ -1,7 +1,8 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi AlertSyslogConfig | Delete AlertSyslogConfig    avi_alertsyslogconfig:
+  - name: Avi AlertSyslogConfig | Delete AlertSyslogConfig
+    avi_alertsyslogconfig:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
       password: "{{ avi_password | default(omit)}}"

@@ -1,7 +1,8 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi NetworkSecurityPolicy | Delete NetworkSecurityPolicy    avi_networksecuritypolicy:
+  - name: Avi NetworkSecurityPolicy | Delete NetworkSecurityPolicy
+    avi_networksecuritypolicy:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
       password: "{{ avi_password | default(omit)}}"

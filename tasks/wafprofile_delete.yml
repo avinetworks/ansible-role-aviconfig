@@ -1,7 +1,8 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi WafProfile | Delete WafProfile    avi_wafprofile:
+  - name: Avi WafProfile | Delete WafProfile
+    avi_wafprofile:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
       password: "{{ avi_password | default(omit)}}"

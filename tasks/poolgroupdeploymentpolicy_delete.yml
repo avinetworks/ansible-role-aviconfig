@@ -1,7 +1,8 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi PoolGroupDeploymentPolicy | Delete PoolGroupDeploymentPolicy    avi_poolgroupdeploymentpolicy:
+  - name: Avi PoolGroupDeploymentPolicy | Delete PoolGroupDeploymentPolicy
+    avi_poolgroupdeploymentpolicy:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
       password: "{{ avi_password | default(omit)}}"
