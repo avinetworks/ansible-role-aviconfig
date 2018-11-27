@@ -1,6 +1,7 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
+
   - name: Avi Config | Fetch cloud status before deletion
     avi_api_session:
       controller: "{{ avi_controller | default(omit)}}"

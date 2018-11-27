@@ -24,6 +24,7 @@
       min_servers: "{{ item.min_servers | default(omit) }}"
       name: "{{ item.name | default(omit) }}"
       priority_labels_ref: "{{ item.priority_labels_ref | default(omit) }}"
+      service_metadata: "{{ item.service_metadata | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
