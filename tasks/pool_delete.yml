@@ -64,6 +64,7 @@
       server_count: "{{ item.server_count | default(omit) }}"
       server_name: "{{ item.server_name | default(omit) }}"
       server_reselect: "{{ item.server_reselect | default(omit) }}"
+      server_timeout: "{{ item.server_timeout | default(omit) }}"
       servers: "{{ item.servers | default(omit) }}"
       service_metadata: "{{ item.service_metadata | default(omit) }}"
       sni_enabled: "{{ item.sni_enabled | default(omit) }}"

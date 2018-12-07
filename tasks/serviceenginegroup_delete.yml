@@ -79,6 +79,7 @@
       license_type: "{{ item.license_type | default(omit) }}"
       log_disksz: "{{ item.log_disksz | default(omit) }}"
       max_cpu_usage: "{{ item.max_cpu_usage | default(omit) }}"
+      max_memory_per_mempool: "{{ item.max_memory_per_mempool | default(omit) }}"
       max_public_ips_per_lb: "{{ item.max_public_ips_per_lb | default(omit) }}"
       max_rules_per_lb: "{{ item.max_rules_per_lb | default(omit) }}"
       max_scaleout_per_vs: "{{ item.max_scaleout_per_vs | default(omit) }}"
