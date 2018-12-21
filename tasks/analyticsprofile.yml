@@ -37,6 +37,7 @@
       disable_ondemand_metrics: "{{ item.disable_ondemand_metrics | default(omit) }}"
       disable_se_analytics: "{{ item.disable_se_analytics | default(omit) }}"
       disable_server_analytics: "{{ item.disable_server_analytics | default(omit) }}"
+      disable_vs_analytics: "{{ item.disable_vs_analytics | default(omit) }}"
       enable_advanced_analytics: "{{ item.enable_advanced_analytics | default(omit) }}"
       exclude_client_close_before_request_as_error: "{{ item.exclude_client_close_before_request_as_error | default(omit) }}"
       exclude_dns_policy_drop_as_significant: "{{ item.exclude_dns_policy_drop_as_significant | default(omit) }}"
