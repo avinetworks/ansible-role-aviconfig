@@ -3,7 +3,7 @@ galaxy_info:
   description: Ansible role to configure Avi
   company: Avi Networks
   issue_tracker_url: https://github.com/avinetworks/ansible-role-aviconfig/issues
-  license: Apache-2.0
+  license: MIT
   min_ansible_version: 2.2
   github_branch: master
   platforms:
