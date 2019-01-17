@@ -162,7 +162,7 @@ There are many more examples located at [https://github.com/avinetworks/devops/t
 
 ## License
 
-Apache 2.0
+MIT
 
 ## Author Information
 
