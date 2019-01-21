@@ -23,6 +23,7 @@
       groups: "{{ item.groups | default(omit) }}"
       health_monitor_refs: "{{ item.health_monitor_refs | default(omit) }}"
       health_monitor_scope: "{{ item.health_monitor_scope | default(omit) }}"
+      hm_off: "{{ item.hm_off | default(omit) }}"
       is_federated: "{{ item.is_federated | default(omit) }}"
       min_members: "{{ item.min_members | default(omit) }}"
       name: "{{ item.name | default(omit) }}"

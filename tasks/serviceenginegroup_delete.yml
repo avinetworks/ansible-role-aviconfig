@@ -20,6 +20,7 @@
       aggressive_failure_detection: "{{ item.aggressive_failure_detection | default(omit) }}"
       algo: "{{ item.algo | default(omit) }}"
       allow_burst: "{{ item.allow_burst | default(omit) }}"
+      app_cache_percent: "{{ item.app_cache_percent | default(omit) }}"
       archive_shm_limit: "{{ item.archive_shm_limit | default(omit) }}"
       async_ssl: "{{ item.async_ssl | default(omit) }}"
       async_ssl_threads: "{{ item.async_ssl_threads | default(omit) }}"
