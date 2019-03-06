@@ -31,6 +31,7 @@
       avi_api_patch_op: "{{avi_api_patch_op | default(omit)}}"
       apic_configuration: "{{ item.apic_configuration | default(omit) }}"
       apic_mode: "{{ item.apic_mode | default(omit) }}"
+      autoscale_polling_interval: "{{ item.autoscale_polling_interval | default(omit) }}"
       aws_configuration: "{{ item.aws_configuration | default(omit) }}"
       azure_configuration: "{{ item.azure_configuration | default(omit) }}"
       cloudstack_configuration: "{{ item.cloudstack_configuration | default(omit) }}"

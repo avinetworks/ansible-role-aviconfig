@@ -1,5 +1,6 @@
 # Automatically Generated File
 # Copyright Avi Networks
+
 ---
   - name: Avi Cloud | Setup No Access Cloud
     no_log: "{{ avi_role_config_log_mode | default(False)}}"
