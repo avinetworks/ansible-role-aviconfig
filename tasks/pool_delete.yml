@@ -31,6 +31,7 @@
       connection_ramp_duration: "{{ item.connection_ramp_duration | default(omit) }}"
       created_by: "{{ item.created_by | default(omit) }}"
       default_server_port: "{{ item.default_server_port | default(omit) }}"
+      delete_server_on_dns_refresh: "{{ item.delete_server_on_dns_refresh | default(omit) }}"
       description: "{{ item.description | default(omit) }}"
       domain_name: "{{ item.domain_name | default(omit) }}"
       east_west: "{{ item.east_west | default(omit) }}"
