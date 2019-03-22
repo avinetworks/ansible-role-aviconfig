@@ -1,8 +1,8 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi VsVip | Create or Update VsVip
-    avi_vsvip:
+  - name: Avi ServiceEnginePolicy | Delete ServiceEnginePolicy
+    avi_serviceenginepolicy:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
       password: "{{ avi_password | default(omit)}}"
@@ -13,17 +13,14 @@
       api_context: "{{avi_api_context | default(omit)}}"
       avi_api_update_method: "{{avi_api_update_method | default(omit)}}"
       avi_api_patch_op: "{{avi_api_patch_op | default(omit)}}"
-      cloud_ref: "{{ item.cloud_ref | default(omit) }}"
-      dns_info: "{{ item.dns_info | default(omit) }}"
-      east_west_placement: "{{ item.east_west_placement | default(omit) }}"
       name: "{{ item.name | default(omit) }}"
+      se_group_ref: "{{ item.se_group_ref | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
-      use_standard_alb: "{{ item.use_standard_alb | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
-      vip: "{{ item.vip | default(omit) }}"
-      vrf_context_ref: "{{ item.vrf_context_ref | default(omit) }}"
-      vsvip_cloud_config_cksum: "{{ item.vsvip_cloud_config_cksum | default(omit) }}"
+      vrf_ref: "{{ item.vrf_ref | default(omit) }}"
     when:
-      - (avi_role_state_mode == "present" and avi_config_state == "present")
+      - (item.name | default("") != "")
+      - (item.system_default | default(false) == false)
+      - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-    with_items: "{{ avi_role_cfg.vsvip | default([]) }}"
+    with_items: "{{ avi_role_cfg.serviceenginepolicy | default([]) }}"
