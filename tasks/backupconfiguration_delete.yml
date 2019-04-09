@@ -13,6 +13,9 @@
       api_context: "{{avi_api_context | default(omit)}}"
       avi_api_update_method: "{{avi_api_update_method | default(omit)}}"
       avi_api_patch_op: "{{avi_api_patch_op | default(omit)}}"
+      aws_access_key: "{{ item.aws_access_key | default(omit) }}"
+      aws_bucket_id: "{{ item.aws_bucket_id | default(omit) }}"
+      aws_secret_access: "{{ item.aws_secret_access | default(omit) }}"
       backup_file_prefix: "{{ item.backup_file_prefix | default(omit) }}"
       backup_passphrase: "{{ item.backup_passphrase | default(omit) }}"
       maximum_backups_stored: "{{ item.maximum_backups_stored | default(omit) }}"
@@ -23,6 +26,7 @@
       ssh_user_ref: "{{ item.ssh_user_ref | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
       upload_to_remote_host: "{{ item.upload_to_remote_host | default(omit) }}"
+      upload_to_s3: "{{ item.upload_to_s3 | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
       - (item.name | default("") != "")
