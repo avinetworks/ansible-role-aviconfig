@@ -14,6 +14,7 @@
       avi_api_update_method: "{{avi_api_update_method | default(omit)}}"
       avi_api_patch_op: "{{avi_api_patch_op | default(omit)}}"
       active_standby_se_tag: "{{ item.active_standby_se_tag | default(omit) }}"
+      allow_invalid_client_cert: "{{ item.allow_invalid_client_cert | default(omit) }}"
       analytics_policy: "{{ item.analytics_policy | default(omit) }}"
       analytics_profile_ref: "{{ item.analytics_profile_ref | default(omit) }}"
       apic_contract_graph: "{{ item.apic_contract_graph | default(omit) }}"
