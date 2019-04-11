@@ -30,6 +30,7 @@
       ssh_ciphers: "{{ item.ssh_ciphers | default(omit) }}"
       ssh_hmacs: "{{ item.ssh_hmacs | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
+      welcome_workflow_complete: "{{ item.welcome_workflow_complete | default(omit) }}"
     when:
       - (item.name | default("") != "")
       - (item.system_default | default(false) == false)
