@@ -91,6 +91,7 @@
       subnet: "{{ item.subnet | default(omit) }}"
       subnet_uuid: "{{ item.subnet_uuid | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
+      topology_policies: "{{ item.topology_policies | default(omit) }}"
       traffic_clone_profile_ref: "{{ item.traffic_clone_profile_ref | default(omit) }}"
       traffic_enabled: "{{ item.traffic_enabled | default(omit) }}"
       type: "{{ item.type | default(omit) }}"

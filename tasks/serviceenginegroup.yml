@@ -121,6 +121,7 @@
       se_flow_probe_timer: "{{ item.se_flow_probe_timer | default(omit) }}"
       se_ipc_udp_port: "{{ item.se_ipc_udp_port | default(omit) }}"
       se_name_prefix: "{{ item.se_name_prefix | default(omit) }}"
+      se_pcap_lookahead: "{{ item.se_pcap_lookahead | default(omit) }}"
       se_pcap_reinit_frequency: "{{ item.se_pcap_reinit_frequency | default(omit) }}"
       se_pcap_reinit_threshold: "{{ item.se_pcap_reinit_threshold | default(omit) }}"
       se_probe_port: "{{ item.se_probe_port | default(omit) }}"
