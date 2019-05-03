@@ -11,6 +11,7 @@ avi_resource_types:
   - cloudconnectoruser
   - snmptrapprofile
   - hardwaresecuritymodulegroup
+  - protocolparser
   - gslb
   - poolgroupdeploymentpolicy
   - gslbgeodbprofile
@@ -22,10 +23,10 @@ avi_resource_types:
   - stringgroup
   - cluster
   - pkiprofile
-  - alertsyslogconfig
+  - alertemailconfig
   - sslprofile
-  - wafprofile
   - securitypolicy
+  - alertsyslogconfig
   - customipamdnsprofile
   - alertscriptconfig
   - networkprofile
@@ -36,32 +37,34 @@ avi_resource_types:
   - sslkeyandcertificate
   - analyticsprofile
   - microservicegroup
-  - wafpolicy
   - ipamdnsproviderprofile
+  - actiongroupconfig
   - applicationprofile
+  - natpolicy
   - scheduler
   - healthmonitor
-  - authprofile
   - networksecuritypolicy
   - cloud
+  - alertconfig
   - backup
   - gslbservice
-  - systemconfiguration
   - vrfcontext
   - prioritylabels
-  - alertemailconfig
-  - actiongroupconfig
-  - alertconfig
-  - network
   - serverautoscalepolicy
+  - network
   - trafficcloneprofile
+  - pool
   - vsvip
   - serviceenginegroup
-  - pool
-  - serviceengine
   - poolgroup
+  - pingaccessagent
+  - serviceengine
+  - serviceenginepolicy
   - dnspolicy
   - httppolicyset
   - vsdatascriptset
   - l4policyset
+  - authprofile
+  - systemconfiguration
+  - ssopolicy
   - virtualservice

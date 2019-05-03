@@ -18,6 +18,7 @@
       client_ip_addr_group: "{{ item.client_ip_addr_group | default(omit) }}"
       description: "{{ item.description | default(omit) }}"
       dns_configs: "{{ item.dns_configs | default(omit) }}"
+      error_resync_interval: "{{ item.error_resync_interval | default(omit) }}"
       is_federated: "{{ item.is_federated | default(omit) }}"
       leader_cluster_uuid: "{{ item.leader_cluster_uuid | default(omit) }}"
       maintenance_mode: "{{ item.maintenance_mode | default(omit) }}"
