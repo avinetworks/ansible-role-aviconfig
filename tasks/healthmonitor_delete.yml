@@ -22,7 +22,6 @@
       is_federated: "{{ item.is_federated | default(omit) }}"
       monitor_port: "{{ item.monitor_port | default(omit) }}"
       name: "{{ item.name | default(omit) }}"
-      radius_monitor: "{{ item.radius_monitor | default(omit) }}"
       receive_timeout: "{{ item.receive_timeout | default(omit) }}"
       send_interval: "{{ item.send_interval | default(omit) }}"
       sip_monitor: "{{ item.sip_monitor | default(omit) }}"
