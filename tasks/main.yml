@@ -1,11 +1,6 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Check ansible version
-    when:
-      - ansible_version.full is version_compare('2.4', '<')
-    debug: msg="This role works best with ansible version 2.4 or greater. It is recommended to use the latest ansible version for the best experience."
-
   - name: Avi Config | Load Avi controller creds
     include_vars:
       file: "{{avi_creds_file}}"
@@ -34,57 +29,6 @@
   - name: Initialize Avi module includes
     set_fact:
       config_resources: []
-
-  - name: Avi Config | Check tenant exists
-    avi_api_session:
-      controller: "{{ avi_controller | default(omit)}}"
-      username: "{{ avi_username  | default(omit)}}"
-      password: "{{ avi_password  | default(omit)}}"
-      api_version: "{{ api_version | default(omit)}}"
-      avi_credentials: "{{ avi_credentials | default(omit)}}"
-      http_method: get
-      path: "tenant"
-      params:
-        name: "{{ item.name | default('admin')}}"
-    with_items: "{{ avi_role_cfg.tenant | default([])}}"
-    register: tenant_res
-
-  - name: Avi Config | Create Tenant
-    include_tasks: "tenant.yml"
-    vars:
-      avi_role_state_mode: present
-    when:
-    - tenant_res.results[0] is defined
-    - tenant_res.results[0].obj is defined
-    - tenant_res.results[0].obj.count == 0
-
-  - name: Avi Config | Fetch cloud status
-    avi_api_session:
-      controller: "{{ avi_controller | default(omit)}}"
-      username: "{{ avi_username  | default(omit)}}"
-      password: "{{ avi_password  | default(omit)}}"
-      api_version: "{{ api_version | default(omit)}}"
-      avi_credentials: "{{ avi_credentials | default(omit)}}"
-      http_method: get
-      path: "cloud-inventory"
-      params:
-        name: "{{ item.name }}"
-    with_items: "{{ avi_role_cfg.cloud | default([])}}"
-    register: cloud_res
-
-  - name: Avi Config | Create no access cloud
-    include_tasks: "no_access_cloud.yml"
-    vars:
-      avi_role_state_mode: present
-    when:
-    - cloud_res.results[0] is defined
-    - cloud_res.results[0].obj is defined
-    - cloud_res.results[0].obj.count == 0
-
-  - name: Avi Config | Create Network
-    include_tasks: "network.yml"
-    vars:
-      avi_role_state_mode: present
 
   - name: Build Avi module includes
     set_fact:
@@ -122,3 +66,4 @@
   - name: Avi Config | Resetting avi_role_cfg to terminate its lifecycle
     set_fact:
       avi_role_cfg: {}
+

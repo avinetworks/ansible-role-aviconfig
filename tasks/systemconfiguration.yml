@@ -11,8 +11,8 @@
       api_version: "{{ api_version | default(omit)}}"
       avi_credentials: "{{ avi_credentials | default(omit)}}"
       api_context: "{{avi_api_context | default(omit)}}"
-      avi_api_update_method: "{{item.avi_api_update_method | default(omit)}}"
-      avi_api_patch_op: "{{item.avi_api_patch_op | default(omit)}}"
+      avi_api_update_method: "{{avi_api_update_method | default(omit)}}"
+      avi_api_patch_op: "{{avi_api_patch_op | default(omit)}}"
       admin_auth_configuration: "{{ item.admin_auth_configuration | default(omit) }}"
       default_license_tier: "{{ item.default_license_tier | default(omit) }}"
       dns_configuration: "{{ item.dns_configuration | default(omit) }}"
@@ -25,12 +25,10 @@
       ntp_configuration: "{{ item.ntp_configuration | default(omit) }}"
       portal_configuration: "{{ item.portal_configuration | default(omit) }}"
       proxy_configuration: "{{ item.proxy_configuration | default(omit) }}"
-      secure_channel_configuration: "{{ item.secure_channel_configuration | default(omit) }}"
       snmp_configuration: "{{ item.snmp_configuration | default(omit) }}"
       ssh_ciphers: "{{ item.ssh_ciphers | default(omit) }}"
       ssh_hmacs: "{{ item.ssh_hmacs | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
-      welcome_workflow_complete: "{{ item.welcome_workflow_complete | default(omit) }}"
     when:
       - (avi_role_state_mode == "present" and avi_config_state == "present")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
