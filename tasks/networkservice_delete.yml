@@ -1,9 +1,9 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-  - name: Avi CertificateManagementProfile | Delete CertificateManagementProfile
+  - name: Avi NetworkService | Delete NetworkService
     ignore_errors: "{{ avi_role_config_ignore_errors | default(False)}}"
-    avi_certificatemanagementprofile:
+    avi_networkservice:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
       password: "{{ avi_password | default(omit)}}"
@@ -14,15 +14,18 @@
       api_context: "{{avi_api_context | default(omit)}}"
       avi_api_update_method: "{{item.avi_api_update_method | default(omit)}}"
       avi_api_patch_op: "{{item.avi_api_patch_op | default(omit)}}"
+      cloud_ref: "{{ item.cloud_ref | default(omit) }}"
       name: "{{ item.name | default(omit) }}"
-      script_params: "{{ item.script_params | default(omit) }}"
-      script_path: "{{ item.script_path | default(omit) }}"
+      routing_service: "{{ item.routing_service | default(omit) }}"
+      se_group_ref: "{{ item.se_group_ref | default(omit) }}"
+      service_type: "{{ item.service_type | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
+      vrf_ref: "{{ item.vrf_ref | default(omit) }}"
     when:
       - (item.name | default("") != "")
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-    with_items: "{{ avi_role_cfg.certificatemanagementprofile | default([]) }}"
+    with_items: "{{ avi_role_cfg.networkservice | default([]) }}"
 

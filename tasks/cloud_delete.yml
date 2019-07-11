@@ -18,6 +18,7 @@
 
   - name: Avi Cloud | Delete Cloud
     no_log: "{{ avi_role_config_log_mode | default(False)}}"
+    ignore_errors: "{{ avi_role_config_ignore_errors | default(False)}}"
     avi_cloud:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
@@ -67,6 +68,7 @@
       vtype: "{{ item.vtype | default(omit) }}"
     when:
       - (item.name | default("") != "")
+      - (item.name | default("") != "Default-Cloud")
       - (item.system_default | default(false) == false)
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
@@ -74,3 +76,4 @@
       - cloud_res.results[0].obj is defined
       - cloud_res.results[0].obj.count != 0
     with_items: "{{ avi_role_cfg.cloud | default([]) }}"
+

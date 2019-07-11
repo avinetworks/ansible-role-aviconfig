@@ -2,6 +2,7 @@
 # Copyright Avi Networks
 ---
   - name: Avi AlertSyslogConfig | Delete AlertSyslogConfig
+    ignore_errors: "{{ avi_role_config_ignore_errors | default(False)}}"
     avi_alertsyslogconfig:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
@@ -24,3 +25,4 @@
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
     with_items: "{{ avi_role_cfg.alertsyslogconfig | default([]) }}"
+

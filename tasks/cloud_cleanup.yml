@@ -44,3 +44,4 @@
       - cloud_res.results[0].obj.count != 0
     with_items: "{{ avi_role_cfg.cloud | default([]) }}"
 
+

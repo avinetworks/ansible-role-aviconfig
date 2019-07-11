@@ -2,6 +2,7 @@
 # Copyright Avi Networks
 ---
   - name: Avi VSDataScriptSet | Delete VSDataScriptSet
+    ignore_errors: "{{ avi_role_config_ignore_errors | default(False)}}"
     avi_vsdatascriptset:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit)}}"
@@ -20,6 +21,7 @@
       name: "{{ item.name | default(omit) }}"
       pool_group_refs: "{{ item.pool_group_refs | default(omit) }}"
       pool_refs: "{{ item.pool_refs | default(omit) }}"
+      protocol_parser_refs: "{{ item.protocol_parser_refs | default(omit) }}"
       string_group_refs: "{{ item.string_group_refs | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
@@ -29,3 +31,4 @@
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
     with_items: "{{ avi_role_cfg.vsdatascriptset | default([]) }}"
+
