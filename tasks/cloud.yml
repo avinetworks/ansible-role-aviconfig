@@ -2,6 +2,7 @@
 # Copyright Avi Networks
 ---
   - name: Avi Cloud | Setup Cloud
+    no_log: "{{ avi_role_config_log_mode | default(False)}}"
     avi_cloud:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username | default(omit) }}"
@@ -14,6 +15,7 @@
       name: "{{item.name}}"
       apic_configuration: "{{ item.apic_configuration | default(omit) }}"
       apic_mode: "{{ item.apic_mode | default(omit) }}"
+      autoscale_polling_interval: "{{ item.autoscale_polling_interval | default(omit) }}"
       aws_configuration: "{{ item.aws_configuration | default(omit) }}"
       azure_configuration: "{{ item.azure_configuration | default(omit) }}"
       cloudstack_configuration: "{{ item.cloudstack_configuration | default(omit) }}"
@@ -24,6 +26,8 @@
       east_west_dns_provider_ref: "{{ item.east_west_dns_provider_ref | default(omit) }}"
       east_west_ipam_provider_ref: "{{ item.east_west_ipam_provider_ref | default(omit) }}"
       enable_vip_static_routes: "{{ item.enable_vip_static_routes | default(omit) }}"
+      gcp_configuration: "{{ item.gcp_configuration | default(omit) }}"
+      import_lock: "{{ item.import_lock | default(omit) }}"
       ip6_autocfg_enabled: "{{ item.ip6_autocfg_enabled | default(omit) }}"
       ipam_provider_ref: "{{ item.ipam_provider_ref | default(omit) }}"
       license_tier: "{{ item.license_tier | default(omit) }}"
@@ -38,6 +42,7 @@
       prefer_static_routes: "{{ item.prefer_static_routes | default(omit) }}"
       proxy_configuration: "{{ item.proxy_configuration | default(omit) }}"
       rancher_configuration: "{{ item.rancher_configuration | default(omit) }}"
+      se_group_template_ref: "{{ item.se_group_template_ref | default(omit) }}"
       state_based_dns_registration: "{{ item.state_based_dns_registration | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
@@ -47,7 +52,6 @@
     when:
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
     with_items: "{{ avi_role_cfg.cloud | default([]) }}"
-
 
   - name: Fetch cloud status
     avi_api_session:
@@ -81,6 +85,7 @@
     with_items: "{{ cloud_inventory.results | default([]) }}"
 
   - name: Avi Cloud | Setup Cloud
+    no_log: "{{ avi_role_config_log_mode | default(False)}}"
     avi_cloud:
       controller: "{{ avi_controller | default(omit)}}"
       username: "{{ avi_username  | default(omit)}}"
@@ -93,6 +98,7 @@
       name: "{{item.name}}"
       apic_configuration: "{{ item.apic_configuration | default(omit) }}"
       apic_mode: "{{ item.apic_mode | default(omit) }}"
+      autoscale_polling_interval: "{{ item.autoscale_polling_interval | default(omit) }}"
       aws_configuration: "{{ item.aws_configuration | default(omit) }}"
       azure_configuration: "{{ item.azure_configuration | default(omit) }}"
       cloudstack_configuration: "{{ item.cloudstack_configuration | default(omit) }}"
@@ -103,6 +109,8 @@
       east_west_dns_provider_ref: "{{ item.east_west_dns_provider_ref | default(omit) }}"
       east_west_ipam_provider_ref: "{{ item.east_west_ipam_provider_ref | default(omit) }}"
       enable_vip_static_routes: "{{ item.enable_vip_static_routes | default(omit) }}"
+      gcp_configuration: "{{ item.gcp_configuration | default(omit) }}"
+      import_lock: "{{ item.import_lock | default(omit) }}"
       ip6_autocfg_enabled: "{{ item.ip6_autocfg_enabled | default(omit) }}"
       ipam_provider_ref: "{{ item.ipam_provider_ref | default(omit) }}"
       license_tier: "{{ item.license_tier | default(omit) }}"
@@ -117,6 +125,7 @@
       prefer_static_routes: "{{ item.prefer_static_routes | default(omit) }}"
       proxy_configuration: "{{ item.proxy_configuration | default(omit) }}"
       rancher_configuration: "{{ item.rancher_configuration | default(omit) }}"
+      se_group_template_ref: "{{ item.se_group_template_ref | default(omit) }}"
       state_based_dns_registration: "{{ item.state_based_dns_registration | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"

@@ -2,30 +2,34 @@
 # Copyright Avi Networks
 ---
 avi_resource_types:
+  - customerportalinfo
   - seproperties
   - useraccountprofile
   - tenant
   - controllerproperties
   - cloudproperties
   - role
-  - authprofile
   - cloudconnectoruser
   - snmptrapprofile
   - hardwaresecuritymodulegroup
+  - protocolparser
   - gslb
+  - poolgroupdeploymentpolicy
   - gslbgeodbprofile
+  - controllerportalregistration
   - applicationpersistenceprofile
   - errorpagebody
+  - portalfileupload
   - autoscalelaunchconfig
   - certificatemanagementprofile
+  - controllersite
   - webhook
-  - analyticsprofile
   - stringgroup
   - cluster
   - pkiprofile
-  - alertsyslogconfig
+  - alertemailconfig
   - sslprofile
-  - wafprofile
+  - securitypolicy
   - customipamdnsprofile
   - alertscriptconfig
   - networkprofile
@@ -34,23 +38,21 @@ avi_resource_types:
   - clusterclouddetails
   - errorpageprofile
   - sslkeyandcertificate
+  - analyticsprofile
   - microservicegroup
-  - wafpolicy
   - ipamdnsproviderprofile
-  - dnspolicy
   - applicationprofile
+  - natpolicy
   - scheduler
-  - systemconfiguration
+  - alertsyslogconfig
   - healthmonitor
   - networksecuritypolicy
   - cloud
   - backup
-  - alertemailconfig
+  - actiongroupconfig
   - gslbservice
   - vrfcontext
   - prioritylabels
-  - poolgroupdeploymentpolicy
-  - actiongroupconfig
   - alertconfig
   - serverautoscalepolicy
   - network
@@ -59,7 +61,14 @@ avi_resource_types:
   - vsvip
   - serviceenginegroup
   - poolgroup
+  - pingaccessagent
+  - networkservice
   - serviceengine
+  - dnspolicy
   - httppolicyset
   - vsdatascriptset
+  - l4policyset
+  - authprofile
+  - systemconfiguration
+  - ssopolicy
   - virtualservice
