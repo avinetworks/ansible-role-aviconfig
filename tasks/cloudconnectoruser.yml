@@ -17,6 +17,7 @@
       azure_userpass: "{{ item.azure_userpass | default(omit) }}"
       gcp_credentials: "{{ item.gcp_credentials | default(omit) }}"
       name: "{{ item.name | default(omit) }}"
+      obj_password: "{{ item.obj_password | default(omit) }}"
       oci_credentials: "{{ item.oci_credentials | default(omit) }}"
       private_key: "{{ item.private_key | default(omit) }}"
       public_key: "{{ item.public_key | default(omit) }}"
