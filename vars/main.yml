@@ -19,6 +19,7 @@ avi_resource_types:
   - errorpagebody
   - autoscalelaunchconfig
   - certificatemanagementprofile
+  - controllersite
   - webhook
   - stringgroup
   - cluster
@@ -26,7 +27,6 @@ avi_resource_types:
   - alertemailconfig
   - sslprofile
   - securitypolicy
-  - alertsyslogconfig
   - customipamdnsprofile
   - alertscriptconfig
   - networkprofile
@@ -38,18 +38,19 @@ avi_resource_types:
   - analyticsprofile
   - microservicegroup
   - ipamdnsproviderprofile
-  - actiongroupconfig
   - applicationprofile
   - natpolicy
   - scheduler
+  - alertsyslogconfig
   - healthmonitor
   - networksecuritypolicy
   - cloud
-  - alertconfig
   - backup
+  - actiongroupconfig
   - gslbservice
   - vrfcontext
   - prioritylabels
+  - alertconfig
   - serverautoscalepolicy
   - network
   - trafficcloneprofile
@@ -58,8 +59,8 @@ avi_resource_types:
   - serviceenginegroup
   - poolgroup
   - pingaccessagent
+  - networkservice
   - serviceengine
-  - serviceenginepolicy
   - dnspolicy
   - httppolicyset
   - vsdatascriptset
