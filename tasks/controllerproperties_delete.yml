@@ -55,6 +55,7 @@
       secure_channel_se_token_timeout: "{{ item.secure_channel_se_token_timeout | default(omit) }}"
       seupgrade_fabric_pool_size: "{{ item.seupgrade_fabric_pool_size | default(omit) }}"
       seupgrade_segroup_min_dead_timeout: "{{ item.seupgrade_segroup_min_dead_timeout | default(omit) }}"
+      shared_ssl_certificates: "{{ item.shared_ssl_certificates | default(omit) }}"
       ssl_certificate_expiry_warning_days: "{{ item.ssl_certificate_expiry_warning_days | default(omit) }}"
       unresponsive_se_reboot: "{{ item.unresponsive_se_reboot | default(omit) }}"
       upgrade_dns_ttl: "{{ item.upgrade_dns_ttl | default(omit) }}"

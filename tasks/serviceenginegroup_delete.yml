@@ -57,6 +57,7 @@
       enable_gratarp_permanent: "{{ item.enable_gratarp_permanent | default(omit) }}"
       enable_hsm_priming: "{{ item.enable_hsm_priming | default(omit) }}"
       enable_multi_lb: "{{ item.enable_multi_lb | default(omit) }}"
+      enable_pcap_tx_ring: "{{ item.enable_pcap_tx_ring | default(omit) }}"
       enable_routing: "{{ item.enable_routing | default(omit) }}"
       enable_vip_on_all_interfaces: "{{ item.enable_vip_on_all_interfaces | default(omit) }}"
       enable_vmac: "{{ item.enable_vmac | default(omit) }}"
