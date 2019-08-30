@@ -79,7 +79,6 @@
     when:
     - cloud_res.results[0] is defined
     - cloud_res.results[0].obj is defined
-    - cloud_res.results[0].obj.count == 0
 
   - name: Avi Config | Create Network
     include_tasks: "network.yml"
@@ -154,4 +153,3 @@
   - name: Avi Config | Resetting avi_role_cfg to terminate its lifecycle
     set_fact:
       avi_role_cfg: {}
-
