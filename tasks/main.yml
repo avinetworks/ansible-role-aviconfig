@@ -8,26 +8,26 @@
 
   - name: Avi Config | Load Avi controller creds
     include_vars:
-      file: "{{avi_creds_file}}"
+      file: "{{ avi_creds_file }}"
     when:
       - avi_creds_file is defined
 
   - name: Avi Config | Load configuration file
     include_vars:
-      file: "{{avi_config_file}}"
+      file: "{{ avi_config_file }}"
       name: cfg_file_vars
     when:
       - avi_config_file is defined
 
   - name: Avi Config | Set Avi Config variable from file contents
     set_fact:
-      avi_role_cfg: "{{cfg_file_vars.avi_config}}"
+      avi_role_cfg: "{{ cfg_file_vars.avi_config }}"
     when:
       - avi_config_file is defined
 
   - name: Avi Config | Setting Avi role config to parameter avi_config
     set_fact:
-      avi_role_cfg: "{{avi_config | default({}) }}"
+      avi_role_cfg: "{{ avi_config | default({}) }}"
     when:
        - avi_config_file is not defined
 
@@ -37,16 +37,16 @@
 
   - name: Avi Config | Check tenant exists
     avi_api_session:
-      controller: "{{ avi_controller | default(omit)}}"
-      username: "{{ avi_username  | default(omit)}}"
-      password: "{{ avi_password  | default(omit)}}"
-      api_version: "{{ api_version | default(omit)}}"
-      avi_credentials: "{{ avi_credentials | default(omit)}}"
+      controller: "{{ avi_controller | default(omit) }}"
+      username: "{{ avi_username  | default(omit) }}"
+      password: "{{ avi_password  | default(omit) }}"
+      api_version: "{{ api_version | default(omit) }}"
+      avi_credentials: "{{ avi_credentials | default(omit) }}"
       http_method: get
       path: "tenant"
       params:
-        name: "{{ item.name | default('admin')}}"
-    with_items: "{{ avi_role_cfg.tenant | default([])}}"
+        name: "{{ item.name | default('admin') }}"
+    with_items: "{{ avi_role_cfg.tenant | default([]) }}"
     register: tenant_res
 
   - name: Avi Config | Create Tenant
@@ -60,16 +60,16 @@
 
   - name: Avi Config | Fetch cloud status
     avi_api_session:
-      controller: "{{ avi_controller | default(omit)}}"
-      username: "{{ avi_username  | default(omit)}}"
-      password: "{{ avi_password  | default(omit)}}"
-      api_version: "{{ api_version | default(omit)}}"
-      avi_credentials: "{{ avi_credentials | default(omit)}}"
+      controller: "{{ avi_controller | default(omit) }}"
+      username: "{{ avi_username  | default(omit) }}"
+      password: "{{ avi_password  | default(omit) }}"
+      api_version: "{{ api_version | default(omit) }}"
+      avi_credentials: "{{ avi_credentials | default(omit) }}"
       http_method: get
       path: "cloud-inventory"
       params:
         name: "{{ item.name }}"
-    with_items: "{{ avi_role_cfg.cloud | default([])}}"
+    with_items: "{{ avi_role_cfg.cloud | default([]) }}"
     register: cloud_res
 
   - name: Avi Config | Create no access cloud
@@ -88,7 +88,7 @@
 
   - name: Build Avi module includes
     set_fact:
-      config_resources: "{{ config_resources | default([]) + [outer_item]}}"
+      config_resources: "{{ config_resources | default([]) + [outer_item] }}"
     when:
       - avi_role_cfg | default({})
       - avi_role_cfg[outer_item] is defined
