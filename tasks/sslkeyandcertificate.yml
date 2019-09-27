@@ -4,15 +4,15 @@
   - name: Avi SSLKeyAndCertificate | Upload or Update SSL certificate - always changed due to sensitve field
     avi_sslkeyandcertificate:
 
-      controller: "{{ avi_controller | default(omit)}}"
+      controller: "{{ avi_controller | default(omit) }}"
       username: "{{ avi_username | default(omit) }}"
       password: "{{ avi_password | default(omit) }}"
-      tenant: "{{ item.tenant | default(omit)}}"
-      state: "{{avi_role_state_mode}}"
-      api_version: "{{ api_version | default(omit)}}"
-      avi_credentials: "{{ avi_credentials | default(omit)}}"
-      api_context: "{{avi_api_context | default(omit)}}"
-      name: "{{item.name}}"
+      tenant: "{{ item.tenant | default(omit) }}"
+      state: "{{ avi_role_state_mode }}"
+      api_version: "{{ api_version | default(omit) }}"
+      avi_credentials: "{{ avi_credentials | default(omit) }}"
+      api_context: "{{ avi_api_context | default(omit) }}"
+      name: "{{ item.name }}"
       ca_certs: "{{ item.ca_certs | default(omit) }}"
       certificate: "{{ item.certificate | default(omit) }}"
       certificate_base64: "{{ item.certificate_base64 | default(omit) }}"
@@ -40,7 +40,7 @@
 
   - name: check certs
     stat:
-      path: "{{site_dir}}/applications/{{app_name}}/{{item.name}}.crt"
+      path: "{{ site_dir }}/applications/{{ app_name }}/{{ item.name }}.crt"
     register: check_certs
     with_items: "{{ avi_role_cfg.sslkeyandcertificate | default([]) }}"
     when:
@@ -48,10 +48,14 @@
       - item.certificate.certificate is undefined
 
   - name: Avi SSLKeyAndCertificate | create self-signed SSL cert if not present
-    command: openssl req -new -nodes -x509 -subj "/C=US/ST=CA/L=San Francisco/O=IT/CN={{ item.1.name }}" -days 3650 -keyout "{{site_dir}}"/applications/"{{ app_name }}"/"{{item.1.name}}".key -out "{{site_dir}}"/applications/"{{ app_name }}"/"{{item.1.name}}".crt -extensions v3_ca creates="{{site_dir}}"/applications/"{{ app_name }}"/"{{item.1.name}}".crt
+    command: >
+      openssl req -new -nodes -x509 -subj "/C=US/ST=CA/L=San Francisco/O=IT/CN={{ item.1.name }}"
+      -days 3650 -keyout "{{site_dir}}"/applications/"{{ app_name }}"/"{{item.1.name}}".key -out
+      "{{site_dir}}"/applications/"{{ app_name }}"/"{{item.1.name}}".crt -extensions
+      v3_ca creates="{{site_dir}}"/applications/"{{ app_name }}"/"{{item.1.name}}".crt
     args:
-      creates: "{{site_dir/applications/app_name/item.1.name.crt}}"
-    with_indexed_items: "{{ avi_role_cfg.sslkeyandcertificate | default([])}}"
+      creates: "{{ site_dir/applications/app_name/item.1.name.crt }}"
+    with_indexed_items: "{{ avi_role_cfg.sslkeyandcertificate | default([]) }}"
     when:
       - item.1.certificate.self_signed
       - item.1.certificate.certificate is undefined
@@ -60,19 +64,19 @@
   - name: Avi SSLKeyAndCertificate | Add self signed certificates
     set_fact:
       keycert:
-        api_version: "{{ api_version | default(omit)}}"
-        avi_credentials: "{{ avi_credentials | default(omit)}}"
-        api_context: "{{avi_api_context | default(omit)}}"
-        tenant: "{{ item.tenant | default(omit)}}"
-        tenant_ref: "{{item.tenant_ref | default(omit)}}"
-        state: "{{item.state | default(omit)}}"
+        api_version: "{{ api_version | default(omit) }}"
+        avi_credentials: "{{ avi_credentials | default(omit) }}"
+        api_context: "{{ avi_api_context | default(omit) }}"
+        tenant: "{{ item.tenant | default(omit) }}"
+        tenant_ref: "{{ item.tenant_ref | default(omit) }}"
+        state: "{{ item.state | default(omit) }}"
         key: "{{ lookup('file', site_dir~'/applications/'~app_name~'/'~item.name~'.key') }}"
         certificate:
           self_signed: true
-          certificate: "{{ lookup('file', site_dir~'/applications/'~app_name~'/'~item.name~'.crt')}}"
+          certificate: "{{ lookup('file', site_dir~'/applications/'~app_name~'/'~item.name~'.crt') }}"
         type: SSL_CERTIFICATE_TYPE_VIRTUALSERVICE
-        name: "{{item.name}}"
-    with_items: "{{ avi_role_cfg.sslkeyandcertificate | default([])}}"
+        name: "{{ item.name }}"
+    with_items: "{{ avi_role_cfg.sslkeyandcertificate | default([]) }}"
     register: self_signed_certs
     when:
       - item.certificate.self_signed
@@ -81,15 +85,15 @@
   - name: Avi SSLKeyAndCertificate | Create / Update self signed certs
     avi_sslkeyandcertificate:
 
-      controller: "{{ avi_controller | default(omit)}}"
+      controller: "{{ avi_controller | default(omit) }}"
       username: "{{ avi_username | default(omit) }}"
       password: "{{ avi_password | default(omit) }}"
-      tenant: "{{ item.tenant | default(omit)}}"
-      state: "{{avi_role_state_mode}}"
-      api_version: "{{ api_version | default(omit)}}"
-      avi_credentials: "{{ avi_credentials | default(omit)}}"
-      api_context: "{{avi_api_context | default(omit)}}"
-      name: "{{item.ansible_facts.keycert.name}}"
+      tenant: "{{ item.tenant | default(omit) }}"
+      state: "{{ avi_role_state_mode }}"
+      api_version: "{{ api_version | default(omit) }}"
+      avi_credentials: "{{ avi_credentials | default(omit) }}"
+      api_context: "{{ avi_api_context | default(omit) }}"
+      name: "{{ item.ansible_facts.keycert.name }}"
       ca_certs: "{{ item.ansible_facts.keycert.ca_certs | default(omit) }}"
       certificate: "{{ item.ansible_facts.keycert.certificate | default(omit) }}"
       certificate_base64: "{{ item.ansible_facts.keycert.certificate_base64 | default(omit) }}"

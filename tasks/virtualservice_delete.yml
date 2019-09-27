@@ -3,16 +3,16 @@
 ---
   - name: Avi VirtualService | Delete VirtualService
     avi_virtualservice:
-      controller: "{{ avi_controller | default(omit)}}"
-      username: "{{ avi_username | default(omit)}}"
-      password: "{{ avi_password | default(omit)}}"
-      tenant: "{{ item.tenant | default(omit)}}"
+      controller: "{{ avi_controller | default(omit) }}"
+      username: "{{ avi_username | default(omit) }}"
+      password: "{{ avi_password | default(omit) }}"
+      tenant: "{{ item.tenant | default(omit) }}"
       state: "{{ avi_role_state_mode }}"
-      api_version: "{{ api_version | default(omit)}}"
-      avi_credentials: "{{ avi_credentials | default(omit)}}"
-      api_context: "{{avi_api_context | default(omit)}}"
-      avi_api_update_method: "{{item.avi_api_update_method | default(omit)}}"
-      avi_api_patch_op: "{{item.avi_api_patch_op | default(omit)}}"
+      api_version: "{{ api_version | default(omit) }}"
+      avi_credentials: "{{ avi_credentials | default(omit) }}"
+      api_context: "{{ avi_api_context | default(omit) }}"
+      avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
+      avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
       active_standby_se_tag: "{{ item.active_standby_se_tag | default(omit) }}"
       allow_invalid_client_cert: "{{ item.allow_invalid_client_cert | default(omit) }}"
       analytics_policy: "{{ item.analytics_policy | default(omit) }}"
@@ -94,6 +94,7 @@
       subnet: "{{ item.subnet | default(omit) }}"
       subnet_uuid: "{{ item.subnet_uuid | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
+      test_se_datastore_level_1_ref: "{{ item.test_se_datastore_level_1_ref | default(omit) }}"
       topology_policies: "{{ item.topology_policies | default(omit) }}"
       traffic_clone_profile_ref: "{{ item.traffic_clone_profile_ref | default(omit) }}"
       traffic_enabled: "{{ item.traffic_enabled | default(omit) }}"
@@ -111,8 +112,8 @@
       waf_policy_ref: "{{ item.waf_policy_ref | default(omit) }}"
       weight: "{{ item.weight | default(omit) }}"
     when:
-      - (item.name | default("") != "")
-      - (item.system_default | default(false) == false)
+      - (item.name | length > 0)
+      - (not (item.system_default | default(false)))
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
     with_items: "{{ avi_role_cfg.virtualservice | default([]) }}"
