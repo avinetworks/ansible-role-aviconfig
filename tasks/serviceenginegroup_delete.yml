@@ -3,16 +3,16 @@
 ---
   - name: Avi ServiceEngineGroup | Delete ServiceEngineGroup
     avi_serviceenginegroup:
-      controller: "{{ avi_controller | default(omit)}}"
-      username: "{{ avi_username | default(omit)}}"
-      password: "{{ avi_password | default(omit)}}"
-      tenant: "{{ item.tenant | default(omit)}}"
+      controller: "{{ avi_controller | default(omit) }}"
+      username: "{{ avi_username | default(omit) }}"
+      password: "{{ avi_password | default(omit) }}"
+      tenant: "{{ item.tenant | default(omit) }}"
       state: "{{ avi_role_state_mode }}"
-      api_version: "{{ api_version | default(omit)}}"
-      avi_credentials: "{{ avi_credentials | default(omit)}}"
-      api_context: "{{avi_api_context | default(omit)}}"
-      avi_api_update_method: "{{item.avi_api_update_method | default(omit)}}"
-      avi_api_patch_op: "{{item.avi_api_patch_op | default(omit)}}"
+      api_version: "{{ api_version | default(omit) }}"
+      avi_credentials: "{{ avi_credentials | default(omit) }}"
+      api_context: "{{ avi_api_context | default(omit) }}"
+      avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
+      avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
       accelerated_networking: "{{ item.accelerated_networking | default(omit) }}"
       active_standby: "{{ item.active_standby | default(omit) }}"
       additional_config_memory: "{{ item.additional_config_memory | default(omit) }}"
@@ -137,16 +137,22 @@
       se_flow_probe_retry_timer: "{{ item.se_flow_probe_retry_timer | default(omit) }}"
       se_flow_probe_timer: "{{ item.se_flow_probe_timer | default(omit) }}"
       se_ipc_udp_port: "{{ item.se_ipc_udp_port | default(omit) }}"
+      se_kni_burst_factor: "{{ item.se_kni_burst_factor | default(omit) }}"
       se_lro: "{{ item.se_lro | default(omit) }}"
       se_name_prefix: "{{ item.se_name_prefix | default(omit) }}"
       se_pcap_lookahead: "{{ item.se_pcap_lookahead | default(omit) }}"
       se_pcap_pkt_count: "{{ item.se_pcap_pkt_count | default(omit) }}"
       se_pcap_pkt_sz: "{{ item.se_pcap_pkt_sz | default(omit) }}"
+      se_pcap_qdisc_bypass: "{{ item.se_pcap_qdisc_bypass | default(omit) }}"
       se_pcap_reinit_frequency: "{{ item.se_pcap_reinit_frequency | default(omit) }}"
       se_pcap_reinit_threshold: "{{ item.se_pcap_reinit_threshold | default(omit) }}"
       se_probe_port: "{{ item.se_probe_port | default(omit) }}"
       se_remote_punt_udp_port: "{{ item.se_remote_punt_udp_port | default(omit) }}"
       se_routing: "{{ item.se_routing | default(omit) }}"
+      se_rum_sampling_nav_interval: "{{ item.se_rum_sampling_nav_interval | default(omit) }}"
+      se_rum_sampling_nav_percent: "{{ item.se_rum_sampling_nav_percent | default(omit) }}"
+      se_rum_sampling_res_interval: "{{ item.se_rum_sampling_res_interval | default(omit) }}"
+      se_rum_sampling_res_percent: "{{ item.se_rum_sampling_res_percent | default(omit) }}"
       se_sb_dedicated_core: "{{ item.se_sb_dedicated_core | default(omit) }}"
       se_sb_threads: "{{ item.se_sb_threads | default(omit) }}"
       se_thread_multiplier: "{{ item.se_thread_multiplier | default(omit) }}"
@@ -190,8 +196,8 @@
       waf_mempool: "{{ item.waf_mempool | default(omit) }}"
       waf_mempool_size: "{{ item.waf_mempool_size | default(omit) }}"
     when:
-      - (item.name | default("") != "")
-      - (item.system_default | default(false) == false)
+      - (item.name | length > 0)
+      - (not (item.system_default | default(false)))
       - (avi_config_state == "absent" or avi_role_state_mode == "absent")
       - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
     with_items: "{{ avi_role_cfg.serviceenginegroup | default([]) }}"
