@@ -53,6 +53,7 @@
       secure_channel_cleanup_timeout: "{{ item.secure_channel_cleanup_timeout | default(omit) }}"
       secure_channel_controller_token_timeout: "{{ item.secure_channel_controller_token_timeout | default(omit) }}"
       secure_channel_se_token_timeout: "{{ item.secure_channel_se_token_timeout | default(omit) }}"
+      seupgrade_copy_pool_size: "{{ item.seupgrade_copy_pool_size | default(omit) }}"
       seupgrade_fabric_pool_size: "{{ item.seupgrade_fabric_pool_size | default(omit) }}"
       seupgrade_segroup_min_dead_timeout: "{{ item.seupgrade_segroup_min_dead_timeout | default(omit) }}"
       shared_ssl_certificates: "{{ item.shared_ssl_certificates | default(omit) }}"
