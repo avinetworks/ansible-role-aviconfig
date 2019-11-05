@@ -136,5 +136,7 @@
     when:
       - avi_role_state_mode == 'present'
       - item.state | default('present') == avi_role_state_mode
+      - item.obj is defined
+      - item.obj.results is defined
       - item.vtype == "CLOUD_VCENTER"
       - item.state | default("present") == "present"
