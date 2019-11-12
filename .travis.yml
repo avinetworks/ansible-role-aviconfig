@@ -1,6 +1,8 @@
 ---
 sudo: required
-
+language: python
+python:
+  - 2.7
 env:
   # - distribution: centos
   #  version: 6
@@ -61,8 +63,5 @@ notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
   email:
     recipients:
-      - grastogi@avinetworks.com
-      - chaitanya.deshpande@avinetworks.com
-      - shrikant.patil@avinetworks.com
       - rohan.suryawanshi@avinetworks.com
     on_failure: always
