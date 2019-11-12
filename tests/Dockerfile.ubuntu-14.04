@@ -4,9 +4,13 @@ RUN apt-get update
 # Install Ansible
 RUN apt-get install -y software-properties-common git
 RUN apt-add-repository -y ppa:ansible/ansible
+RUN apt-add-repository -y ppa:jonathonf/python-2.7
 RUN apt-get update
+RUN apt-get install -y curl
 RUN apt-get install -y ansible
-RUN apt-get install -y python-pip
+RUN apt-get install -y python2.7
+RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+RUN python get-pip.py
 RUN pip install avisdk
 
 # Install Ansible inventory file
