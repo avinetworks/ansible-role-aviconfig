@@ -19,6 +19,7 @@
       deployment_policy_ref: "{{ item.deployment_policy_ref | default(omit) }}"
       description: "{{ item.description | default(omit) }}"
       fail_action: "{{ item.fail_action | default(omit) }}"
+      http2: "{{ item.http2 | default(omit) }}"
       implicit_priority_labels: "{{ item.implicit_priority_labels | default(omit) }}"
       members: "{{ item.members | default(omit) }}"
       min_servers: "{{ item.min_servers | default(omit) }}"
