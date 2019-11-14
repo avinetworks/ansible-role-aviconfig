@@ -11,8 +11,8 @@
       avi_credentials: "{{ avi_credentials | default(omit) }}"
       api_context: "{{ avi_api_context | default(omit) }}"
       state: present
-      avi_api_update_method: "{{ item.avi_api_update_method | default('patch') }}"
-      avi_api_patch_op: "{{ item.avi_api_patch_op | default('delete') }}"
+      avi_api_update_method: patch
+      avi_api_patch_op: delete
       admin_auth_configuration: "{{ item.admin_auth_configuration | default(omit) }}"
       default_license_tier: "{{ item.default_license_tier | default(omit) }}"
       dns_configuration: "{{ item.dns_configuration | default(omit) }}"
