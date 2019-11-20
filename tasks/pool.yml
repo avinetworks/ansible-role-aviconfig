@@ -43,7 +43,6 @@
       gslb_sp_enabled: "{{ item.gslb_sp_enabled | default(omit) }}"
       health_monitor_refs: "{{ item.health_monitor_refs | default(omit) }}"
       host_check_enabled: "{{ item.host_check_enabled | default(omit) }}"
-      http2: "{{ item.http2 | default(omit) }}"
       inline_health_monitor: "{{ item.inline_health_monitor | default(omit) }}"
       ipaddrgroup_ref: "{{ item.ipaddrgroup_ref | default(omit) }}"
       lb_algorithm: "{{ item.lb_algorithm | default(omit) }}"
