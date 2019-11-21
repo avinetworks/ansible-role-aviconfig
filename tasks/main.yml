@@ -100,6 +100,7 @@
     include_tasks: "{{ outer_item }}.yml"
     vars:
       avi_role_state_mode: present
+      update_sysconfig_dns_vs_ref: False
     when:
       - avi_config_state == "present"
       - avi_role_cfg | default({})
@@ -107,6 +108,24 @@
     with_items: "{{ config_resources }}"
     loop_control:
       loop_var: outer_item
+
+  - name: Update Systemconfiguration DNS VS reference
+    include_tasks: "systemconfiguration.yml"
+    vars:
+      avi_role_state_mode: present
+      update_sysconfig_dns_vs_ref: True
+    when:
+      - avi_config_state == "present"
+      - avi_role_cfg | default({})
+      - avi_role_cfg.systemconfiguration is defined
+
+  - name: Delete Systemconfiguration DNS VS reference
+    include_tasks: "systemconfiguration_delete.yml"
+    vars:
+      avi_role_state_mode: absent
+    when:
+      - avi_role_cfg | default({})
+      - avi_role_cfg.systemconfiguration is defined
 
   - name: Include Avi Resource Deletion Tasks
     include_tasks: "{{ outer_item }}_delete.yml"
