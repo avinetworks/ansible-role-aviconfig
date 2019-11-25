@@ -13,6 +13,7 @@
       state: present
       avi_api_update_method: patch
       avi_api_patch_op: delete
+      ntp_configuration: {}
       admin_auth_configuration: "{{ item.admin_auth_configuration | default(omit) }}"
       default_license_tier: "{{ item.default_license_tier | default(omit) }}"
       dns_configuration: "{{ item.dns_configuration | default(omit) }}"
@@ -22,7 +23,6 @@
       global_tenant_config: "{{ item.global_tenant_config | default(omit) }}"
       linux_configuration: "{{ item.linux_configuration | default(omit) }}"
       mgmt_ip_access_control: "{{ item.mgmt_ip_access_control | default(omit) }}"
-      ntp_configuration: "{{ item.ntp_configuration | default(omit) }}"
       portal_configuration: "{{ item.portal_configuration | default(omit) }}"
       proxy_configuration: "{{ item.proxy_configuration | default(omit) }}"
       secure_channel_configuration: "{{ item.secure_channel_configuration | default(omit) }}"
