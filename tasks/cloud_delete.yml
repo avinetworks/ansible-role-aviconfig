@@ -16,6 +16,33 @@
     with_items: "{{ avi_role_cfg.cloud | default([]) }}"
     register: cloud_res
 
+  - name: Avi Config | Create no access cloud
+    include_tasks: "no_access_cloud.yml"
+    vars:
+      avi_role_state_mode: present
+    when:
+    - cloud_res.results[0] is defined
+    - cloud_res.results[0].obj is defined
+
+  - name:  Avi Config | Verify cloud state
+    avi_api_session:
+      controller: "{{ avi_controller | default(omit) }}"
+      username: "{{ avi_username  | default(omit) }}"
+      password: "{{ avi_password  | default(omit) }}"
+      api_version: "{{ api_version | default(omit) }}"
+      avi_credentials: "{{ avi_credentials | default(omit) }}"
+      http_method: get
+      path: cloud-inventory
+      params:
+        name: "{{ item.name }}"
+    retries: 50
+    delay: 5
+    register: cloud_status
+    until: cloud_status.obj.results[0].status.state != "CLOUD_STATE_PLACEMENT_READY"
+    when:
+      - item.vtype == "CLOUD_VCENTER"
+    with_items: "{{ avi_role_cfg.cloud | default([]) }}"
+
   - name: Avi Cloud | Delete Cloud
     no_log: "{{ avi_role_config_log_mode | default(False)}}"
     avi_cloud:
