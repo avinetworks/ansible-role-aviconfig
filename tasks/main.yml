@@ -132,6 +132,7 @@
     vars:
       avi_role_state_mode: absent
     when:
+      - avi_config_state == "absent"
       - avi_role_cfg | default({})
       - avi_role_cfg[outer_item] is defined
     with_items: "{{ config_resources[::-1] }}"
