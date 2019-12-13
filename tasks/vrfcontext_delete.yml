@@ -19,6 +19,7 @@
       description: "{{ item.description | default(omit) }}"
       gateway_mon: "{{ item.gateway_mon | default(omit) }}"
       internal_gateway_monitor: "{{ item.internal_gateway_monitor | default(omit) }}"
+      labels: "{{ item.labels | default(omit) }}"
       name: "{{ item.name | default(omit) }}"
       static_routes: "{{ item.static_routes | default(omit) }}"
       system_default: "{{ item.system_default | default(omit) }}"
