@@ -81,6 +81,16 @@
     - cloud_res.results[0].obj is defined
     - cloud_res.results[0].obj.count == 0
 
+  - name: Avi Config | Create no access cloud before delete
+    include_tasks: "no_access_cloud.yml"
+    vars:
+      avi_role_state_mode: present
+    when:
+      - cloud_res.results[0] is defined
+      - cloud_res.results[0].obj is defined
+      - cloud_res.results[0].obj.count != 0
+      - avi_config_state == "absent"
+
   - name: Avi Config | Create Network
     include_tasks: "network.yml"
     vars:
