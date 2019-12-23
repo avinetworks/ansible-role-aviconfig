@@ -29,8 +29,10 @@ avi_resource_types:
   - stringgroup
   - cluster
   - pkiprofile
+  - objectaccesspolicy
   - alertemailconfig
   - sslprofile
+  - wafprofile
   - testsedatastorelevel3
   - customipamdnsprofile
   - alertscriptconfig
@@ -43,6 +45,7 @@ avi_resource_types:
   - errorpageprofile
   - sslkeyandcertificate
   - analyticsprofile
+  - wafpolicypsmgroup
   - microservicegroup
   - testsedatastorelevel2
   - ipamdnsproviderprofile
