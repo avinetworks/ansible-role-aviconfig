@@ -6,8 +6,8 @@ driver:
 lint: |
   yamllint tasks -c molecule/default/.yamllint 
 platforms:
-  - name: ${MOLECULE_DISTRO:-ubuntu:bionic}
-    image: ${MOLECULE_DISTRO:-ubuntu:bionic}
+  - name:  instances
+    image: ${MOLECULE_DISTRO}
     privileged: true
     service_manager: ${MOLECULE_SERVICE_MANAGER:-systemd}
     volumes:

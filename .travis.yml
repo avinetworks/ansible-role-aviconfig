@@ -10,7 +10,7 @@ env:
   global:
     - ROLE_NAME: aviconfig
   matrix:
-    - MOLECULE_DISTRO: centos:7
+    - MOLECULE_DISTRO: docker.io/pycontribs/centos:7
       MOLECULE_SERVICE_MANAGER: systemd
       MOLECULE_COMMAND: /usr/sbin/init
     - MOLECULE_DISTRO: ubuntu:16.04
@@ -54,7 +54,7 @@ services:
 #  - 'sudo docker stop "$(cat ${container_id})"'
 
 install:
-  - pip install molecule docker
+  - pip install molecule docker pluggy==0.13.1
 
 before_script:
   - cd ../
