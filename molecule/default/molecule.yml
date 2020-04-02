@@ -9,10 +9,10 @@ platforms:
   - name:  instances
     image: ${MOLECULE_DISTRO}
     privileged: true
-    service_manager: ${MOLECULE_SERVICE_MANAGER:-systemd}
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    command: ${MOLECULE_COMMAND:-"/lib/systemd/systemd"}
+#    service_manager: ${MOLECULE_SERVICE_MANAGER:-systemd}
+#    volumes:
+#      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+#    command: ${MOLECULE_COMMAND:-"/lib/systemd/systemd"}
 provisioner:
   name: ansible
 verifier:
