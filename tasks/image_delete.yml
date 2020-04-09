@@ -14,12 +14,15 @@
       avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
       avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
       controller_info: "{{ item.controller_info | default(omit) }}"
+      controller_patch_uuid: "{{ item.controller_patch_uuid | default(omit) }}"
       migrations: "{{ item.migrations | default(omit) }}"
       name: "{{ item.name | default(omit) }}"
       se_info: "{{ item.se_info | default(omit) }}"
+      se_patch_uuid: "{{ item.se_patch_uuid | default(omit) }}"
       status: "{{ item.status | default(omit) }}"
       tenant_ref: "{{ item.tenant_ref | default(omit) }}"
       type: "{{ item.type | default(omit) }}"
+      uber_bundle: "{{ item.uber_bundle | default(omit) }}"
       uuid: "{{ item.uuid | default(omit) }}"
     when:
       - (item.name | length > 0)
