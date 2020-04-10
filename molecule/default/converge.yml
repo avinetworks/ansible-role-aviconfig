@@ -7,6 +7,3 @@
     - name: "Include ansible-role-aviconfig/"
       include_role:
         name: "avinetworks.aviconfig"
-      #vars:
-      #  avi_config_file: /home/rohan/Examples/Ansible/ansible-examples/config.yml
-      #  avi_creds_file: /home/rohan/Examples/Ansible/ansible-examples/creds.yml

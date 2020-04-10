@@ -7,13 +7,10 @@ lint: |
   yamllint tasks -c molecule/default/.yamllint 
 platforms:
   - name:  instances
-    image: ${MOLECULE_DISTRO}
-    privileged: true
-#    service_manager: ${MOLECULE_SERVICE_MANAGER:-systemd}
-#    volumes:
-#      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-#    command: ${MOLECULE_COMMAND:-"/lib/systemd/systemd"}
+    image: ubuntu:16.04
 provisioner:
   name: ansible
+  lint:
+    name: ansible-lint
 verifier:
   name: ansible
