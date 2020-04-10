@@ -1,0 +1,9 @@
+---
+- name: Converge
+  hosts: all
+  roles:
+    - role: avinetworks.avisdk
+  tasks:
+    - name: "Include ansible-role-aviconfig/"
+      include_role:
+        name: "avinetworks.aviconfig"
