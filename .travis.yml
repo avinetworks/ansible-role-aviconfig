@@ -10,9 +10,7 @@ env:
   global:
     - ROLE_NAME: aviconfig
   matrix:
-    - MOLECULE_DISTRO: ubuntu:18.04
-      MOLECULE_SERVICE_MANAGER: systemd
-      MOLECULE_COMMAND: /usr/sbin/init
+    - MOLECULE_DISTRO: ubuntu:16.04
 services:
   - docker
 

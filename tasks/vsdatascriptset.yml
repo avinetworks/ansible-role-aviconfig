@@ -21,6 +21,7 @@
     pool_group_refs: "{{ item.pool_group_refs | default(omit) }}"
     pool_refs: "{{ item.pool_refs | default(omit) }}"
     protocol_parser_refs: "{{ item.protocol_parser_refs | default(omit) }}"
+    rate_limiters: "{{ item.rate_limiters | default(omit) }}"
     string_group_refs: "{{ item.string_group_refs | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"
