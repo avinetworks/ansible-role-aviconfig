@@ -1,0 +1,19 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint: |
+  yamllint tasks -c molecule/default/.yamllint 
+platforms:
+  - name: ${MOLECULE_DISTRO:-ubuntu:bionic}
+    image: ${MOLECULE_DISTRO:-ubuntu:bionic}
+    privileged: true
+    service_manager: ${MOLECULE_SERVICE_MANAGER:-systemd}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    command: ${MOLECULE_COMMAND:-"/lib/systemd/systemd"}
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
