@@ -4,13 +4,14 @@ dependency:
 driver:
   name: docker
 lint: |
-  yamllint tasks -c molecule/default/.yamllint 
+  set -e
+  yamllint tasks -c molecule/default/.yamllint
+  ansible-lint
 platforms:
   - name:  instances
-    image: ubuntu:16.04
+    image: ${MOLECULE_DISTRO:-ubuntu:16.04}
+    privileged: true
 provisioner:
   name: ansible
-  lint:
-    name: ansible-lint
 verifier:
   name: ansible

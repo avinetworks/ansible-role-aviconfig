@@ -1,6 +1,5 @@
 ---
-dist: trusty
-sudo: required
+dist: bionic
 language: python
 
 before_install:
@@ -15,7 +14,7 @@ services:
   - docker
 
 install:
-  - pip install molecule docker pluggy==0.13.1
+  - pip install molecule docker pluggy==0.13.1 yamllint ansible-lint docker
 
 before_script:
   - cd ../

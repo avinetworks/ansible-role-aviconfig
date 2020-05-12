@@ -4,6 +4,6 @@
   roles:
     - role: avinetworks.avisdk
   tasks:
-    - name: "Include ansible-role-aviconfig/"
+    - name: "Execute role avinetworks.aviconfig"
       include_role:
         name: "avinetworks.aviconfig"
