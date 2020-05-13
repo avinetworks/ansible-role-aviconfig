@@ -1,0 +1,21 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint: |
+  set -e
+  yamllint tasks -c molecule/default/.yamllint
+  ansible-lint molecule/default/converge.yml
+platforms:
+  - name:  instance
+    image: ${MOLECULE_DISTRO:-ubuntu:16.04}
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+provisioner:
+  name: ansible
+  playbooks:
+    converge: ${MOLECULE_PLAYBOOK:-converge.yml}
+verifier:
+  name: ansible
