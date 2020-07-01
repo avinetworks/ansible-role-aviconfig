@@ -62,6 +62,7 @@
     ssl_certificate_expiry_warning_days: "{{ item.ssl_certificate_expiry_warning_days | default(omit) }}"
     unresponsive_se_reboot: "{{ item.unresponsive_se_reboot | default(omit) }}"
     upgrade_dns_ttl: "{{ item.upgrade_dns_ttl | default(omit) }}"
+    upgrade_fat_se_lease_time: "{{ item.upgrade_fat_se_lease_time | default(omit) }}"
     upgrade_lease_time: "{{ item.upgrade_lease_time | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"
     vnic_op_fail_time: "{{ item.vnic_op_fail_time | default(omit) }}"
