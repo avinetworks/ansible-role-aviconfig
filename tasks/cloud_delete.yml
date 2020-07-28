@@ -54,6 +54,7 @@
     mtu: "{{ item.mtu | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
     nsx_configuration: "{{ item.nsx_configuration | default(omit) }}"
+    nsxt_configuration: "{{ item.nsxt_configuration | default(omit) }}"
     obj_name_prefix: "{{ item.obj_name_prefix | default(omit) }}"
     openstack_configuration: "{{ item.openstack_configuration | default(omit) }}"
     oshiftk8s_configuration: "{{ item.oshiftk8s_configuration | default(omit) }}"
