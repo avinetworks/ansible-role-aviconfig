@@ -13,6 +13,7 @@
     api_context: "{{ avi_api_context | default(omit) }}"
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
+    cloud_info_values: "{{ item.cloud_info_values | default(omit) }}"
     controller_info: "{{ item.controller_info | default(omit) }}"
     controller_patch_name: "{{ item.controller_patch_name | default(omit) }}"
     controller_patch_uuid: "{{ item.controller_patch_uuid | default(omit) }}"
