@@ -13,7 +13,6 @@
     api_context: "{{ avi_api_context | default(omit) }}"
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
-    bfd_profile: "{{ item.bfd_profile | default(omit) }}"
     bgp_profile: "{{ item.bgp_profile | default(omit) }}"
     cloud_ref: "{{ item.cloud_ref | default(omit) }}"
     debugvrfcontext: "{{ item.debugvrfcontext | default(omit) }}"

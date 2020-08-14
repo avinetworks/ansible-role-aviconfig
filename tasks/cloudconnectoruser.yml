@@ -17,7 +17,6 @@
     azure_userpass: "{{ item.azure_userpass | default(omit) }}"
     gcp_credentials: "{{ item.gcp_credentials | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
-    nsxt_credentials: "{{ item.nsxt_credentials | default(omit) }}"
     obj_password: "{{ item.obj_password | default(omit) }}"
     oci_credentials: "{{ item.oci_credentials | default(omit) }}"
     private_key: "{{ item.private_key | default(omit) }}"
@@ -25,7 +24,6 @@
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"
     tencent_credentials: "{{ item.tencent_credentials | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"
-    vcenter_credentials: "{{ item.vcenter_credentials | default(omit) }}"
   when:
     - (avi_role_state_mode == "present" and avi_config_state == "present")
     - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
