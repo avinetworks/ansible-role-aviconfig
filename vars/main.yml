@@ -2,94 +2,82 @@
 # Copyright Avi Networks
 ---
 avi_resource_types:
+  - customerportalinfo
+  - seproperties
+  - useraccountprofile
   - tenant
-  - albservicesconfig
-  - systemlimits
-  - licenseledgerdetails
   - controllerproperties
   - cloudproperties
-  - useraccountprofile
-  - seproperties
-  - cloudconnectoruser
-  - hardwaresecuritymodulegroup
-  - certificatemanagementprofile
-  - customipamdnsprofile
-  - networkprofile
-  - stringgroup
-  - ipaddrgroup
-  - pkiprofile
-  - sslprofile
-  - applicationpersistenceprofile
-  - alertemailconfig
-  - alertscriptconfig
-  - snmptrapprofile
-  - autoscalelaunchconfig
-  - fileobject
-  - securitypolicy
-  - protocolparser
-  - wafprofile
-  - wafapplicationsignatureprovider
-  - errorpagebody
-  - testsedatastorelevel3
-  - federationcheckpoint
-  - gslbgeodbprofile
-  - siteversion
-  - image
-  - controllerportalregistration
-  - controllersite
   - role
-  - objectaccesspolicy
-  - albservicesfileupload
-  - webhook
-  - securitymanagerdata
-  - cluster
+  - cloudconnectoruser
+  - snmptrapprofile
+  - hardwaresecuritymodulegroup
+  - protocolparser
+  - gslb
   - poolgroupdeploymentpolicy
+  - gslbgeodbprofile
+  - controllerportalregistration
+  - image
+  - securitypolicy
+  - applicationpersistenceprofile
+  - errorpagebody
+  - portalfileupload
+  - autoscalelaunchconfig
+  - certificatemanagementprofile
+  - controllersite
+  - webhook
+  - stringgroup
+  - cluster
+  - pkiprofile
+  - objectaccesspolicy
+  - alertemailconfig
+  - sslprofile
+  - wafprofile
+  - testsedatastorelevel3
+  - customipamdnsprofile
+  - alertscriptconfig
+  - networkprofile
+  - ipaddrgroup
   - backupconfiguration
   - clusterclouddetails
-  - sslkeyandcertificate
-  - ipamdnsproviderprofile
-  - analyticsprofile
-  - wafpolicypsmgroup
-  - natpolicy
-  - applicationprofile
-  - microservicegroup
-  - ipreputationdb
-  - errorpageprofile
-  - testsedatastorelevel2
-  - gslb
   - upgradestatusinfo
   - upgradestatussummary
+  - errorpageprofile
+  - sslkeyandcertificate
+  - analyticsprofile
+  - wafpolicypsmgroup
+  - microservicegroup
+  - testsedatastorelevel2
+  - ipamdnsproviderprofile
+  - applicationprofile
+  - natpolicy
   - scheduler
-  - healthmonitor
   - alertsyslogconfig
-  - cloud
+  - healthmonitor
   - networksecuritypolicy
   - testsedatastorelevel1
+  - cloud
   - backup
-  - gslbservice
   - actiongroupconfig
+  - gslbservice
   - vrfcontext
-  - vcenterserver
   - prioritylabels
-  - nsxtsegmentruntime
   - alertconfig
-  - availabilityzone
   - serverautoscalepolicy
   - network
-  - serviceenginegroup
-  - pool
   - trafficcloneprofile
   - vsvip
-  - serviceengine
+  - serviceenginegroup
+  - pool
   - networkservice
+  - serviceengine
   - poolgroup
   - pingaccessagent
-  - httppolicyset
   - dnspolicy
+  - httppolicyset
   - vsdatascriptset
   - l4policyset
-  - icapprofile
   - authprofile
-  - ssopolicy
   - systemconfiguration
+  - ssopolicy
   - virtualservice
