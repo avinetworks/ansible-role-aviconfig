@@ -62,6 +62,7 @@
     prst_hdr_name: "{{ item.prst_hdr_name | default(omit) }}"
     request_queue_depth: "{{ item.request_queue_depth | default(omit) }}"
     request_queue_enabled: "{{ item.request_queue_enabled | default(omit) }}"
+    resolve_pool_by_dns: "{{ item.resolve_pool_by_dns | default(omit) }}"
     rewrite_host_header_to_server_name: "{{ item.rewrite_host_header_to_server_name | default(omit) }}"
     rewrite_host_header_to_sni: "{{ item.rewrite_host_header_to_sni | default(omit) }}"
     server_auto_scale: "{{ item.server_auto_scale | default(omit) }}"
