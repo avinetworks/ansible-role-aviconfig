@@ -16,6 +16,7 @@
     asset_contact: "{{ item.asset_contact | default(omit) }}"
     feature_opt_in_status: "{{ item.feature_opt_in_status | default(omit) }}"
     ip_reputation_config: "{{ item.ip_reputation_config | default(omit) }}"
+    mode: "{{ item.mode | default(omit) }}"
     polling_interval: "{{ item.polling_interval | default(omit) }}"
     portal_url: "{{ item.portal_url | default(omit) }}"
     proactive_support_defaults: "{{ item.proactive_support_defaults | default(omit) }}"

@@ -28,6 +28,7 @@
     key_base64: "{{ item.key_base64 | default(omit) }}"
     key_params: "{{ item.key_params | default(omit) }}"
     key_passphrase: "{{ item.key_passphrase | default(omit) }}"
+    labels: "{{ item.labels | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
     ocsp_config: "{{ item.ocsp_config | default(omit) }}"
     ocsp_error_status: "{{ item.ocsp_error_status | default(omit) }}"

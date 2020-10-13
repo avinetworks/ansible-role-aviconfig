@@ -16,6 +16,7 @@
     base_file_refs: "{{ item.base_file_refs | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
     incremental_file_refs: "{{ item.incremental_file_refs | default(omit) }}"
+    labels: "{{ item.labels | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
     service_status: "{{ item.service_status | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"

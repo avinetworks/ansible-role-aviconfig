@@ -18,6 +18,7 @@
     country_codes: "{{ item.country_codes | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
     ip_ports: "{{ item.ip_ports | default(omit) }}"
+    labels: "{{ item.labels | default(omit) }}"
     marathon_app_name: "{{ item.marathon_app_name | default(omit) }}"
     marathon_service_port: "{{ item.marathon_service_port | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
