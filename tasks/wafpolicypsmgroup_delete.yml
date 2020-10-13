@@ -17,6 +17,7 @@
     enable: "{{ item.enable | default(omit) }}"
     hit_action: "{{ item.hit_action | default(omit) }}"
     is_learning_group: "{{ item.is_learning_group | default(omit) }}"
+    labels: "{{ item.labels | default(omit) }}"
     locations: "{{ item.locations | default(omit) }}"
     miss_action: "{{ item.miss_action | default(omit) }}"
     name: "{{ item.name | default(omit) }}"

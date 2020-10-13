@@ -16,6 +16,7 @@
     config: "{{ item.config | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
     files: "{{ item.files | default(omit) }}"
+    labels: "{{ item.labels | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"

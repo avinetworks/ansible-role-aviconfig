@@ -60,6 +60,7 @@
     ip_address: "{{ item.ip_address | default(omit) }}"
     ipam_network_subnet: "{{ item.ipam_network_subnet | default(omit) }}"
     l4_policies: "{{ item.l4_policies | default(omit) }}"
+    labels: "{{ item.labels | default(omit) }}"
     limit_doser: "{{ item.limit_doser | default(omit) }}"
     max_cps_per_client: "{{ item.max_cps_per_client | default(omit) }}"
     microservice_ref: "{{ item.microservice_ref | default(omit) }}"

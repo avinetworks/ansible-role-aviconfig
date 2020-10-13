@@ -16,6 +16,7 @@
     description: "{{ item.description | default(omit) }}"
     entries: "{{ item.entries | default(omit) }}"
     is_federated: "{{ item.is_federated | default(omit) }}"
+    labels: "{{ item.labels | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"

@@ -20,6 +20,7 @@
     http_response_policy: "{{ item.http_response_policy | default(omit) }}"
     http_security_policy: "{{ item.http_security_policy | default(omit) }}"
     is_internal_policy: "{{ item.is_internal_policy | default(omit) }}"
+    labels: "{{ item.labels | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"
