@@ -17,7 +17,7 @@
   register: cloud_res
 
 - name: Avi Cloud | Delete Cloud
-  no_log: "{{ avi_role_config_log_mode | default(False)}}"
+  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_cloud:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"

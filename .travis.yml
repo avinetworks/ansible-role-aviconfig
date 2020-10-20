@@ -1,6 +1,8 @@
 ---
 dist: bionic
 language: python
+python:
+  - "3.7"
 
 before_install:
   - sudo apt-get update
@@ -14,7 +16,7 @@ services:
   - docker
 
 install:
-  - pip install molecule docker pluggy==0.13.1 yamllint ansible-lint docker
+  - pip install molecule docker pluggy==0.13.1 yamllint ansible-lint docker molecule-docker
 
 before_script:
   - cd ../
@@ -28,8 +30,8 @@ notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
   email:
     recipients:
-      - grastogi@avinetworks.com
-      - chaitanya.deshpande@avinetworks.com
-      - shrikant.patil@avinetworks.com
-      - rohan.suryawanshi@avinetworks.com
+#      - grastogi@avinetworks.com
+#      - chaitanya.deshpande@avinetworks.com
+#      - shrikant.patil@avinetworks.com
+      - shounak.joshi@avinetworks.com
     on_failure: always
