@@ -35,7 +35,7 @@
   when:
     - (avi_role_state_mode == "present" and avi_config_state == "present")
     - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-    - (update_sysconfig_dns_vs_ref | default(True) == True)
+    - (update_sysconfig_dns_vs_ref)
   with_items: "{{ avi_role_cfg.systemconfiguration | default([]) }}"
 
 - name: Avi SystemConfiguration | Update SystemConfiguration without DNS VS reference
@@ -71,5 +71,5 @@
   when:
     - (avi_role_state_mode == "present" and avi_config_state == "present")
     - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-    - (update_sysconfig_dns_vs_ref | default(True) == False)
+    - (update_sysconfig_dns_vs_ref)
   with_items: "{{ avi_role_cfg.systemconfiguration | default([]) }}"
