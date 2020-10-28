@@ -20,6 +20,8 @@
     api_idle_timeout: "{{ item.api_idle_timeout | default(omit) }}"
     api_perf_logging_threshold: "{{ item.api_perf_logging_threshold | default(omit) }}"
     appviewx_compat_mode: "{{ item.appviewx_compat_mode | default(omit) }}"
+    async_patch_merge_period: "{{ item.async_patch_merge_period | default(omit) }}"
+    async_patch_request_cleanup_duration: "{{ item.async_patch_request_cleanup_duration | default(omit) }}"
     attach_ip_retry_interval: "{{ item.attach_ip_retry_interval | default(omit) }}"
     attach_ip_retry_limit: "{{ item.attach_ip_retry_limit | default(omit) }}"
     bm_use_ansible: "{{ item.bm_use_ansible | default(omit) }}"
