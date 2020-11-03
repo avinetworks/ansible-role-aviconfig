@@ -16,7 +16,6 @@
     auto_disable_old_prod_pools: "{{ item.auto_disable_old_prod_pools | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
     evaluation_duration: "{{ item.evaluation_duration | default(omit) }}"
-    labels: "{{ item.labels | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
     rules: "{{ item.rules | default(omit) }}"
     scheme: "{{ item.scheme | default(omit) }}"

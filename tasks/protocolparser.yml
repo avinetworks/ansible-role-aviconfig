@@ -14,7 +14,6 @@
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
-    labels: "{{ item.labels | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
     parser_code: "{{ item.parser_code | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"

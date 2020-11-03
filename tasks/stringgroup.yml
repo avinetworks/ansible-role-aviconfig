@@ -15,7 +15,6 @@
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
     kv: "{{ item.kv | default(omit) }}"
-    labels: "{{ item.labels | default(omit) }}"
     longest_match: "{{ item.longest_match | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"

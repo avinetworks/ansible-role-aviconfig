@@ -16,7 +16,6 @@
     cloud_ref: "{{ item.cloud_ref | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
     equivalent_labels: "{{ item.equivalent_labels | default(omit) }}"
-    labels: "{{ item.labels | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"
