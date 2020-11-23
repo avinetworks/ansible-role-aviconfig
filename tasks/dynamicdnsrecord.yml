@@ -1,8 +1,8 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-- name: Avi AuthProfile | Create or Update AuthProfile
-  avi_authprofile:
+- name: Avi DynamicDnsRecord | Create or Update DynamicDnsRecord
+  avi_dynamicdnsrecord:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -13,18 +13,27 @@
     api_context: "{{ avi_api_context | default(omit) }}"
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
+    algorithm: "{{ item.algorithm | default(omit) }}"
+    cname: "{{ item.cname | default(omit) }}"
+    delegated: "{{ item.delegated | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
-    http: "{{ item.http | default(omit) }}"
-    jwt_profile_ref: "{{ item.jwt_profile_ref | default(omit) }}"
-    ldap: "{{ item.ldap | default(omit) }}"
+    dns_vs_uuid: "{{ item.dns_vs_uuid | default(omit) }}"
+    fqdn: "{{ item.fqdn | default(omit) }}"
+    ip6_address: "{{ item.ip6_address | default(omit) }}"
+    ip_address: "{{ item.ip_address | default(omit) }}"
+    metadata: "{{ item.metadata | default(omit) }}"
+    mx_records: "{{ item.mx_records | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
-    pa_agent_ref: "{{ item.pa_agent_ref | default(omit) }}"
-    saml: "{{ item.saml | default(omit) }}"
-    tacacs_plus: "{{ item.tacacs_plus | default(omit) }}"
+    ns: "{{ item.ns | default(omit) }}"
+    num_records_in_response: "{{ item.num_records_in_response | default(omit) }}"
+    service_locators: "{{ item.service_locators | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"
+    ttl: "{{ item.ttl | default(omit) }}"
+    txt_records: "{{ item.txt_records | default(omit) }}"
     type: "{{ item.type | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"
+    wildcard_match: "{{ item.wildcard_match | default(omit) }}"
   when:
     - (avi_role_state_mode == "present" and avi_config_state == "present")
     - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-  with_items: "{{ avi_role_cfg.authprofile | default([]) }}"
+  with_items: "{{ avi_role_cfg.dynamicdnsrecord | default([]) }}"
