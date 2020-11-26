@@ -1,8 +1,8 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-- name: Avi IcapProfile | Delete IcapProfile
-  avi_icapprofile:
+- name: Avi JWTServerProfile | Delete JWTServerProfile
+  avi_jwtserverprofile:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -13,25 +13,14 @@
     state: "{{ avi_role_state_mode }}"
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
-    allow_204: "{{ item.allow_204 | default(omit) }}"
-    buffer_size: "{{ item.buffer_size | default(omit) }}"
-    buffer_size_exceed_action: "{{ item.buffer_size_exceed_action | default(omit) }}"
-    cloud_ref: "{{ item.cloud_ref | default(omit) }}"
-    description: "{{ item.description | default(omit) }}"
-    enable_preview: "{{ item.enable_preview | default(omit) }}"
-    fail_action: "{{ item.fail_action | default(omit) }}"
+    issuer: "{{ item.issuer | default(omit) }}"
+    jwks_keys: "{{ item.jwks_keys | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
-    pool_group_ref: "{{ item.pool_group_ref | default(omit) }}"
-    preview_size: "{{ item.preview_size | default(omit) }}"
-    response_timeout: "{{ item.response_timeout | default(omit) }}"
-    service_uri: "{{ item.service_uri | default(omit) }}"
-    slow_response_warning_threshold: "{{ item.slow_response_warning_threshold | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"
-    vendor: "{{ item.vendor | default(omit) }}"
   when:
     - (item.name | length > 0)
     - (not (item.system_default | default(false)))
     - (avi_config_state == "absent" or avi_role_state_mode == "absent")
     - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-  with_items: "{{ avi_role_cfg.icapprofile | default([]) }}"
+  with_items: "{{ avi_role_cfg.jwtserverprofile | default([]) }}"

@@ -15,11 +15,13 @@
     avi_api_patch_op: delete
     ntp_configuration: {}
     admin_auth_configuration: "{{ item.admin_auth_configuration | default(omit) }}"
+    common_criteria_mode: "{{ item.common_criteria_mode | default(omit) }}"
     default_license_tier: "{{ item.default_license_tier | default(omit) }}"
     dns_configuration: "{{ item.dns_configuration | default(omit) }}"
     dns_virtualservice_refs: "{{ item.dns_virtualservice_refs | default(omit) }}"
     docker_mode: "{{ item.docker_mode | default(omit) }}"
     email_configuration: "{{ item.email_configuration | default(omit) }}"
+    enable_cors: "{{ item.enable_cors | default(omit) }}"
     fips_mode: "{{ item.fips_mode | default(omit) }}"
     global_tenant_config: "{{ item.global_tenant_config | default(omit) }}"
     linux_configuration: "{{ item.linux_configuration | default(omit) }}"

@@ -1,8 +1,8 @@
 # Automatically Generated File
 # Copyright Avi Networks
 ---
-- name: Avi AuthProfile | Create or Update AuthProfile
-  avi_authprofile:
+- name: Avi JWTServerProfile | Create or Update JWTServerProfile
+  avi_jwtserverprofile:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -13,18 +13,12 @@
     api_context: "{{ avi_api_context | default(omit) }}"
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
-    description: "{{ item.description | default(omit) }}"
-    http: "{{ item.http | default(omit) }}"
-    jwt_profile_ref: "{{ item.jwt_profile_ref | default(omit) }}"
-    ldap: "{{ item.ldap | default(omit) }}"
+    issuer: "{{ item.issuer | default(omit) }}"
+    jwks_keys: "{{ item.jwks_keys | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
-    pa_agent_ref: "{{ item.pa_agent_ref | default(omit) }}"
-    saml: "{{ item.saml | default(omit) }}"
-    tacacs_plus: "{{ item.tacacs_plus | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"
-    type: "{{ item.type | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"
   when:
     - (avi_role_state_mode == "present" and avi_config_state == "present")
     - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-  with_items: "{{ avi_role_cfg.authprofile | default([]) }}"
+  with_items: "{{ avi_role_cfg.jwtserverprofile | default([]) }}"
