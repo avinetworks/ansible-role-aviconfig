@@ -7,12 +7,12 @@ avi_resource_types:
   - systemlimits
   - licenseledgerdetails
   - controllerproperties
-  - cloudproperties
   - useraccountprofile
+  - cloudproperties
   - seproperties
   - cloudconnectoruser
   - hardwaresecuritymodulegroup
-  - certificatemanagementprofile
+  - alertscriptconfig
   - customipamdnsprofile
   - networkprofile
   - stringgroup
@@ -21,12 +21,12 @@ avi_resource_types:
   - sslprofile
   - applicationpersistenceprofile
   - alertemailconfig
-  - alertscriptconfig
   - snmptrapprofile
   - autoscalelaunchconfig
   - fileobject
   - securitypolicy
   - protocolparser
+  - jwtserverprofile
   - wafprofile
   - wafapplicationsignatureprovider
   - errorpagebody
@@ -36,6 +36,7 @@ avi_resource_types:
   - siteversion
   - image
   - controllerportalregistration
+  - dynamicdnsrecord
   - controllersite
   - role
   - albservicesfileupload
@@ -45,7 +46,7 @@ avi_resource_types:
   - poolgroupdeploymentpolicy
   - backupconfiguration
   - clusterclouddetails
-  - sslkeyandcertificate
+  - certificatemanagementprofile
   - ipamdnsproviderprofile
   - analyticsprofile
   - wafpolicypsmgroup
@@ -59,20 +60,21 @@ avi_resource_types:
   - upgradestatusinfo
   - upgradestatussummary
   - scheduler
-  - healthmonitor
-  - alertsyslogconfig
-  - cloud
+  - sslkeyandcertificate
   - networksecuritypolicy
   - testsedatastorelevel1
   - backup
-  - gslbservice
-  - actiongroupconfig
+  - cloud
+  - healthmonitor
+  - alertsyslogconfig
   - vrfcontext
   - vcenterserver
   - prioritylabels
   - nsxtsegmentruntime
-  - alertconfig
+  - gslbservice
+  - actiongroupconfig
   - availabilityzone
+  - alertconfig
   - serverautoscalepolicy
   - network
   - serviceenginegroup
