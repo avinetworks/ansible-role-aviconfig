@@ -28,6 +28,7 @@
     send_interval_prior_to_maintenance_mode: "{{ item.send_interval_prior_to_maintenance_mode | default(omit) }}"
     sites: "{{ item.sites | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"
+    tenant_scoped: "{{ item.tenant_scoped | default(omit) }}"
     third_party_sites: "{{ item.third_party_sites | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"
     view_id: "{{ item.view_id | default(omit) }}"

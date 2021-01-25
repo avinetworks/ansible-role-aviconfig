@@ -13,6 +13,7 @@
     api_context: "{{ avi_api_context | default(omit) }}"
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
+    app_signature_config: "{{ item.app_signature_config | default(omit) }}"
     asset_contact: "{{ item.asset_contact | default(omit) }}"
     feature_opt_in_status: "{{ item.feature_opt_in_status | default(omit) }}"
     ip_reputation_config: "{{ item.ip_reputation_config | default(omit) }}"
