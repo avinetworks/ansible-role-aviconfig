@@ -63,6 +63,7 @@
     se_offline_del: "{{ item.se_offline_del | default(omit) }}"
     se_spawn_retry_interval: "{{ item.se_spawn_retry_interval | default(omit) }}"
     se_vnic_cooldown: "{{ item.se_vnic_cooldown | default(omit) }}"
+    se_vnic_gc_wait_time: "{{ item.se_vnic_gc_wait_time | default(omit) }}"
     secure_channel_cleanup_timeout: "{{ item.secure_channel_cleanup_timeout | default(omit) }}"
     secure_channel_controller_token_timeout: "{{ item.secure_channel_controller_token_timeout | default(omit) }}"
     secure_channel_se_token_timeout: "{{ item.secure_channel_se_token_timeout | default(omit) }}"
