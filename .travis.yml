@@ -16,7 +16,7 @@ services:
   - docker
 
 install:
-  - pip install molecule docker pluggy==0.13.1 yamllint ansible-lint docker molecule-docker
+  - pip install ansible molecule docker pluggy==0.13.1 yamllint ansible-lint docker molecule-docker
 
 before_script:
   - cd ../
