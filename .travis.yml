@@ -20,6 +20,7 @@ install:
 
 before_script:
   - cd ../
+  - export ANSIBLE_ROLES_PATH=/home/travis/.cache/molecule/avinetworks.aviconfig/default/roles/
   - mv ansible-role-$ROLE_NAME avinetworks.$ROLE_NAME
   - cd avinetworks.$ROLE_NAME
 
