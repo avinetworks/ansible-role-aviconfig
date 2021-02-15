@@ -153,6 +153,8 @@
     se_deprovision_delay: "{{ item.se_deprovision_delay | default(omit) }}"
     se_dos_profile: "{{ item.se_dos_profile | default(omit) }}"
     se_dp_hm_drops: "{{ item.se_dp_hm_drops | default(omit) }}"
+    se_dp_isolation: "{{ item.se_dp_isolation | default(omit) }}"
+    se_dp_isolation_num_non_dp_cpus: "{{ item.se_dp_isolation_num_non_dp_cpus | default(omit) }}"
     se_dp_max_hb_version: "{{ item.se_dp_max_hb_version | default(omit) }}"
     se_dp_vnic_queue_stall_event_sleep: "{{ item.se_dp_vnic_queue_stall_event_sleep | default(omit) }}"
     se_dp_vnic_queue_stall_threshold: "{{ item.se_dp_vnic_queue_stall_threshold | default(omit) }}"
