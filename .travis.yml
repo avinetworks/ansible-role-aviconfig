@@ -16,10 +16,12 @@ services:
   - docker
 
 install:
-  - pip install molecule docker pluggy==0.13.1 yamllint ansible-lint docker molecule-docker
+  - pip install ansible molecule docker pluggy==0.13.1 yamllint ansible-lint docker molecule-docker
 
 before_script:
   - cd ../
+  - export DEFAULT_ROLES_PATH=/home/travis/avinetworks/avinetworks.aviconfig/molecule/default/roles:/home/travis/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/travis/avinetworks/avinetworks.aviconfig/molecule/default
+  - export ANSIBLE_ROLES_PATH=$DEFAULT_ROLES_PATH:/home/travis/.cache/molecule/avinetworks.aviconfig/default/roles/
   - mv ansible-role-$ROLE_NAME avinetworks.$ROLE_NAME
   - cd avinetworks.$ROLE_NAME
 
@@ -34,5 +36,5 @@ notifications:
       - deshpandech@vmware.com
       - pshrikan@vmware.com
       - sabandi@vmware.com
-      - shounakj@vmware.com
+      - samol@vmware.com
     on_failure: always
