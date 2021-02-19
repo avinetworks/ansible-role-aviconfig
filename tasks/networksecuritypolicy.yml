@@ -16,6 +16,7 @@
     cloud_config_cksum: "{{ item.cloud_config_cksum | default(omit) }}"
     created_by: "{{ item.created_by | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
+    geo_db_ref: "{{ item.geo_db_ref | default(omit) }}"
     ip_reputation_db_ref: "{{ item.ip_reputation_db_ref | default(omit) }}"
     labels: "{{ item.labels | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
