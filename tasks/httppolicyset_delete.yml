@@ -16,6 +16,7 @@
     cloud_config_cksum: "{{ item.cloud_config_cksum | default(omit) }}"
     created_by: "{{ item.created_by | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
+    geo_db_ref: "{{ item.geo_db_ref | default(omit) }}"
     http_request_policy: "{{ item.http_request_policy | default(omit) }}"
     http_response_policy: "{{ item.http_response_policy | default(omit) }}"
     http_security_policy: "{{ item.http_security_policy | default(omit) }}"

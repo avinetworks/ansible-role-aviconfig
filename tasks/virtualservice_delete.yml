@@ -26,6 +26,7 @@
     avi_allocated_fip: "{{ item.avi_allocated_fip | default(omit) }}"
     avi_allocated_vip: "{{ item.avi_allocated_vip | default(omit) }}"
     azure_availability_set: "{{ item.azure_availability_set | default(omit) }}"
+    bot_policy_ref: "{{ item.bot_policy_ref | default(omit) }}"
     bulk_sync_kvcache: "{{ item.bulk_sync_kvcache | default(omit) }}"
     client_auth: "{{ item.client_auth | default(omit) }}"
     close_client_conn_on_config_update: "{{ item.close_client_conn_on_config_update | default(omit) }}"
