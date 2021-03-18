@@ -3,6 +3,7 @@
 ---
 - name: Avi AlertEmailConfig | Create or Update AlertEmailConfig
   avi_alertemailconfig:
+
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"

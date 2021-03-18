@@ -3,6 +3,7 @@
 ---
 - name: Avi ControllerPortalRegistration | Create or Update ControllerPortalRegistration
   avi_controllerportalregistration:
+
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"

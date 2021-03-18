@@ -3,6 +3,7 @@
 ---
 - name: Avi UpgradeStatusInfo | Create or Update UpgradeStatusInfo
   avi_upgradestatusinfo:
+
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -21,6 +22,7 @@
     enable_rollback: "{{ item.enable_rollback | default(omit) }}"
     end_time: "{{ item.end_time | default(omit) }}"
     enqueue_time: "{{ item.enqueue_time | default(omit) }}"
+    fips_mode: "{{ item.fips_mode | default(omit) }}"
     history: "{{ item.history | default(omit) }}"
     image_path: "{{ item.image_path | default(omit) }}"
     image_ref: "{{ item.image_ref | default(omit) }}"

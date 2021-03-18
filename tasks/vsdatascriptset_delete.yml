@@ -3,6 +3,7 @@
 ---
 - name: Avi VSDataScriptSet | Delete VSDataScriptSet
   avi_vsdatascriptset:
+
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -16,6 +17,7 @@
     created_by: "{{ item.created_by | default(omit) }}"
     datascript: "{{ item.datascript | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
+    geo_db_ref: "{{ item.geo_db_ref | default(omit) }}"
     ip_reputation_db_ref: "{{ item.ip_reputation_db_ref | default(omit) }}"
     ipgroup_refs: "{{ item.ipgroup_refs | default(omit) }}"
     labels: "{{ item.labels | default(omit) }}"

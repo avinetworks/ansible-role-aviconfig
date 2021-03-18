@@ -3,6 +3,7 @@
 ---
 - name: Avi Pool | Delete Pool
   avi_pool:
+
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -19,6 +20,7 @@
     analytics_policy: "{{ item.analytics_policy | default(omit) }}"
     analytics_profile_ref: "{{ item.analytics_profile_ref | default(omit) }}"
     apic_epg_name: "{{ item.apic_epg_name | default(omit) }}"
+    append_port: "{{ item.append_port | default(omit) }}"
     application_persistence_profile_ref: "{{ item.application_persistence_profile_ref | default(omit) }}"
     autoscale_launch_config_ref: "{{ item.autoscale_launch_config_ref | default(omit) }}"
     autoscale_networks: "{{ item.autoscale_networks | default(omit) }}"

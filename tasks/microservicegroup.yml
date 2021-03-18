@@ -3,6 +3,7 @@
 ---
 - name: Avi MicroServiceGroup | Create or Update MicroServiceGroup
   avi_microservicegroup:
+
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"

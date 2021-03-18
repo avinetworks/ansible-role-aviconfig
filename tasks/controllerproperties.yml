@@ -3,6 +3,7 @@
 ---
 - name: Avi ControllerProperties | Create or Update ControllerProperties
   avi_controllerproperties:
+
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -34,6 +35,7 @@
     crashed_se_reboot: "{{ item.crashed_se_reboot | default(omit) }}"
     dead_se_detection_timer: "{{ item.dead_se_detection_timer | default(omit) }}"
     default_minimum_api_timeout: "{{ item.default_minimum_api_timeout | default(omit) }}"
+    del_offline_se_after_reboot_delay: "{{ item.del_offline_se_after_reboot_delay | default(omit) }}"
     dns_refresh_period: "{{ item.dns_refresh_period | default(omit) }}"
     dummy: "{{ item.dummy | default(omit) }}"
     edit_system_limits: "{{ item.edit_system_limits | default(omit) }}"
@@ -56,6 +58,7 @@
     process_locked_useraccounts_timeout_period: "{{ item.process_locked_useraccounts_timeout_period | default(omit) }}"
     process_pki_profile_timeout_period: "{{ item.process_pki_profile_timeout_period | default(omit) }}"
     query_host_fail: "{{ item.query_host_fail | default(omit) }}"
+    resmgr_log_caching_period: "{{ item.resmgr_log_caching_period | default(omit) }}"
     safenet_hsm_version: "{{ item.safenet_hsm_version | default(omit) }}"
     se_create_timeout: "{{ item.se_create_timeout | default(omit) }}"
     se_failover_attempt_interval: "{{ item.se_failover_attempt_interval | default(omit) }}"
@@ -77,6 +80,7 @@
     upgrade_fat_se_lease_time: "{{ item.upgrade_fat_se_lease_time | default(omit) }}"
     upgrade_lease_time: "{{ item.upgrade_lease_time | default(omit) }}"
     upgrade_se_per_vs_scale_ops_txn_time: "{{ item.upgrade_se_per_vs_scale_ops_txn_time | default(omit) }}"
+    user_agent_cache_config: "{{ item.user_agent_cache_config | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"
     vnic_op_fail_time: "{{ item.vnic_op_fail_time | default(omit) }}"
     vs_apic_scaleout_timeout: "{{ item.vs_apic_scaleout_timeout | default(omit) }}"

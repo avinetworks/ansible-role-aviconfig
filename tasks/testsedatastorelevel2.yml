@@ -3,6 +3,7 @@
 ---
 - name: Avi TestSeDatastoreLevel2 | Create or Update TestSeDatastoreLevel2
   avi_testsedatastorelevel2:
+
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"

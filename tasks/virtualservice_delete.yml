@@ -3,6 +3,7 @@
 ---
 - name: Avi VirtualService | Delete VirtualService
   avi_virtualservice:
+
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -26,6 +27,7 @@
     avi_allocated_fip: "{{ item.avi_allocated_fip | default(omit) }}"
     avi_allocated_vip: "{{ item.avi_allocated_vip | default(omit) }}"
     azure_availability_set: "{{ item.azure_availability_set | default(omit) }}"
+    bot_policy_ref: "{{ item.bot_policy_ref | default(omit) }}"
     bulk_sync_kvcache: "{{ item.bulk_sync_kvcache | default(omit) }}"
     client_auth: "{{ item.client_auth | default(omit) }}"
     close_client_conn_on_config_update: "{{ item.close_client_conn_on_config_update | default(omit) }}"
@@ -62,6 +64,7 @@
     jwt_config: "{{ item.jwt_config | default(omit) }}"
     l4_policies: "{{ item.l4_policies | default(omit) }}"
     labels: "{{ item.labels | default(omit) }}"
+    ldap_vs_config: "{{ item.ldap_vs_config | default(omit) }}"
     limit_doser: "{{ item.limit_doser | default(omit) }}"
     max_cps_per_client: "{{ item.max_cps_per_client | default(omit) }}"
     microservice_ref: "{{ item.microservice_ref | default(omit) }}"

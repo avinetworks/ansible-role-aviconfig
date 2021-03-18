@@ -2,7 +2,8 @@
 # Copyright Avi Networks
 ---
 - name: Avi SystemConfiguration | Update SystemConfiguration
-  avi_systemconfiguration:
+    avi_systemconfiguration:
+
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -41,7 +42,8 @@
   with_items: "{{ avi_role_cfg.systemconfiguration | default([]) }}"
 
 - name: Avi SystemConfiguration | Update SystemConfiguration without DNS VS reference
-  avi_systemconfiguration:
+    avi_systemconfiguration:
+
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"

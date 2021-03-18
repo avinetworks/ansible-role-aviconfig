@@ -4,6 +4,7 @@
 - name: Avi Cloud | Setup Cloud
   no_log: "{{ avi_role_config_log_mode | default(False)}}"
   avi_cloud:
+
     controller: "{{ avi_controller | default(omit)}}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -50,6 +51,7 @@
     uuid: "{{ item.uuid | default(omit) }}"
     vca_configuration: "{{ item.vca_configuration | default(omit) }}"
     vcenter_configuration: "{{ item.vcenter_configuration | default(omit) }}"
+    vmc_deployment: "{{ item.vmc_deployment | default(omit) }}"
     vtype: "{{ item.vtype | default(omit) }}"
   when:
     - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
@@ -57,6 +59,7 @@
 
 - name: Fetch cloud status
   avi_api_session:
+
     controller: "{{ avi_controller | default(omit)}}"
     username: "{{ avi_username  | default(omit)}}"
     password: "{{ avi_password  | default(omit)}}"
@@ -89,6 +92,7 @@
 - name: Avi Cloud | Setup Cloud
   no_log: "{{ avi_role_config_log_mode | default(False)}}"
   avi_cloud:
+
     controller: "{{ avi_controller | default(omit)}}"
     username: "{{ avi_username  | default(omit)}}"
     password: "{{ avi_password  | default(omit)}}"
@@ -135,6 +139,7 @@
     uuid: "{{ item.uuid | default(omit) }}"
     vca_configuration: "{{ item.vca_configuration | default(omit) }}"
     vcenter_configuration: "{{ item.vcenter_configuration | default(omit) }}"
+    vmc_deployment: "{{ item.vmc_deployment | default(omit) }}"
     vtype: "{{ item.vtype | default(omit) }}"
   with_items: "{{ avi_role_cfg.cloud | default([]) }}"
   when:

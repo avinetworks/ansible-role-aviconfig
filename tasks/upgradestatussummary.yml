@@ -3,6 +3,7 @@
 ---
 - name: Avi UpgradeStatusSummary | Create or Update UpgradeStatusSummary
   avi_upgradestatussummary:
+
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
