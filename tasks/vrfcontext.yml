@@ -3,7 +3,6 @@
 ---
 - name: Avi VrfContext | Create or Update VrfContext
   avi_vrfcontext:
-
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"

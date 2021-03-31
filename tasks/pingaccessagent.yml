@@ -3,7 +3,6 @@
 ---
 - name: Avi PingAccessAgent | Create or Update PingAccessAgent
   avi_pingaccessagent:
-
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"

@@ -3,7 +3,6 @@
 ---
 - name: Avi SnmpTrapProfile | Create or Update SnmpTrapProfile
   avi_snmptrapprofile:
-
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"

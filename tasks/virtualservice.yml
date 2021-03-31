@@ -3,7 +3,6 @@
 ---
 - name: Avi VirtualService | Create or Update VirtualService
   avi_virtualservice:
-
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -27,6 +26,7 @@
     avi_allocated_fip: "{{ item.avi_allocated_fip | default(omit) }}"
     avi_allocated_vip: "{{ item.avi_allocated_vip | default(omit) }}"
     azure_availability_set: "{{ item.azure_availability_set | default(omit) }}"
+    bgp_peer_labels: "{{ item.bgp_peer_labels | default(omit) }}"
     bot_policy_ref: "{{ item.bot_policy_ref | default(omit) }}"
     bulk_sync_kvcache: "{{ item.bulk_sync_kvcache | default(omit) }}"
     client_auth: "{{ item.client_auth | default(omit) }}"

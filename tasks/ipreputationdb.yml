@@ -3,7 +3,6 @@
 ---
 - name: Avi IPReputationDB | Create or Update IPReputationDB
   avi_ipreputationdb:
-
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"

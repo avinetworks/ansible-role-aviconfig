@@ -3,7 +3,6 @@
 ---
 - name: Avi NetworkProfile | Create or Update NetworkProfile
   avi_networkprofile:
-
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"

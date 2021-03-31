@@ -3,7 +3,6 @@
 ---
 - name: Avi SecurityPolicy | Create or Update SecurityPolicy
   avi_securitypolicy:
-
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -15,6 +14,7 @@
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
+    dns_amplification_denyports: "{{ item.dns_amplification_denyports | default(omit) }}"
     dns_attacks: "{{ item.dns_attacks | default(omit) }}"
     dns_policy_index: "{{ item.dns_policy_index | default(omit) }}"
     labels: "{{ item.labels | default(omit) }}"

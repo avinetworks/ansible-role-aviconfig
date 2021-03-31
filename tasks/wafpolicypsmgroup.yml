@@ -3,7 +3,6 @@
 ---
 - name: Avi WafPolicyPSMGroup | Create or Update WafPolicyPSMGroup
   avi_wafpolicypsmgroup:
-
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"

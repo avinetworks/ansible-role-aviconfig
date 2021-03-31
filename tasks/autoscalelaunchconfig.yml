@@ -3,7 +3,6 @@
 ---
 - name: Avi AutoScaleLaunchConfig | Create or Update AutoScaleLaunchConfig
   avi_autoscalelaunchconfig:
-
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"

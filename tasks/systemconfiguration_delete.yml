@@ -3,15 +3,13 @@
 ---
 - name: Avi SystemConfiguration | Delete SystemConfiguration
   avi_systemconfiguration:
-
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
     tenant: "{{ item.tenant | default(omit) }}"
     api_version: "{{ api_version | default(omit) }}"
     avi_credentials: "{{ avi_credentials | default(omit) }}"
-    api_context: "{{ avi_api_context | default(omit) }}"
-    state: present
+    api_context: "{{ avi_api_context | default(omit) }}"    state: present
     avi_api_update_method: patch
     avi_api_patch_op: delete
     ntp_configuration: {}

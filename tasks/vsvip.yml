@@ -3,7 +3,6 @@
 ---
 - name: Avi VsVip | Create or Update VsVip
   avi_vsvip:
-
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -14,13 +13,13 @@
     api_context: "{{ avi_api_context | default(omit) }}"
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
+    bgp_peer_labels: "{{ item.bgp_peer_labels | default(omit) }}"
     cloud_ref: "{{ item.cloud_ref | default(omit) }}"
     dns_info: "{{ item.dns_info | default(omit) }}"
     east_west_placement: "{{ item.east_west_placement | default(omit) }}"
     ipam_selector: "{{ item.ipam_selector | default(omit) }}"
     labels: "{{ item.labels | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
-    peer_labels: "{{ item.peer_labels | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"
     tier1_lr: "{{ item.tier1_lr | default(omit) }}"
     use_standard_alb: "{{ item.use_standard_alb | default(omit) }}"

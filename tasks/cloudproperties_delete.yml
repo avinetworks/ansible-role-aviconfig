@@ -3,7 +3,6 @@
 ---
 - name: Avi CloudProperties | Delete CloudProperties
   avi_cloudproperties:
-
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
