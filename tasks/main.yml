@@ -35,6 +35,7 @@
 - name: Initialize Avi module includes
   set_fact:
     config_resources: []
+
 - name: Avi Config | Check tenant exists
   avi_api_session:
     controller: "{{ avi_controller | default(omit) }}"
@@ -57,6 +58,7 @@
     - tenant_res.results[0] is defined
     - tenant_res.results[0].obj is defined
     - tenant_res.results[0].obj.count == 0
+
 - name: Avi Config | Fetch cloud status
   avi_api_session:
     controller: "{{ avi_controller | default(omit) }}"
