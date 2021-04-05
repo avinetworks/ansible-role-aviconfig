@@ -26,6 +26,7 @@
     hm_off: "{{ item.hm_off | default(omit) }}"
     is_federated: "{{ item.is_federated | default(omit) }}"
     labels: "{{ item.labels | default(omit) }}"
+    markers: "{{ item.markers | default(omit) }}"
     min_members: "{{ item.min_members | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
     num_dns_ip: "{{ item.num_dns_ip | default(omit) }}"

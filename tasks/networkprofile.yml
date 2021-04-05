@@ -16,6 +16,7 @@
     connection_mirror: "{{ item.connection_mirror | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
     labels: "{{ item.labels | default(omit) }}"
+    markers: "{{ item.markers | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
     profile: "{{ item.profile | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"

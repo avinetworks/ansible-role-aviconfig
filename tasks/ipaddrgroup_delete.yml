@@ -21,6 +21,7 @@
     labels: "{{ item.labels | default(omit) }}"
     marathon_app_name: "{{ item.marathon_app_name | default(omit) }}"
     marathon_service_port: "{{ item.marathon_service_port | default(omit) }}"
+    markers: "{{ item.markers | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
     prefixes: "{{ item.prefixes | default(omit) }}"
     ranges: "{{ item.ranges | default(omit) }}"

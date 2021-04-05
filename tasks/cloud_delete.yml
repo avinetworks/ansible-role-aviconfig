@@ -39,6 +39,7 @@
     dhcp_enabled: "{{ item.dhcp_enabled | default(omit) }}"
     dns_provider_ref: "{{ item.dns_provider_ref | default(omit) }}"
     dns_resolution_on_se: "{{ item.dns_resolution_on_se | default(omit) }}"
+    dns_resolvers: "{{ item.dns_resolvers | default(omit) }}"
     docker_configuration: "{{ item.docker_configuration | default(omit) }}"
     east_west_dns_provider_ref: "{{ item.east_west_dns_provider_ref | default(omit) }}"
     east_west_ipam_provider_ref: "{{ item.east_west_ipam_provider_ref | default(omit) }}"
@@ -67,6 +68,7 @@
     uuid: "{{ item.uuid | default(omit) }}"
     vca_configuration: "{{ item.vca_configuration | default(omit) }}"
     vcenter_configuration: "{{ item.vcenter_configuration | default(omit) }}"
+    vmc_deployment: "{{ item.vmc_deployment | default(omit) }}"
     vtype: "{{ item.vtype | default(omit) }}"
   when:
     - (item.name | length > 0)
