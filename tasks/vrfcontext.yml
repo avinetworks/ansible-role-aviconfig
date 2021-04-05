@@ -23,6 +23,7 @@
     internal_gateway_monitor: "{{ item.internal_gateway_monitor | default(omit) }}"
     labels: "{{ item.labels | default(omit) }}"
     lldp_enable: "{{ item.lldp_enable | default(omit) }}"
+    markers: "{{ item.markers | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
     static_routes: "{{ item.static_routes | default(omit) }}"
     system_default: "{{ item.system_default | default(omit) }}"

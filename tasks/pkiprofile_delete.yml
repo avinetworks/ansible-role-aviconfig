@@ -20,6 +20,7 @@
     ignore_peer_chain: "{{ item.ignore_peer_chain | default(omit) }}"
     is_federated: "{{ item.is_federated | default(omit) }}"
     labels: "{{ item.labels | default(omit) }}"
+    markers: "{{ item.markers | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"
