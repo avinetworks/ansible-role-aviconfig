@@ -1,5 +1,5 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
 - name: Avi HealthMonitor | Create or Update HealthMonitor
   avi_healthmonitor:

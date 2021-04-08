@@ -1,5 +1,5 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
 - name: Avi NsxtSegmentRuntime | Create or Update NsxtSegmentRuntime
   avi_nsxtsegmentruntime:
@@ -30,6 +30,7 @@
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"
     tier1_id: "{{ item.tier1_id | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"
+    vlan_ids: "{{ item.vlan_ids | default(omit) }}"
     vrf_context_ref: "{{ item.vrf_context_ref | default(omit) }}"
   when:
     - (avi_role_state_mode == "present" and avi_config_state == "present")

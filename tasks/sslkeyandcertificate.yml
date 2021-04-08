@@ -1,5 +1,5 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
 - name: Avi SSLKeyAndCertificate | Upload or Update SSL certificate - always changed due to sensitve field
   avi_sslkeyandcertificate:
