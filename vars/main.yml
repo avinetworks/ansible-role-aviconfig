@@ -2,7 +2,7 @@
 # Copyright Avi Networks
 ---
 avi_resource_types:
-  - tenant
+  - labelgroup
   - albservicesconfig
   - systemlimits
   - licenseledgerdetails
@@ -10,6 +10,7 @@ avi_resource_types:
   - useraccountprofile
   - cloudproperties
   - seproperties
+  - tenant
   - cloudconnectoruser
   - hardwaresecuritymodulegroup
   - alertscriptconfig
@@ -44,6 +45,7 @@ avi_resource_types:
   - securitymanagerdata
   - cluster
   - poolgroupdeploymentpolicy
+  - jwtprofile
   - backupconfiguration
   - clusterclouddetails
   - certificatemanagementprofile
