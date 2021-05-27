@@ -1,5 +1,5 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
 - name: Avi VrfContext | Create or Update VrfContext
   avi_vrfcontext:
@@ -17,6 +17,7 @@
     bfd_profile: "{{ item.bfd_profile | default(omit) }}"
     bgp_profile: "{{ item.bgp_profile | default(omit) }}"
     cloud_ref: "{{ item.cloud_ref | default(omit) }}"
+    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     debugvrfcontext: "{{ item.debugvrfcontext | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
     gateway_mon: "{{ item.gateway_mon | default(omit) }}"

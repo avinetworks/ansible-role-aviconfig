@@ -1,5 +1,5 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
 - name: Avi AnalyticsProfile | Delete AnalyticsProfile
   avi_analyticsprofile:
@@ -25,6 +25,7 @@
     apdex_server_rtt_tolerated_factor: "{{ item.apdex_server_rtt_tolerated_factor | default(omit) }}"
     client_log_config: "{{ item.client_log_config | default(omit) }}"
     client_log_streaming_config: "{{ item.client_log_streaming_config | default(omit) }}"
+    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     conn_lossy_ooo_threshold: "{{ item.conn_lossy_ooo_threshold | default(omit) }}"
     conn_lossy_timeo_rexmt_threshold: "{{ item.conn_lossy_timeo_rexmt_threshold | default(omit) }}"
     conn_lossy_total_rexmt_threshold: "{{ item.conn_lossy_total_rexmt_threshold | default(omit) }}"

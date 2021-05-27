@@ -1,5 +1,5 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
 - name: Avi Network | Create or Update Network
   avi_network:
@@ -15,6 +15,7 @@
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     attrs: "{{ item.attrs | default(omit) }}"
     cloud_ref: "{{ item.cloud_ref | default(omit) }}"
+    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     configured_subnets: "{{ item.configured_subnets | default(omit) }}"
     dhcp_enabled: "{{ item.dhcp_enabled | default(omit) }}"
     exclude_discovered_subnets: "{{ item.exclude_discovered_subnets | default(omit) }}"

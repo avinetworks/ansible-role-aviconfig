@@ -1,5 +1,5 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
 - name: Avi SSLKeyAndCertificate | Delete SSLKeyAndCertificate
   avi_sslkeyandcertificate:
@@ -17,6 +17,7 @@
     certificate: "{{ item.certificate | default(omit) }}"
     certificate_base64: "{{ item.certificate_base64 | default(omit) }}"
     certificate_management_profile_ref: "{{ item.certificate_management_profile_ref | default(omit) }}"
+    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     created_by: "{{ item.created_by | default(omit) }}"
     dynamic_params: "{{ item.dynamic_params | default(omit) }}"
     enable_ocsp_stapling: "{{ item.enable_ocsp_stapling | default(omit) }}"

@@ -1,9 +1,8 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
 - name: Avi SSLKeyAndCertificate | Upload or Update SSL certificate - always changed due to sensitve field
   avi_sslkeyandcertificate:
-
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -17,6 +16,7 @@
     certificate: "{{ item.certificate | default(omit) }}"
     certificate_base64: "{{ item.certificate_base64 | default(omit) }}"
     certificate_management_profile_ref: "{{ item.certificate_management_profile_ref | default(omit) }}"
+    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     created_by: "{{ item.created_by | default(omit) }}"
     dynamic_params: "{{ item.dynamic_params | default(omit) }}"
     enable_ocsp_stapling: "{{ item.enable_ocsp_stapling | default(omit) }}"
@@ -91,7 +91,6 @@
 
 - name: Avi SSLKeyAndCertificate | Create / Update self signed certs
   avi_sslkeyandcertificate:
-
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -105,6 +104,7 @@
     certificate: "{{ item.ansible_facts.keycert.certificate | default(omit) }}"
     certificate_base64: "{{ item.ansible_facts.keycert.certificate_base64 | default(omit) }}"
     certificate_management_profile_ref: "{{ item.ansible_facts.keycert.certificate_management_profile_ref | default(omit) }}"
+    configpb_attributes: "{{ item.ansible_facts.keycert.configpb_attributes | default(omit) }}"
     created_by: "{{ item.ansible_facts.keycert.created_by | default(omit) }}"
     dynamic_params: "{{ item.ansible_facts.keycert.dynamic_params | default(omit) }}"
     enable_ocsp_stapling: "{{ item.ansible_facts.keycert.enable_ocsp_stapling | default(omit) }}"

@@ -1,5 +1,5 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
 - name: Avi Cloud | Setup Cloud
   no_log: "{{ avi_role_config_log_mode | default(False)}}"
@@ -19,6 +19,7 @@
     aws_configuration: "{{ item.aws_configuration | default(omit) }}"
     azure_configuration: "{{ item.azure_configuration | default(omit) }}"
     cloudstack_configuration: "{{ item.cloudstack_configuration | default(omit) }}"
+    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     custom_tags: "{{ item.custom_tags | default(omit) }}"
     dhcp_enabled: "{{ item.dhcp_enabled | default(omit) }}"
     dns_provider_ref: "{{ item.dns_provider_ref | default(omit) }}"
@@ -106,6 +107,7 @@
     aws_configuration: "{{ item.aws_configuration | default(omit) }}"
     azure_configuration: "{{ item.azure_configuration | default(omit) }}"
     cloudstack_configuration: "{{ item.cloudstack_configuration | default(omit) }}"
+    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     custom_tags: "{{ item.custom_tags | default(omit) }}"
     dhcp_enabled: "{{ item.dhcp_enabled | default(omit) }}"
     dns_provider_ref: "{{ item.dns_provider_ref | default(omit) }}"

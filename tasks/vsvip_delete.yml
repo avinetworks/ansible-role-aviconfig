@@ -1,5 +1,5 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
 - name: Avi VsVip | Delete VsVip
   avi_vsvip:
@@ -15,6 +15,7 @@
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     bgp_peer_labels: "{{ item.bgp_peer_labels | default(omit) }}"
     cloud_ref: "{{ item.cloud_ref | default(omit) }}"
+    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     dns_info: "{{ item.dns_info | default(omit) }}"
     east_west_placement: "{{ item.east_west_placement | default(omit) }}"
     ipam_selector: "{{ item.ipam_selector | default(omit) }}"

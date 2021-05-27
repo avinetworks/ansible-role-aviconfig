@@ -1,5 +1,5 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
 - name: Avi SSOPolicy | Delete SSOPolicy
   avi_ssopolicy:
@@ -15,6 +15,7 @@
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     authentication_policy: "{{ item.authentication_policy | default(omit) }}"
     authorization_policy: "{{ item.authorization_policy | default(omit) }}"
+    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     labels: "{{ item.labels | default(omit) }}"
     markers: "{{ item.markers | default(omit) }}"
     name: "{{ item.name | default(omit) }}"

@@ -1,5 +1,5 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
 - name: Avi PriorityLabels | Create or Update PriorityLabels
   avi_prioritylabels:
@@ -14,6 +14,7 @@
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     cloud_ref: "{{ item.cloud_ref | default(omit) }}"
+    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
     equivalent_labels: "{{ item.equivalent_labels | default(omit) }}"
     labels: "{{ item.labels | default(omit) }}"
