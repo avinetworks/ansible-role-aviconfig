@@ -1,8 +1,9 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
-- name: Avi PortalFileUpload | Delete PortalFileUpload
-  avi_portalfileupload:
+- name: Avi BotConfigConsolidator | Delete BotConfigConsolidator
+  no_log: "{{ avi_role_config_log_mode | default(False) }}"
+  avi_botconfigconsolidator:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -13,12 +14,9 @@
     state: "{{ avi_role_state_mode }}"
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
-    case_id: "{{ item.case_id | default(omit) }}"
-    error: "{{ item.error | default(omit) }}"
-    file_path: "{{ item.file_path | default(omit) }}"
+    description: "{{ item.description | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
-    s3_directory: "{{ item.s3_directory | default(omit) }}"
-    status: "{{ item.status | default(omit) }}"
+    script: "{{ item.script | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"
   when:
@@ -26,4 +24,4 @@
     - (not (item.system_default | default(false)))
     - (avi_config_state == "absent" or avi_role_state_mode == "absent")
     - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-  with_items: "{{ avi_role_cfg.portalfileupload | default([]) }}"
+  with_items: "{{ avi_role_cfg.botconfigconsolidator | default([]) }}"

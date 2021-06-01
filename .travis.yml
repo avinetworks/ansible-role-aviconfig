@@ -2,7 +2,7 @@
 dist: bionic
 language: python
 python:
-  - "3.7"
+  - "3.8"
 
 before_install:
   - sudo apt-get update
@@ -26,15 +26,16 @@ before_script:
   - cd avinetworks.$ROLE_NAME
 
 script:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - molecule test
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
   email:
     recipients:
-      - rastogiga@vmware.com
-      - deshpandech@vmware.com
-      - pshrikan@vmware.com
-      - sabandi@vmware.com
+      # - rastogiga@vmware.com
+      #- deshpandech@vmware.com
+      #- pshrikan@vmware.com
+      #- sabandi@vmware.com
       - samol@vmware.com
     on_failure: always
