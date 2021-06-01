@@ -1,8 +1,9 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
-- name: Avi PortalFileUpload | Create or Update PortalFileUpload
-  avi_portalfileupload:
+- name: Avi BotIPReputationTypeMapping | Create or Update BotIPReputationTypeMapping
+  no_log: "{{ avi_role_config_log_mode | default(False) }}"
+  avi_botipreputationtypemapping:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -13,15 +14,11 @@
     api_context: "{{ avi_api_context | default(omit) }}"
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
-    case_id: "{{ item.case_id | default(omit) }}"
-    error: "{{ item.error | default(omit) }}"
-    file_path: "{{ item.file_path | default(omit) }}"
+    ip_reputation_mappings: "{{ item.ip_reputation_mappings | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
-    s3_directory: "{{ item.s3_directory | default(omit) }}"
-    status: "{{ item.status | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"
   when:
     - (avi_role_state_mode == "present" and avi_config_state == "present")
     - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-  with_items: "{{ avi_role_cfg.portalfileupload | default([]) }}"
+  with_items: "{{ avi_role_cfg.botipreputationtypemapping | default([]) }}"

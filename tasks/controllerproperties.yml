@@ -1,7 +1,8 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
 - name: Avi ControllerProperties | Create or Update ControllerProperties
+  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_controllerproperties:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -25,10 +26,12 @@
     attach_ip_retry_interval: "{{ item.attach_ip_retry_interval | default(omit) }}"
     attach_ip_retry_limit: "{{ item.attach_ip_retry_limit | default(omit) }}"
     bm_use_ansible: "{{ item.bm_use_ansible | default(omit) }}"
+    check_fqdn_syntax: "{{ item.check_fqdn_syntax | default(omit) }}"
     cleanup_expired_authtoken_timeout_period: "{{ item.cleanup_expired_authtoken_timeout_period | default(omit) }}"
     cleanup_sessions_timeout_period: "{{ item.cleanup_sessions_timeout_period | default(omit) }}"
     cloud_reconcile: "{{ item.cloud_reconcile | default(omit) }}"
     cluster_ip_gratuitous_arp_period: "{{ item.cluster_ip_gratuitous_arp_period | default(omit) }}"
+    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     consistency_check_timeout_period: "{{ item.consistency_check_timeout_period | default(omit) }}"
     controller_resource_info_collection_period: "{{ item.controller_resource_info_collection_period | default(omit) }}"
     crashed_se_reboot: "{{ item.crashed_se_reboot | default(omit) }}"
@@ -40,6 +43,8 @@
     edit_system_limits: "{{ item.edit_system_limits | default(omit) }}"
     enable_api_sharding: "{{ item.enable_api_sharding | default(omit) }}"
     enable_memory_balancer: "{{ item.enable_memory_balancer | default(omit) }}"
+    enable_per_process_stop: "{{ item.enable_per_process_stop | default(omit) }}"
+    enable_resmgr_log_cache_print: "{{ item.enable_resmgr_log_cache_print | default(omit) }}"
     fatal_error_lease_time: "{{ item.fatal_error_lease_time | default(omit) }}"
     federated_datastore_cleanup_duration: "{{ item.federated_datastore_cleanup_duration | default(omit) }}"
     file_object_cleanup_period: "{{ item.file_object_cleanup_period | default(omit) }}"
@@ -79,6 +84,7 @@
     upgrade_fat_se_lease_time: "{{ item.upgrade_fat_se_lease_time | default(omit) }}"
     upgrade_lease_time: "{{ item.upgrade_lease_time | default(omit) }}"
     upgrade_se_per_vs_scale_ops_txn_time: "{{ item.upgrade_se_per_vs_scale_ops_txn_time | default(omit) }}"
+    user_agent_cache_config: "{{ item.user_agent_cache_config | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"
     vnic_op_fail_time: "{{ item.vnic_op_fail_time | default(omit) }}"
     vs_apic_scaleout_timeout: "{{ item.vs_apic_scaleout_timeout | default(omit) }}"

@@ -1,9 +1,9 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
 - name: Avi SSLKeyAndCertificate | Upload or Update SSL certificate - always changed due to sensitve field
+  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_sslkeyandcertificate:
-
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -17,6 +17,7 @@
     certificate: "{{ item.certificate | default(omit) }}"
     certificate_base64: "{{ item.certificate_base64 | default(omit) }}"
     certificate_management_profile_ref: "{{ item.certificate_management_profile_ref | default(omit) }}"
+    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     created_by: "{{ item.created_by | default(omit) }}"
     dynamic_params: "{{ item.dynamic_params | default(omit) }}"
     enable_ocsp_stapling: "{{ item.enable_ocsp_stapling | default(omit) }}"
@@ -57,9 +58,9 @@
 - name: Avi SSLKeyAndCertificate | create self-signed SSL cert if not present
   command: >
     openssl req -new -nodes -x509 -subj "/C=US/ST=CA/L=San Francisco/O=IT/CN={{ item.1.name }}"
-    -days 3650 -keyout "{{site_dir}}"/applications/"{{ app_name }}"/"{{item.1.name}}".key -out
-    "{{site_dir}}"/applications/"{{ app_name }}"/"{{item.1.name}}".crt -extensions
-    v3_ca creates="{{site_dir}}"/applications/"{{ app_name }}"/"{{item.1.name}}".crt
+    -days 3650 -keyout "{{ site_dir }}"/applications/"{{ app_name }}"/"{{ item.1.name }}".key -out
+    "{{ site_dir }}"/applications/"{{ app_name }}"/"{{ item.1.name }}".crt -extensions
+    v3_ca creates="{{ site_dir }}"/applications/"{{ app_name }}"/"{{ item.1.name }}".crt
   args:
     creates: "{{ site_dir/applications/app_name/item.1.name.crt }}"
   with_indexed_items: "{{ avi_role_cfg.sslkeyandcertificate | default([]) }}"
@@ -90,8 +91,8 @@
     - item.certificate.certificate is undefined
 
 - name: Avi SSLKeyAndCertificate | Create / Update self signed certs
+  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_sslkeyandcertificate:
-
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -105,6 +106,7 @@
     certificate: "{{ item.ansible_facts.keycert.certificate | default(omit) }}"
     certificate_base64: "{{ item.ansible_facts.keycert.certificate_base64 | default(omit) }}"
     certificate_management_profile_ref: "{{ item.ansible_facts.keycert.certificate_management_profile_ref | default(omit) }}"
+    configpb_attributes: "{{ item.ansible_facts.keycert.configpb_attributes | default(omit) }}"
     created_by: "{{ item.ansible_facts.keycert.created_by | default(omit) }}"
     dynamic_params: "{{ item.ansible_facts.keycert.dynamic_params | default(omit) }}"
     enable_ocsp_stapling: "{{ item.ansible_facts.keycert.enable_ocsp_stapling | default(omit) }}"
