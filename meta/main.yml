@@ -1,11 +1,10 @@
----
 galaxy_info:
-  author: Eric Anderson
-  description: Ansible role that allows use of Avi Ansible Modules
+  author: Gaurav Rastogi
+  description: Ansible role to configure Avi
   company: Avi Networks
-  issue_tracker_url: https://github.com/avinetworks/ansible-role-avisdk/issues
+  issue_tracker_url: https://github.com/avinetworks/ansible-role-aviconfig/issues
   license: Apache-2.0
-  min_ansible_version: 2.0.0
+  min_ansible_version: 2.2
   github_branch: master
   platforms:
     - name: EL
@@ -28,6 +27,7 @@ galaxy_info:
         - jessie
         - stretch
         - wheezy
+
   galaxy_tags:
     - avi
     - controller
@@ -38,7 +38,11 @@ galaxy_info:
     - load
     - balancer
     - sdk
-    - ubuntu
-    - centos
-    - debian
-dependencies: []
+    - lbaas
+    - lb
+    - virtualserver
+    - cloud
+    - loadbalancer
+    - gslb
+dependencies:
+  - role: avinetworks.avisdk
