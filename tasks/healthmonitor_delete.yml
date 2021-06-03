@@ -1,8 +1,7 @@
 # Automatically Generated File
-# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
+# Copyright Avi Networks
 ---
 - name: Avi HealthMonitor | Delete HealthMonitor
-  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_healthmonitor:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -16,7 +15,6 @@
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     allow_duplicate_monitors: "{{ item.allow_duplicate_monitors | default(omit) }}"
     authentication: "{{ item.authentication | default(omit) }}"
-    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
     disable_quickstart: "{{ item.disable_quickstart | default(omit) }}"
     dns_monitor: "{{ item.dns_monitor | default(omit) }}"

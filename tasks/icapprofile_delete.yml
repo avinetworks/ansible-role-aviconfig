@@ -1,8 +1,7 @@
 # Automatically Generated File
-# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
+# Copyright Avi Networks
 ---
 - name: Avi IcapProfile | Delete IcapProfile
-  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_icapprofile:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -18,12 +17,10 @@
     buffer_size: "{{ item.buffer_size | default(omit) }}"
     buffer_size_exceed_action: "{{ item.buffer_size_exceed_action | default(omit) }}"
     cloud_ref: "{{ item.cloud_ref | default(omit) }}"
-    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
     enable_preview: "{{ item.enable_preview | default(omit) }}"
     fail_action: "{{ item.fail_action | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
-    nsx_defender_config: "{{ item.nsx_defender_config | default(omit) }}"
     pool_group_ref: "{{ item.pool_group_ref | default(omit) }}"
     preview_size: "{{ item.preview_size | default(omit) }}"
     response_timeout: "{{ item.response_timeout | default(omit) }}"

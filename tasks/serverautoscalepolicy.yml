@@ -1,8 +1,7 @@
 # Automatically Generated File
-# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
+# Copyright Avi Networks
 ---
 - name: Avi ServerAutoScalePolicy | Create or Update ServerAutoScalePolicy
-  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_serverautoscalepolicy:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -14,7 +13,6 @@
     api_context: "{{ avi_api_context | default(omit) }}"
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
-    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     delay_for_server_garbage_collection: "{{ item.delay_for_server_garbage_collection | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
     intelligent_autoscale: "{{ item.intelligent_autoscale | default(omit) }}"
@@ -31,7 +29,6 @@
     scalein_cooldown: "{{ item.scalein_cooldown | default(omit) }}"
     scaleout_alertconfig_refs: "{{ item.scaleout_alertconfig_refs | default(omit) }}"
     scaleout_cooldown: "{{ item.scaleout_cooldown | default(omit) }}"
-    scheduled_scalings: "{{ item.scheduled_scalings | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"
     use_predicted_load: "{{ item.use_predicted_load | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"

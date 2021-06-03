@@ -1,8 +1,7 @@
 # Automatically Generated File
-# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
+# Copyright Avi Networks
 ---
 - name: Avi ActionGroupConfig | Create or Update ActionGroupConfig
-  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_actiongroupconfig:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -16,7 +15,6 @@
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     action_script_config_ref: "{{ item.action_script_config_ref | default(omit) }}"
     autoscale_trigger_notification: "{{ item.autoscale_trigger_notification | default(omit) }}"
-    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
     email_config_ref: "{{ item.email_config_ref | default(omit) }}"
     external_only: "{{ item.external_only | default(omit) }}"

@@ -1,8 +1,7 @@
 # Automatically Generated File
-# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
+# Copyright Avi Networks
 ---
 - name: Avi NetworkSecurityPolicy | Create or Update NetworkSecurityPolicy
-  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_networksecuritypolicy:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -15,11 +14,8 @@
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     cloud_config_cksum: "{{ item.cloud_config_cksum | default(omit) }}"
-    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     created_by: "{{ item.created_by | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
-    geo_db_ref: "{{ item.geo_db_ref | default(omit) }}"
-    internal: "{{ item.internal | default(omit) }}"
     ip_reputation_db_ref: "{{ item.ip_reputation_db_ref | default(omit) }}"
     labels: "{{ item.labels | default(omit) }}"
     markers: "{{ item.markers | default(omit) }}"

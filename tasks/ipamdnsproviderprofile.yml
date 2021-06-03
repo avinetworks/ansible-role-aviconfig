@@ -1,8 +1,7 @@
 # Automatically Generated File
-# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
+# Copyright Avi Networks
 ---
 - name: Avi IpamDnsProviderProfile | Create or Update IpamDnsProviderProfile
-  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_ipamdnsproviderprofile:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -17,7 +16,6 @@
     allocate_ip_in_vrf: "{{ item.allocate_ip_in_vrf | default(omit) }}"
     aws_profile: "{{ item.aws_profile | default(omit) }}"
     azure_profile: "{{ item.azure_profile | default(omit) }}"
-    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     custom_profile: "{{ item.custom_profile | default(omit) }}"
     gcp_profile: "{{ item.gcp_profile | default(omit) }}"
     infoblox_profile: "{{ item.infoblox_profile | default(omit) }}"

@@ -1,8 +1,7 @@
 # Automatically Generated File
-# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
+# Copyright Avi Networks
 ---
 - name: Avi VsVip | Create or Update VsVip
-  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_vsvip:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -16,7 +15,6 @@
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     bgp_peer_labels: "{{ item.bgp_peer_labels | default(omit) }}"
     cloud_ref: "{{ item.cloud_ref | default(omit) }}"
-    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     dns_info: "{{ item.dns_info | default(omit) }}"
     east_west_placement: "{{ item.east_west_placement | default(omit) }}"
     ipam_selector: "{{ item.ipam_selector | default(omit) }}"

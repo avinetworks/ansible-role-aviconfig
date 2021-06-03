@@ -1,8 +1,7 @@
 # Automatically Generated File
-# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
+# Copyright Avi Networks
 ---
 - name: Avi TrafficCloneProfile | Create or Update TrafficCloneProfile
-  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_trafficcloneprofile:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -16,7 +15,6 @@
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     clone_servers: "{{ item.clone_servers | default(omit) }}"
     cloud_ref: "{{ item.cloud_ref | default(omit) }}"
-    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     labels: "{{ item.labels | default(omit) }}"
     markers: "{{ item.markers | default(omit) }}"
     name: "{{ item.name | default(omit) }}"

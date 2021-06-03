@@ -1,8 +1,7 @@
 # Automatically Generated File
-# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
+# Copyright Avi Networks
 ---
 - name: Avi JWTProfile | Create or Update JWTProfile
-  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_jwtprofile:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"

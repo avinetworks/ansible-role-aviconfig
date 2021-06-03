@@ -1,8 +1,7 @@
 # Automatically Generated File
-# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
+# Copyright Avi Networks
 ---
 - name: Avi CloudProperties | Create or Update CloudProperties
-  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_cloudproperties:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -16,7 +15,6 @@
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     cc_props: "{{ item.cc_props | default(omit) }}"
     cc_vtypes: "{{ item.cc_vtypes | default(omit) }}"
-    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     hyp_props: "{{ item.hyp_props | default(omit) }}"
     info: "{{ item.info | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"

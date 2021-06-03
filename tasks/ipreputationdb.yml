@@ -1,8 +1,7 @@
 # Automatically Generated File
-# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
+# Copyright Avi Networks
 ---
 - name: Avi IPReputationDB | Create or Update IPReputationDB
-  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_ipreputationdb:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -15,7 +14,6 @@
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     base_file_refs: "{{ item.base_file_refs | default(omit) }}"
-    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
     incremental_file_refs: "{{ item.incremental_file_refs | default(omit) }}"
     labels: "{{ item.labels | default(omit) }}"

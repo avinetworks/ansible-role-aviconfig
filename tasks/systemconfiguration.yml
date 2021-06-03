@@ -1,8 +1,7 @@
 # Automatically Generated File
-# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
+# Copyright Avi Networks
 ---
 - name: Avi SystemConfiguration | Update SystemConfiguration
-  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_systemconfiguration:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -16,7 +15,6 @@
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     admin_auth_configuration: "{{ item.admin_auth_configuration | default(omit) }}"
     common_criteria_mode: "{{ item.common_criteria_mode | default(omit) }}"
-    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     default_license_tier: "{{ item.default_license_tier | default(omit) }}"
     dns_configuration: "{{ item.dns_configuration | default(omit) }}"
     dns_virtualservice_refs: "{{ item.dns_virtualservice_refs | default(omit) }}"
@@ -39,11 +37,10 @@
   when:
     - (avi_role_state_mode == "present" and avi_config_state == "present")
     - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-    - (update_sysconfig_dns_vs_ref | default(True))
+    - (update_sysconfig_dns_vs_ref | default(True) == True)
   with_items: "{{ avi_role_cfg.systemconfiguration | default([]) }}"
 
 - name: Avi SystemConfiguration | Update SystemConfiguration without DNS VS reference
-  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_systemconfiguration:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -57,7 +54,6 @@
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     admin_auth_configuration: "{{ item.admin_auth_configuration | default(omit) }}"
     common_criteria_mode: "{{ item.common_criteria_mode | default(omit) }}"
-    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     default_license_tier: "{{ item.default_license_tier | default(omit) }}"
     dns_configuration: "{{ item.dns_configuration | default(omit) }}"
     docker_mode: "{{ item.docker_mode | default(omit) }}"
@@ -79,5 +75,5 @@
   when:
     - (avi_role_state_mode == "present" and avi_config_state == "present")
     - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-    - (not update_sysconfig_dns_vs_ref | default(True))
+    - (update_sysconfig_dns_vs_ref | default(True) == False)
   with_items: "{{ avi_role_cfg.systemconfiguration | default([]) }}"

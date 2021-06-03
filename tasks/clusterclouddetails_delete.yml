@@ -1,8 +1,7 @@
 # Automatically Generated File
-# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
+# Copyright Avi Networks
 ---
 - name: Avi ClusterCloudDetails | Delete ClusterCloudDetails
-  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_clusterclouddetails:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -15,7 +14,6 @@
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     azure_info: "{{ item.azure_info | default(omit) }}"
-    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"

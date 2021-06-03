@@ -1,8 +1,7 @@
 # Automatically Generated File
-# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
+# Copyright Avi Networks
 ---
 - name: Avi ErrorPageProfile | Create or Update ErrorPageProfile
-  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_errorpageprofile:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -16,7 +15,6 @@
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     app_name: "{{ item.app_name | default(omit) }}"
     company_name: "{{ item.company_name | default(omit) }}"
-    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     error_pages: "{{ item.error_pages | default(omit) }}"
     host_name: "{{ item.host_name | default(omit) }}"
     labels: "{{ item.labels | default(omit) }}"

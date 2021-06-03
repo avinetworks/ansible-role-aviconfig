@@ -1,8 +1,8 @@
 # Automatically Generated File
-# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
+# Copyright Avi Networks
 ---
+
 - name: Avi Config | Fetch cloud status before deletion
-  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_api_session:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username  | default(omit) }}"
@@ -17,7 +17,7 @@
   register: cloud_res
 
 - name: Avi Cloud | Delete Cloud
-  no_log: "{{ avi_role_config_log_mode | default(False) }}"
+  no_log: "{{ avi_role_config_log_mode | default(False)}}"
   avi_cloud:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -35,7 +35,6 @@
     aws_configuration: "{{ item.aws_configuration | default(omit) }}"
     azure_configuration: "{{ item.azure_configuration | default(omit) }}"
     cloudstack_configuration: "{{ item.cloudstack_configuration | default(omit) }}"
-    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     custom_tags: "{{ item.custom_tags | default(omit) }}"
     dhcp_enabled: "{{ item.dhcp_enabled | default(omit) }}"
     dns_provider_ref: "{{ item.dns_provider_ref | default(omit) }}"
