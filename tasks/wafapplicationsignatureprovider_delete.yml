@@ -1,7 +1,8 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
 - name: Avi WafApplicationSignatureProvider | Delete WafApplicationSignatureProvider
+  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_wafapplicationsignatureprovider:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -14,6 +15,7 @@
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     available_applications: "{{ item.available_applications | default(omit) }}"
+    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     last_check_for_updates_error: "{{ item.last_check_for_updates_error | default(omit) }}"
     last_failed_check_for_updates: "{{ item.last_failed_check_for_updates | default(omit) }}"
     last_successful_check_for_updates: "{{ item.last_successful_check_for_updates | default(omit) }}"

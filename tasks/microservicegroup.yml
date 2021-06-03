@@ -1,7 +1,8 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
 - name: Avi MicroServiceGroup | Create or Update MicroServiceGroup
+  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_microservicegroup:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -13,6 +14,7 @@
     api_context: "{{ avi_api_context | default(omit) }}"
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
+    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     created_by: "{{ item.created_by | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
     name: "{{ item.name | default(omit) }}"

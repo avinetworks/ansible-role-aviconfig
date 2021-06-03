@@ -1,7 +1,8 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
 - name: Avi BackupConfiguration | Create or Update BackupConfiguration
+  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_backupconfiguration:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -18,6 +19,7 @@
     aws_secret_access: "{{ item.aws_secret_access | default(omit) }}"
     backup_file_prefix: "{{ item.backup_file_prefix | default(omit) }}"
     backup_passphrase: "{{ item.backup_passphrase | default(omit) }}"
+    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     maximum_backups_stored: "{{ item.maximum_backups_stored | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
     remote_directory: "{{ item.remote_directory | default(omit) }}"
