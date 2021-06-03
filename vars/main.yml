@@ -1,5 +1,5 @@
 # Automatically Generated File
-# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
+# Copyright Avi Networks
 ---
 avi_resource_types:
   - labelgroup
@@ -32,8 +32,6 @@ avi_resource_types:
   - wafapplicationsignatureprovider
   - errorpagebody
   - testsedatastorelevel3
-  - botipreputationtypemapping
-  - botconfigconsolidator
   - federationcheckpoint
   - gslbgeodbprofile
   - siteversion
@@ -42,13 +40,11 @@ avi_resource_types:
   - dynamicdnsrecord
   - controllersite
   - role
-  - inventoryfaultconfig
   - albservicesfileupload
   - webhook
   - securitymanagerdata
   - cluster
   - poolgroupdeploymentpolicy
-  - memorybalancerrequest
   - jwtprofile
   - backupconfiguration
   - clusterclouddetails
@@ -56,12 +52,10 @@ avi_resource_types:
   - ipamdnsproviderprofile
   - analyticsprofile
   - wafpolicypsmgroup
-  - botmapping
   - natpolicy
   - applicationprofile
   - microservicegroup
   - ipreputationdb
-  - geodb
   - errorpageprofile
   - testsedatastorelevel2
   - gslb
@@ -70,7 +64,6 @@ avi_resource_types:
   - scheduler
   - sslkeyandcertificate
   - networksecuritypolicy
-  - botdetectionpolicy
   - testsedatastorelevel1
   - backup
   - cloud
