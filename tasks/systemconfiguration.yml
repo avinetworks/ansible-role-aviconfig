@@ -2,6 +2,7 @@
 # Copyright Avi Networks
 ---
 - name: Avi SystemConfiguration | Update SystemConfiguration
+  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_systemconfiguration:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -37,10 +38,11 @@
   when:
     - (avi_role_state_mode == "present" and avi_config_state == "present")
     - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-    - (update_sysconfig_dns_vs_ref | default(True) == True)
+    - (update_sysconfig_dns_vs_ref | default(True))
   with_items: "{{ avi_role_cfg.systemconfiguration | default([]) }}"
 
 - name: Avi SystemConfiguration | Update SystemConfiguration without DNS VS reference
+  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_systemconfiguration:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -75,5 +77,5 @@
   when:
     - (avi_role_state_mode == "present" and avi_config_state == "present")
     - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-    - (update_sysconfig_dns_vs_ref | default(True) == False)
+    - (not update_sysconfig_dns_vs_ref | default(True))
   with_items: "{{ avi_role_cfg.systemconfiguration | default([]) }}"
