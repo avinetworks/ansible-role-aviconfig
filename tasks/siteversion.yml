@@ -2,6 +2,7 @@
 # Copyright Avi Networks
 ---
 - name: Avi SiteVersion | Create or Update SiteVersion
+  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_siteversion:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
