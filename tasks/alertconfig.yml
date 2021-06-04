@@ -1,7 +1,8 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
 - name: Avi AlertConfig | Create or Update AlertConfig
+  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_alertconfig:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -17,6 +18,7 @@
     alert_rule: "{{ item.alert_rule | default(omit) }}"
     autoscale_alert: "{{ item.autoscale_alert | default(omit) }}"
     category: "{{ item.category | default(omit) }}"
+    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
     enabled: "{{ item.enabled | default(omit) }}"
     expiry_time: "{{ item.expiry_time | default(omit) }}"

@@ -1,7 +1,8 @@
 # Automatically Generated File
-# Copyright Avi Networks
+# Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
 - name: Avi GslbService | Create or Update GslbService
+  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_gslbservice:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
@@ -14,6 +15,7 @@
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     application_persistence_profile_ref: "{{ item.application_persistence_profile_ref | default(omit) }}"
+    configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
     controller_health_status_enabled: "{{ item.controller_health_status_enabled | default(omit) }}"
     created_by: "{{ item.created_by | default(omit) }}"
     description: "{{ item.description | default(omit) }}"
