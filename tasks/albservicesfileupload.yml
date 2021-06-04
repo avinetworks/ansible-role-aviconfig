@@ -2,6 +2,7 @@
 # Copyright Avi Networks
 ---
 - name: Avi ALBServicesFileUpload | Create or Update ALBServicesFileUpload
+  no_log: "{{ avi_role_config_log_mode | default(False) }}"
   avi_albservicesfileupload:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
