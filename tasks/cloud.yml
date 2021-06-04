@@ -7,7 +7,7 @@
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
-    tenant: "{{ item.tenant | default(omit)}}"
+    tenant: "{{ item.tenant | default(omit) }}"
     state: "{{ avi_role_state_mode }}"
     api_version: "{{ api_version | default(omit) }}"
     avi_credentials: "{{ avi_credentials | default(omit) }}"
