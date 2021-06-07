@@ -19,6 +19,7 @@
     http: "{{ item.http | default(omit) }}"
     jwt_profile_ref: "{{ item.jwt_profile_ref | default(omit) }}"
     ldap: "{{ item.ldap | default(omit) }}"
+    markers: "{{ item.markers | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
     pa_agent_ref: "{{ item.pa_agent_ref | default(omit) }}"
     saml: "{{ item.saml | default(omit) }}"
