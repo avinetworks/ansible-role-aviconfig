@@ -1,6 +1,5 @@
 # avinetworks.aviconfig
 
-[![Build Status](https://travis-ci.org/avinetworks/ansible-role-aviconfig.svg?branch=master)](https://travis-ci.org/avinetworks/ansible-role-aviconfig)
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-avinetworks.aviconfig-blue.svg)](https://galaxy.ansible.com/avinetworks/aviconfig/)
 
 
