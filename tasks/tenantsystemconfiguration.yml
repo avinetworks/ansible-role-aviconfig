@@ -1,9 +1,9 @@
 # Automatically Generated File
 # Copyright 2021 VMware, Inc. All rights reserved. VMware Confidential
 ---
-- name: Avi WebappUT | Create or Update WebappUT
+- name: Avi TenantSystemConfiguration | Create or Update TenantSystemConfiguration
   no_log: "{{ avi_role_config_log_mode | default(False) }}"
-  avi_webapput:
+  avi_tenantsystemconfiguration:
     controller: "{{ avi_controller | default(omit) }}"
     username: "{{ avi_username | default(omit) }}"
     password: "{{ avi_password | default(omit) }}"
@@ -15,18 +15,11 @@
     avi_api_update_method: "{{ item.avi_api_update_method | default(omit) }}"
     avi_api_patch_op: "{{ item.avi_api_patch_op | default(omit) }}"
     configpb_attributes: "{{ item.configpb_attributes | default(omit) }}"
-    mandatory_test: "{{ item.mandatory_test | default(omit) }}"
-    mandatory_tests: "{{ item.mandatory_tests | default(omit) }}"
+    dns_virtualservice_refs: "{{ item.dns_virtualservice_refs | default(omit) }}"
     name: "{{ item.name | default(omit) }}"
-    sensitive_test: "{{ item.sensitive_test | default(omit) }}"
-    sensitive_tests: "{{ item.sensitive_tests | default(omit) }}"
-    string_length_test: "{{ item.string_length_test | default(omit) }}"
-    string_length_tests: "{{ item.string_length_tests | default(omit) }}"
     tenant_ref: "{{ item.tenant_ref | default(omit) }}"
-    test_sensitive_string: "{{ item.test_sensitive_string | default(omit) }}"
-    test_string: "{{ item.test_string | default(omit) }}"
     uuid: "{{ item.uuid | default(omit) }}"
   when:
     - (avi_role_state_mode == "present" and avi_config_state == "present")
     - (item.state | default("present") == avi_role_state_mode or avi_config_state == "absent")
-  with_items: "{{ avi_role_cfg.webapput | default([]) }}"
+  with_items: "{{ avi_role_cfg.tenantsystemconfiguration | default([]) }}"
