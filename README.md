@@ -3,7 +3,7 @@
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-avinetworks.aviconfig-blue.svg)](https://galaxy.ansible.com/avinetworks/aviconfig/)
 
 
-**⛔️ DEPRECATED: his repo is no longer supported, please consider using** https://github.com/vmware/ansible-collection-alb **instead since**
+**⛔️ DEPRECATED: This repo is no longer supported, please consider using** https://github.com/vmware/ansible-collection-alb **instead since**
 **this role is migrated to ansible collections.**
 
 This role provides ability for user to configure Avi by simply providing a dictionary of avi configuration objects.
